@@ -1,0 +1,6 @@
+{
+  "n_samples": 50,
+  "mean_single_forward_ce": 0.35408849075436594,
+  "mean_autoregressive_ce": 0.3138009600303896,
+  "gap": -0.04028753072397634
+}

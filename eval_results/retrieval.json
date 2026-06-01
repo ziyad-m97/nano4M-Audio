@@ -1,0 +1,26 @@
+{
+  "audioat512->rgbat196": {
+    "R1": 0.01,
+    "R5": 0.03,
+    "R10": 0.065,
+    "n_candidates": 200
+  },
+  "rgbat196->audioat512": {
+    "R1": 0.005,
+    "R5": 0.025,
+    "R10": 0.045,
+    "n_candidates": 200
+  },
+  "audioat512->depthat196": {
+    "R1": 0.005,
+    "R5": 0.035,
+    "R10": 0.06,
+    "n_candidates": 200
+  },
+  "depthat196->audioat512": {
+    "R1": 0.01,
+    "R5": 0.045,
+    "R10": 0.065,
+    "n_candidates": 200
+  }
+}

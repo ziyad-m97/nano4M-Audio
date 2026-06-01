@@ -1,0 +1,84 @@
+{
+  "dataset": {
+    "n_train": 7347,
+    "n_test": 938,
+    "n_classes": 11,
+    "classes_canonical": [
+      "cat meowing",
+      "chicken clucking",
+      "cow lowing",
+      "coyote howling",
+      "dog barking",
+      "duck quacking",
+      "horse neighing",
+      "lions roaring",
+      "pig oinking",
+      "sheep bleating",
+      "pigeon cooing"
+    ]
+  },
+  "training": {
+    "model_params_M": 95.83872,
+    "checkpoint": "/path/to/nano4M-Audio/runs/animal_full_5mod_v5_fresh/checkpoint-final.safetensors"
+  },
+  "results": {
+    "memorization": {
+      "train_acc": 0.02948718039939801,
+      "test_acc": 0.04134615504493316,
+      "train_ce": 6.485145982106527,
+      "test_ce": 6.560608339309693,
+      "gap_acc": -0.011858974645535147,
+      "gap_ce": 0.07546235720316563
+    },
+    "audio2caption": {
+      "accuracy": 0.10660980810234541,
+      "per_class": {
+        "cat meowing": 0.6736842105263158,
+        "chicken clucking": 0.07738095238095238,
+        "cow lowing": 0.27692307692307694,
+        "coyote howling": 0.0,
+        "dog barking": 0.03669724770642202,
+        "duck quacking": 0.0,
+        "horse neighing": 0.0,
+        "lions roaring": 0.0,
+        "pig oinking": 0.012987012987012988,
+        "sheep bleating": 0.0,
+        "pigeon cooing": 0.0
+      }
+    },
+    "retrieval": {
+      "audioat512->rgbat196": {
+        "R1": 0.01,
+        "R5": 0.03,
+        "R10": 0.065,
+        "n_candidates": 200
+      },
+      "rgbat196->audioat512": {
+        "R1": 0.005,
+        "R5": 0.025,
+        "R10": 0.045,
+        "n_candidates": 200
+      },
+      "audioat512->depthat196": {
+        "R1": 0.005,
+        "R5": 0.035,
+        "R10": 0.06,
+        "n_candidates": 200
+      },
+      "depthat196->audioat512": {
+        "R1": 0.01,
+        "R5": 0.045,
+        "R10": 0.065,
+        "n_candidates": 200
+      }
+    },
+    "external_validation": {
+      "hit_rate": 0.0
+    },
+    "forward_vs_ar": {
+      "single": 0.35408849075436594,
+      "ar": 0.3138009600303896,
+      "gap": -0.04028753072397634
+    }
+  }
+}

@@ -1,0 +1,123 @@
+# nano4M-Audio FINAL training run — 5 modalities, 10+ animal classes
+# v4 (Ziyad's 11 classes incl. pigeon) + data2 (Hassan's cat/pig/cow remapped to v4 names)
+# Audio: post-offset vocab=2048 (cb2 += 1024 applied in v5_merge_and_split.py)
+#
+# Launch:
+#   torchrun --nproc_per_node=1 run_training.py \
+#     --config cfgs/nano4M/animal_full_5mod_v5.yaml
+
+run_name: animal_full_5mod_v5_fresh
+output_dir: runs/${run_name}
+
+global_vars:
+  batch_size: 64                         # per GPU
+  modalities:    ["tok_rgb@196", "tok_audio@512", "tok_depth@196", "tok_normal@196", "scene_desc"]
+  vocab_sizes:   [16384,         2048,            8192,            8192,             50304]
+  max_seq_lens:  [196,           512,             196,             196,              64]
+  # Standard 4M Dirichlet, uniform across modalities (Jason: no over-engineering).
+  input_alphas:  [1.0, 1.0, 1.0, 1.0, 1.0]
+  target_alphas: [1.0, 1.0, 1.0, 1.0, 1.0]
+  input_tokens_range:  [16, 256]         # raised lower bound to avoid edge case
+  target_tokens_range: [16, 256]         # where total budget = 1 then Dirichlet
+                                         # floors all per-mod budgets to 0,
+                                         # producing an empty encoder → NaN
+                                         # in cross-attn softmax.
+
+# Training
+batch_size: ${global_vars.batch_size}
+total_tokens: 600                        # ~12k steps × ~256 tokens × 64 bs / 1e6 ≈ 200M; bump to 600 for safety
+warmup_tokens: 30
+num_tokens_per_sample: 512               # ~256 in + 256 out
+lr: 1.0e-4
+min_lr: 1.0e-6
+weight_decay: 0.05
+clip_grad: 1.0
+dtype: fp32                              # bf16 caused NaN grads in attention backward;
+                                         # fp32 is safe + still fast on H100 for ~86M params
+
+eval_freq: 25
+save_ckpt_freq: 50
+
+log_wandb: True
+wandb_project: nano4m-audio
+wandb_entity: zed_m97-epfl
+wandb_run_name: ${run_name}_${oc.env:SLURM_JOB_ID,manual}
+
+# Architecture: d6-6w512, Jason-validated baseline (~86M params)
+model_config:
+  _target_: nanofm.models.fourm.FourM
+  enc_tokens_read_key: enc_tokens
+  dec_tokens_read_key: dec_tokens
+  enc_modalities_read_key: enc_modalities
+  dec_modalities_read_key: dec_modalities
+  enc_positions_read_key: enc_positions
+  dec_positions_read_key: dec_positions
+  enc_pad_mask_read_key: enc_pad_mask
+  dec_pad_mask_read_key: dec_pad_mask
+  modalities: ${global_vars.modalities}
+  vocab_sizes: ${global_vars.vocab_sizes}
+  max_seq_lens: ${global_vars.max_seq_lens}
+  dim: 512
+  enc_depth: 6
+  dec_depth: 6
+  head_dim: 64
+  per_modality_loss_avg: True            # Critical: fixes audio (512) vs scene (64) imbalance
+
+# Span masking for tok_audio (Jason's ONE training-side prescription).
+# stride=2 keeps EnCodec K=2 codebook pairs intact at span boundaries.
+# Random masking is used for every other modality.
+span_modalities:
+  tok_audio@512: 2
+
+train_loader_config:
+  _target_: nanofm.data.multimodal.create_multimodal_masked_dataloader
+  root_dir: data/tokenized_v5/
+  split: train
+  modalities: ${global_vars.modalities}
+  vocab_sizes: ${global_vars.vocab_sizes}
+  max_seq_lens: ${global_vars.max_seq_lens}
+  overlap_vocab: True                    # NOTE: prompt asked False, but the team's
+                                         # fourm.py sets vocab_size = max(vocab_sizes)
+                                         # not sum(); shifted ids would OOB → CUDA assert.
+                                         # Modality embedding still disambiguates.
+                                         # Audio cb2 offset is still applied on-disk so
+                                         # ids in [0, 2047] keep the C1/C2 distinction.
+  overlap_posembs: True
+  input_alphas: ${global_vars.input_alphas}
+  target_alphas: ${global_vars.target_alphas}
+  input_tokens_range: ${global_vars.input_tokens_range}
+  target_tokens_range: ${global_vars.target_tokens_range}
+  sample_from_k_augmentations: 10        # 1 random frame per stem per __getitem__
+  text_tokenizer_path: gpt2
+  text_max_length: 64
+  batch_size: ${global_vars.batch_size}
+  infinite: True
+  num_workers: 8
+  pin_memory: True
+  shuffle: True
+  drop_last: True
+  distributed: True
+  span_modalities: ${span_modalities}
+
+eval_loader_config:
+  _target_: nanofm.data.multimodal.create_multimodal_masked_dataloader
+  root_dir: data/tokenized_v5/
+  split: val
+  modalities: ${global_vars.modalities}
+  vocab_sizes: ${global_vars.vocab_sizes}
+  max_seq_lens: ${global_vars.max_seq_lens}
+  overlap_vocab: True
+  overlap_posembs: True
+  input_alphas: ${global_vars.input_alphas}
+  target_alphas: ${global_vars.target_alphas}
+  input_tokens_range: ${global_vars.input_tokens_range}
+  target_tokens_range: ${global_vars.target_tokens_range}
+  text_tokenizer_path: gpt2
+  text_max_length: 64
+  batch_size: ${global_vars.batch_size}
+  num_workers: 4
+  pin_memory: True
+  shuffle: False
+  drop_last: False
+  distributed: True
+  span_modalities: ${span_modalities}

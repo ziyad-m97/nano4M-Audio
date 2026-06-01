@@ -1,0 +1,46 @@
+# nano4M-Audio — core dependencies (Python 3.10, CUDA 12.1).
+# Pinned to the major versions used for the reported run. Regenerate an exact
+# lockfile on the training host with `pip freeze > requirements_full.txt`.
+
+# --- core model / training ---
+torch==2.1.0
+torchvision==0.16.0
+torchaudio==2.1.0
+numpy==1.26.0
+einops==0.7.0
+safetensors==0.4.1
+timm==0.9.12                       # masking.py uses timm.models.layers.to_2tuple
+
+# --- config / orchestration (Hydra-instantiated configs) ---
+omegaconf==2.3.0
+hydra-core==1.3.2
+loguru==0.7.2
+wandb==0.16.0
+
+# --- 4M framework + tokenizers ---
+fourm @ git+https://github.com/apple/ml-4m.git@main#egg=fourm
+transformers==4.36.0               # GPT-2 BPE caption tokenizer
+huggingface_hub==0.20.0
+encodec==0.1.1                     # audio tokenizer (24 kHz, 1.5 kbps, K=2)
+
+# --- evaluation / figures ---
+matplotlib==3.8.0
+scikit-image==0.22.0               # SSIM for RGB->depth validation
+scikit-learn==1.3.2
+librosa==0.10.1                    # spectrograms / RMS / ZCR probes
+soundfile==0.12.1
+pandas==2.1.0
+Pillow==10.1.0
+tqdm==4.66.1
+mediapy==1.2.0
+ipykernel
+jupyter
+
+# --- data-pipeline extras (full path only; see docs/DATASET.md) ---
+# These are installed from their own repos / wheels for the download+filter stage:
+#   panns-inference        (PANNs audio tagging oracle)
+#   open_clip_torch        (CLIP image-text filter)
+#   silero-vad / torchaudio (voice-activity detection)
+#   yt-dlp                 (clip download)
+#   Depth-Anything-V2      (depth pseudo-labels)  https://github.com/DepthAnything/Depth-Anything-V2
+#   DSINE                  (normal pseudo-labels) https://github.com/baegwangbin/DSINE

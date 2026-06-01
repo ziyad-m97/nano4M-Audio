@@ -1,0 +1,451 @@
+{
+  "hit_rate_top5": 0.0,
+  "per_class": {
+    "cat meowing": {
+      "hit": 0,
+      "total": 7
+    },
+    "chicken clucking": {
+      "hit": 0,
+      "total": 12
+    },
+    "cow lowing": {
+      "hit": 0,
+      "total": 4
+    },
+    "coyote howling": {
+      "hit": 0,
+      "total": 7
+    },
+    "dog barking": {
+      "hit": 0,
+      "total": 5
+    },
+    "duck quacking": {
+      "hit": 0,
+      "total": 8
+    },
+    "horse neighing": {
+      "hit": 0,
+      "total": 6
+    },
+    "lions roaring": {
+      "hit": 0,
+      "total": 5
+    },
+    "pig oinking": {
+      "hit": 0,
+      "total": 5
+    },
+    "sheep bleating": {
+      "hit": 0,
+      "total": 9
+    },
+    "pigeon cooing": {
+      "hit": 0,
+      "total": 12
+    }
+  },
+  "per_sample": [
+    {
+      "stem": "as_pbRfUy2AgtA_000020",
+      "true_class": "pig oinking",
+      "hit": false
+    },
+    {
+      "stem": "vgg_kuUfm_x4Esg_000012",
+      "true_class": "lions roaring",
+      "hit": false
+    },
+    {
+      "stem": "as_Nxs4GWTVlas_000019",
+      "true_class": "sheep bleating",
+      "hit": false
+    },
+    {
+      "stem": "as_-kKEV9mrbK4_000030",
+      "true_class": "cat meowing",
+      "hit": false
+    },
+    {
+      "stem": "vgg_3VoGxfa54y4_000092",
+      "true_class": "sheep bleating",
+      "hit": false
+    },
+    {
+      "stem": "as_aV-tvv8S0ME_000030",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_EfPQn7PXicU_000030",
+      "true_class": "duck quacking",
+      "hit": false
+    },
+    {
+      "stem": "as_Um6czKdodN8_000000",
+      "true_class": "sheep bleating",
+      "hit": false
+    },
+    {
+      "stem": "as_50NZjmRCXH8_000030",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_j0Zp6dEI-ZA_000050",
+      "true_class": "duck quacking",
+      "hit": false
+    },
+    {
+      "stem": "vgg_zYUgaGdL8rQ_000003",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_bNAlebgg3Nc_000040",
+      "true_class": "dog barking",
+      "hit": false
+    },
+    {
+      "stem": "as_2G2H1jm58XU_000030",
+      "true_class": "horse neighing",
+      "hit": false
+    },
+    {
+      "stem": "as_OpFp8IRC95E_000030",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_chXMji847U8_000009",
+      "true_class": "coyote howling",
+      "hit": false
+    },
+    {
+      "stem": "as_igsOixfbCxQ_000270",
+      "true_class": "cow lowing",
+      "hit": false
+    },
+    {
+      "stem": "as_htKnR_TRgLM_000016",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_Sbo4kYSnOuk_000010",
+      "true_class": "dog barking",
+      "hit": false
+    },
+    {
+      "stem": "as_64EcdCriKFU_000015",
+      "true_class": "dog barking",
+      "hit": false
+    },
+    {
+      "stem": "as_prgerMlYwzA_000030",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_BG-aWOCKlPY_000030",
+      "true_class": "lions roaring",
+      "hit": false
+    },
+    {
+      "stem": "as_54Br5mQ8idE_000030",
+      "true_class": "cat meowing",
+      "hit": false
+    },
+    {
+      "stem": "as_SBoN2sO2Bug_000170",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_7-spIPmjIxg_000010",
+      "true_class": "horse neighing",
+      "hit": false
+    },
+    {
+      "stem": "as_AOhtsI9f9X0_000030",
+      "true_class": "pig oinking",
+      "hit": false
+    },
+    {
+      "stem": "as_otBMbrrIkXo_000000",
+      "true_class": "pig oinking",
+      "hit": false
+    },
+    {
+      "stem": "as_rj1y_YesKh0_000090",
+      "true_class": "sheep bleating",
+      "hit": false
+    },
+    {
+      "stem": "as_UU5X6n77eg8_000000",
+      "true_class": "coyote howling",
+      "hit": false
+    },
+    {
+      "stem": "as_W1ExyKCM1fU_000050",
+      "true_class": "coyote howling",
+      "hit": false
+    },
+    {
+      "stem": "as_72ai_MiEKWc_000520",
+      "true_class": "lions roaring",
+      "hit": false
+    },
+    {
+      "stem": "as_cPkmeDIcyVA_000030",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_LWJ0ZKfQ2Ag_000030",
+      "true_class": "duck quacking",
+      "hit": false
+    },
+    {
+      "stem": "vgg_7Qr1ncg86N4_000007",
+      "true_class": "lions roaring",
+      "hit": false
+    },
+    {
+      "stem": "as_V9PSiyJ6ESY_000000",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_CUe2gaIvsPk_000030",
+      "true_class": "coyote howling",
+      "hit": false
+    },
+    {
+      "stem": "as_Serg8hXRCv8_000590",
+      "true_class": "horse neighing",
+      "hit": false
+    },
+    {
+      "stem": "vgg_g3UEFZOob4E_000027",
+      "true_class": "lions roaring",
+      "hit": false
+    },
+    {
+      "stem": "as_ECm9KwbhdVQ_000260",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_QhPpl04qGNQ_000030",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_Z-pzWIZtp5U_000020",
+      "true_class": "duck quacking",
+      "hit": false
+    },
+    {
+      "stem": "as_R4LgMC1Ndx0_000030",
+      "true_class": "sheep bleating",
+      "hit": false
+    },
+    {
+      "stem": "as_0W4SJfYYU20_000100",
+      "true_class": "cow lowing",
+      "hit": false
+    },
+    {
+      "stem": "as_e6WCG_z44ds_000026",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_0Tt-hGJfwEY_000001",
+      "true_class": "cow lowing",
+      "hit": false
+    },
+    {
+      "stem": "as_APDo83echgo_000030",
+      "true_class": "duck quacking",
+      "hit": false
+    },
+    {
+      "stem": "as_Yd4Gj0Pbmjg_000030",
+      "true_class": "sheep bleating",
+      "hit": false
+    },
+    {
+      "stem": "as_ZaqeRn6B7sg_000000",
+      "true_class": "duck quacking",
+      "hit": false
+    },
+    {
+      "stem": "as_pjNGmUkc23c_000170",
+      "true_class": "dog barking",
+      "hit": false
+    },
+    {
+      "stem": "as_2bYkSWdnZJo_000030",
+      "true_class": "cat meowing",
+      "hit": false
+    },
+    {
+      "stem": "vgg_BEGgDbKEXMw_000028",
+      "true_class": "coyote howling",
+      "hit": false
+    },
+    {
+      "stem": "as_0XbqnVocHNE_000030",
+      "true_class": "horse neighing",
+      "hit": false
+    },
+    {
+      "stem": "as_1ZW5rwfKQ4A_000060",
+      "true_class": "pig oinking",
+      "hit": false
+    },
+    {
+      "stem": "as_7da7gMWpfnM_000369",
+      "true_class": "cow lowing",
+      "hit": false
+    },
+    {
+      "stem": "vgg_e5LSu0-4SuQ_000023",
+      "true_class": "coyote howling",
+      "hit": false
+    },
+    {
+      "stem": "as_fmqjps1Kewk_000000",
+      "true_class": "dog barking",
+      "hit": false
+    },
+    {
+      "stem": "as_htoIwbgS35I_000027",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_mHbEEL9B8NM_000011",
+      "true_class": "cat meowing",
+      "hit": false
+    },
+    {
+      "stem": "as_NU0uTFhieh4_000100",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_b3dYlDbU_78_000000",
+      "true_class": "cat meowing",
+      "hit": false
+    },
+    {
+      "stem": "as_cT2jY7AgYHg_000190",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_VHw8Tp2ZW40_000020",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_jEqiySIzWgA_000030",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_rgAENAEVxow_000024",
+      "true_class": "coyote howling",
+      "hit": false
+    },
+    {
+      "stem": "as_QS0ijXZn3lM_000010",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_wmQbG_srGIQ_000030",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_GWwnKBz4QQ0_000030",
+      "true_class": "horse neighing",
+      "hit": false
+    },
+    {
+      "stem": "as_2pbX5VxvB-Y_000030",
+      "true_class": "horse neighing",
+      "hit": false
+    },
+    {
+      "stem": "as_W-Uy1BzWAWM_000000",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_8iIHUVBR2P4_000030",
+      "true_class": "cat meowing",
+      "hit": false
+    },
+    {
+      "stem": "as_cXmtM35raZI_000000",
+      "true_class": "sheep bleating",
+      "hit": false
+    },
+    {
+      "stem": "as_yH_cdEAxBJ4_000050",
+      "true_class": "duck quacking",
+      "hit": false
+    },
+    {
+      "stem": "as_j8cnbKasnS4_000100",
+      "true_class": "pig oinking",
+      "hit": false
+    },
+    {
+      "stem": "as_z33xQegOhgc_000030",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_BTyBYKXqkLs_000030",
+      "true_class": "chicken clucking",
+      "hit": false
+    },
+    {
+      "stem": "as_4KVqEQuT1cw_000030",
+      "true_class": "pigeon cooing",
+      "hit": false
+    },
+    {
+      "stem": "as_HpldCDRIjhQ_000007",
+      "true_class": "sheep bleating",
+      "hit": false
+    },
+    {
+      "stem": "as_kGHdqQ8EJww_000010",
+      "true_class": "duck quacking",
+      "hit": false
+    },
+    {
+      "stem": "as_Eto6eVBSom8_000040",
+      "true_class": "sheep bleating",
+      "hit": false
+    },
+    {
+      "stem": "as_olRfWmjEANs_000003",
+      "true_class": "cat meowing",
+      "hit": false
+    },
+    {
+      "stem": "as_jfGrKjGIKp8_000030",
+      "true_class": "pigeon cooing",
+      "hit": false
+    }
+  ]
+}

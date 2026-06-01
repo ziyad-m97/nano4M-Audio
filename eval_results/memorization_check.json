@@ -1,0 +1,374 @@
+{
+  "train": [
+    {
+      "stem": "as_--5uHDNDKxs_000030",
+      "class": "cat meowing",
+      "acc": 0.03846153989434242,
+      "ce": 5.583430290222168
+    },
+    {
+      "stem": "as_--pQ2j2x10I_000120",
+      "class": "pigeon cooing",
+      "acc": 0.0,
+      "ce": 6.466611862182617
+    },
+    {
+      "stem": "as_-0JNMxLVqpk_000080",
+      "class": "chicken clucking",
+      "acc": 0.03846153989434242,
+      "ce": 5.8744611740112305
+    },
+    {
+      "stem": "as_-0pJqpNjft4_000267",
+      "class": "cow lowing",
+      "acc": 0.0,
+      "ce": 7.882506370544434
+    },
+    {
+      "stem": "as_-1QUpHlvDM4_000000",
+      "class": "chicken clucking",
+      "acc": 0.0,
+      "ce": 7.089884281158447
+    },
+    {
+      "stem": "as_-2--Xzix2Vk_000000",
+      "class": "cat meowing",
+      "acc": 0.08653846383094788,
+      "ce": 4.211736679077148
+    },
+    {
+      "stem": "as_-3E36nmSffc_000016",
+      "class": "cat meowing",
+      "acc": 0.0,
+      "ce": 7.78317928314209
+    },
+    {
+      "stem": "as_-3Qyf1jECX0_000010",
+      "class": "chicken clucking",
+      "acc": 0.0,
+      "ce": 6.783993244171143
+    },
+    {
+      "stem": "as_-3ihfHTdJSI_000110",
+      "class": "chicken clucking",
+      "acc": 0.009615384973585606,
+      "ce": 6.7232232093811035
+    },
+    {
+      "stem": "as_-46xqouqMxA_000006",
+      "class": "cat meowing",
+      "acc": 0.009615384973585606,
+      "ce": 6.519105911254883
+    },
+    {
+      "stem": "as_-4ObGigN498_000050",
+      "class": "lions roaring",
+      "acc": 0.009615384973585606,
+      "ce": 7.190974235534668
+    },
+    {
+      "stem": "as_-4ROHZMW7t0_000005",
+      "class": "coyote howling",
+      "acc": 0.0,
+      "ce": 7.568064212799072
+    },
+    {
+      "stem": "as_-4ZPUTC3dQs_000030",
+      "class": "duck quacking",
+      "acc": 0.0,
+      "ce": 7.378561973571777
+    },
+    {
+      "stem": "as_-55UGnqZsOo_000008",
+      "class": "cat meowing",
+      "acc": 0.0,
+      "ce": 7.199856758117676
+    },
+    {
+      "stem": "as_-693rjce0Lo_000150",
+      "class": "cow lowing",
+      "acc": 0.009615384973585606,
+      "ce": 8.001993179321289
+    },
+    {
+      "stem": "as_-6bSOEg37aM_000030",
+      "class": "coyote howling",
+      "acc": 0.0,
+      "ce": 6.8451948165893555
+    },
+    {
+      "stem": "as_-7GwHMPKRtg_000030",
+      "class": "cat meowing",
+      "acc": 0.08653846383094788,
+      "ce": 4.959648609161377
+    },
+    {
+      "stem": "as_-7iTQEe3KDc_000020",
+      "class": "cow lowing",
+      "acc": 0.05769231170415878,
+      "ce": 5.103659629821777
+    },
+    {
+      "stem": "as_-7uB0O_imb4_000030",
+      "class": "horse neighing",
+      "acc": 0.02884615585207939,
+      "ce": 6.411259174346924
+    },
+    {
+      "stem": "as_-8E7mUH4fdE_000017",
+      "class": "pigeon cooing",
+      "acc": 0.03846153989434242,
+      "ce": 6.534682273864746
+    },
+    {
+      "stem": "as_-9RS7tdeF9A_000030",
+      "class": "pigeon cooing",
+      "acc": 0.0,
+      "ce": 7.1147942543029785
+    },
+    {
+      "stem": "as_-9whJW7BUSU_000141",
+      "class": "cow lowing",
+      "acc": 0.0,
+      "ce": 7.280810356140137
+    },
+    {
+      "stem": "as_-A1G9vEhK58_000020",
+      "class": "dog barking",
+      "acc": 0.0,
+      "ce": 7.436910152435303
+    },
+    {
+      "stem": "as_-A3cOSeUcLM_000030",
+      "class": "chicken clucking",
+      "acc": 0.01923076994717121,
+      "ce": 6.921834945678711
+    },
+    {
+      "stem": "as_-AWzoCZpoBY_000010",
+      "class": "cat meowing",
+      "acc": 0.10576923191547394,
+      "ce": 5.736727714538574
+    },
+    {
+      "stem": "as_-AdWXq6teXg_000030",
+      "class": "horse neighing",
+      "acc": 0.09615384787321091,
+      "ce": 5.073058128356934
+    },
+    {
+      "stem": "as_-BGOlBck6D4_000130",
+      "class": "dog barking",
+      "acc": 0.125,
+      "ce": 4.740574359893799
+    },
+    {
+      "stem": "as_-BJPb73kUls_000030",
+      "class": "duck quacking",
+      "acc": 0.05769231170415878,
+      "ce": 6.71665096282959
+    },
+    {
+      "stem": "as_-CqXLLSwi70_000050",
+      "class": "chicken clucking",
+      "acc": 0.02884615585207939,
+      "ce": 6.545454025268555
+    },
+    {
+      "stem": "as_-Cy4l2Me_K8_000040",
+      "class": "chicken clucking",
+      "acc": 0.03846153989434242,
+      "ce": 4.875537395477295
+    }
+  ],
+  "test": [
+    {
+      "stem": "as_-5Vzl5XrIMc_000020",
+      "class": "sheep bleating",
+      "acc": 0.0,
+      "ce": 7.460512638092041
+    },
+    {
+      "stem": "as_-AjV0tRzp3U_000030",
+      "class": "chicken clucking",
+      "acc": 0.02884615585207939,
+      "ce": 6.478320598602295
+    },
+    {
+      "stem": "as_-CbVHmgkE2g_000240",
+      "class": "duck quacking",
+      "acc": 0.03846153989434242,
+      "ce": 5.675857067108154
+    },
+    {
+      "stem": "as_-DjRUngZaog_000003",
+      "class": "pig oinking",
+      "acc": 0.048076923936605453,
+      "ce": 5.718849182128906
+    },
+    {
+      "stem": "as_-EWvMAkKDRM_000020",
+      "class": "horse neighing",
+      "acc": 0.009615384973585606,
+      "ce": 8.079283714294434
+    },
+    {
+      "stem": "as_-GQO6aWy3Ng_000460",
+      "class": "duck quacking",
+      "acc": 0.0,
+      "ce": 7.390185356140137
+    },
+    {
+      "stem": "as_-IQsevXev_4_000040",
+      "class": "lions roaring",
+      "acc": 0.125,
+      "ce": 4.541133403778076
+    },
+    {
+      "stem": "as_-VPoLzHsw1s_000030",
+      "class": "dog barking",
+      "acc": 0.02884615585207939,
+      "ce": 6.9284491539001465
+    },
+    {
+      "stem": "as_-ZRub1poH_I_000051",
+      "class": "cat meowing",
+      "acc": 0.07692307978868484,
+      "ce": 6.000673294067383
+    },
+    {
+      "stem": "as_-ZRub1poH_I_000070",
+      "class": "cat meowing",
+      "acc": 0.06730769574642181,
+      "ce": 5.764890193939209
+    },
+    {
+      "stem": "as_-_QEsMNMSnw_000030",
+      "class": "cat meowing",
+      "acc": 0.14423076808452606,
+      "ce": 5.32465934753418
+    },
+    {
+      "stem": "as_-_doikqlNSY_000030",
+      "class": "cat meowing",
+      "acc": 0.0,
+      "ce": 7.0494794845581055
+    },
+    {
+      "stem": "as_-_umX4zgLVY_000029",
+      "class": "lions roaring",
+      "acc": 0.0,
+      "ce": 7.666860580444336
+    },
+    {
+      "stem": "as_-kKEV9mrbK4_000030",
+      "class": "cat meowing",
+      "acc": 0.03846153989434242,
+      "ce": 6.296985149383545
+    },
+    {
+      "stem": "as_-mOH_bgkMOY_000040",
+      "class": "chicken clucking",
+      "acc": 0.009615384973585606,
+      "ce": 7.51446008682251
+    },
+    {
+      "stem": "as_-pfbfEOVvIU_000060",
+      "class": "cow lowing",
+      "acc": 0.02884615585207939,
+      "ce": 5.7340168952941895
+    },
+    {
+      "stem": "as_-sRmcVJ8_jk_000020",
+      "class": "chicken clucking",
+      "acc": 0.06730769574642181,
+      "ce": 6.439476490020752
+    },
+    {
+      "stem": "as_-vZ-_4oFCzs_000017",
+      "class": "cat meowing",
+      "acc": 0.02884615585207939,
+      "ce": 7.191103458404541
+    },
+    {
+      "stem": "as_-y2fmiPOBMw_000030",
+      "class": "horse neighing",
+      "acc": 0.0,
+      "ce": 7.863485336303711
+    },
+    {
+      "stem": "as_03kQ6oXb_xE_000040",
+      "class": "coyote howling",
+      "acc": 0.009615384973585606,
+      "ce": 7.525810241699219
+    },
+    {
+      "stem": "as_04_1N_55VFw_000030",
+      "class": "cat meowing",
+      "acc": 0.125,
+      "ce": 4.578771591186523
+    },
+    {
+      "stem": "as_09UVb6Ac4EQ_000030",
+      "class": "dog barking",
+      "acc": 0.0,
+      "ce": 8.056966781616211
+    },
+    {
+      "stem": "as_0F04c_rY4aw_000000",
+      "class": "coyote howling",
+      "acc": 0.01923076994717121,
+      "ce": 7.4688496589660645
+    },
+    {
+      "stem": "as_0PSJsmQ9jVw_000030",
+      "class": "cat meowing",
+      "acc": 0.0,
+      "ce": 7.665488243103027
+    },
+    {
+      "stem": "as_0Tt-hGJfwEY_000001",
+      "class": "cow lowing",
+      "acc": 0.05769231170415878,
+      "ce": 7.235655784606934
+    },
+    {
+      "stem": "as_0W4SJfYYU20_000100",
+      "class": "cow lowing",
+      "acc": 0.0,
+      "ce": 7.739360332489014
+    },
+    {
+      "stem": "as_0XbqnVocHNE_000030",
+      "class": "horse neighing",
+      "acc": 0.009615384973585606,
+      "ce": 6.364993572235107
+    },
+    {
+      "stem": "as_0aEBPBTqMmw_000010",
+      "class": "cow lowing",
+      "acc": 0.06730769574642181,
+      "ce": 4.56807804107666
+    },
+    {
+      "stem": "as_0iYnAmBnPNI_000030",
+      "class": "horse neighing",
+      "acc": 0.03846153989434242,
+      "ce": 6.4631547927856445
+    },
+    {
+      "stem": "as_0o7mmdbK93A_000310",
+      "class": "chicken clucking",
+      "acc": 0.17307692766189575,
+      "ce": 4.032439708709717
+    }
+  ],
+  "summary": {
+    "train_acc": 0.02948718039939801,
+    "test_acc": 0.04134615504493316,
+    "train_ce": 6.485145982106527,
+    "test_ce": 6.560608339309693,
+    "gap_acc": -0.011858974645535147,
+    "gap_ce": 0.07546235720316563
+  }
+}

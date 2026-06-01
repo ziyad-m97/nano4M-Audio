@@ -1,113 +1,140 @@
-# nano4M-Audio — project website
+# nano4M-Audio
 
-Publication-style project page for **Nano4M-Audio: Adding Audio as a 5th Modality to the 4M
-Architecture** (COM-304, Foundation Models, EPFL, Spring 2026), modeled on
-[4m.epfl.ch](https://4m.epfl.ch).
+> Extending the 4M masked-multimodal framework to **audio** as a 5th modality.
+> A controlled study at small academic scale — COM-304, EPFL, Spring 2026.
 
-It is a **static site** — plain `index.html` + CSS + a little vanilla JS, no build step, works
-offline. Source content tracks the 4-page report (`docs/assets/report.pdf`).
+![Architecture](docs/assets/img/method.svg)
 
-> **Live URL (set in repo settings):** https://ziyad-m97.github.io/nano4M-Audio
+## Quick links
 
----
+- 🌐 **Project website:** https://ziyad-m97.github.io/nano4M-Audio/
+- 📄 **Report (PDF):** [`docs/assets/report.pdf`](docs/assets/report.pdf)
+- 🎤 **Slides (PDF):** [`docs/assets/slides.pdf`](docs/assets/slides.pdf)
+- 🤗 **Trained checkpoint:** _to upload_ → `ziyad-m97/nano4m-audio` (see [`outputs/README.md`](outputs/README.md))
+- 📊 **Tokenized dataset:** _to upload_ → `ziyad-m97/nano4m-audio-tokenized` (see [`data/README.md`](data/README.md))
 
-## Preview locally
+## TL;DR
 
-```bash
-cd docs
-python3 -m http.server 8000
-# open http://localhost:8000
-```
+We extend **nano4M** (a d6-6w512 encoder–decoder transformer, **~95.8M params**) with audio as a
+5th modality via EnCodec tokenization and contiguous **span masking**. We train on a self-collected
+dataset of **9,192 animal-vocalization clips** across 11 classes, cleaned with a 3-stage oracle
+(PANNs → CLIP → Silero VAD). Structural modalities (depth, normal) converge strongly; the iterative
+generation framework works in the structural directions; audio learns conditional structure at the
+token level (audio CE 5.2 nats, ~1 nat below its marginal) **but does not lift to usable cross-modal
+generation**. We diagnose three causes — a train/inference masking mismatch, an acoustic-only
+tokenizer, and a data-scale gap — and propose a validated next step for each. **The precise
+diagnostic, not the generation, is the contribution.**
 
-(Opening `docs/index.html` directly mostly works, but a local server is needed for the
-clipboard/`fetch`-style features and correct MIME types.)
+This repository is a **curated, runnable subset** of four weeks of work on the EPFL SCITAS Kuma
+cluster: the modified nano4M code, the final config, the data/tokenization/eval pipeline, the
+deterministic split, the real evaluation outputs, and the report figures.
 
-## Deploy on GitHub Pages
+## Setup
 
-1. Push this repository to GitHub.
-2. **Settings → Pages → Build and deployment → Source: “Deploy from a branch”.**
-3. Branch **`main`**, folder **`/docs`**, Save.
-4. The site publishes at `https://<user>.github.io/<repo>` within a minute or two.
-
-To serve from a `gh-pages` branch instead, copy the contents of `docs/` to the root of that branch.
-
----
-
-## Repository layout
-
-```
-docs/
-  index.html               # the whole site (10 sections)
-  assets/
-    css/style.css           # theme + responsive layout
-    js/main.js              # scrollspy, mobile nav, copy-BibTeX
-    img/                    # diagrams (SVG, final) + figure placeholders
-    audio/                  # gt_*.ogg/.mp3, gen_*.ogg/.mp3 (PLACEHOLDER tones)
-    report.pdf              # the 4-page report  (real, wired in)
-    slides.pdf              # the pitch deck      (real, wired in)
-```
-
-### Diagrams (final, hand-authored SVG — no action needed)
-`method.svg` · `audio_pipeline.svg` · `dataset_pipeline.svg` · `bidirectional_problem.svg`
-· `audio_ce_vs_marginal.svg`
-
-### Figures that auto-swap (`onerror` fallback)
-The HTML references these PNGs; until the file exists, a labeled SVG placeholder shows. **Drop the
-real PNG at the same path and it appears automatically — no HTML edit needed.**
-
-| Reference (put your PNG here)              | Fallback placeholder shown until then       |
-|--------------------------------------------|---------------------------------------------|
-| `assets/img/training_curves.png`           | `ph_training_curves.svg`                    |
-| `assets/img/reconstruction_gallery.png`    | `ph_reconstruction_gallery.svg`             |
-| `assets/img/caption2rgb_gallery.png`       | `ph_caption2rgb_gallery.svg`                |
-
-### Audio (replace the synthetic placeholders)
-`assets/audio/` currently holds **synthetic tones** so the player layout works and the demo even
-illustrates the mode collapse (varied GT, one flat tone for every generated cell). Replace with the
-real EnCodec-decoded clips, keeping the filenames:
+Tested on Linux + CUDA 12.1, Python 3.10. The model code builds on the open-source
+[`apple/ml-4m`](https://github.com/apple/ml-4m) package.
 
 ```bash
-# WAV → OGG (Vorbis, 96 kbps) and MP3 fallback, for each of: dog cat pig sheep chicken horse
-ffmpeg -i gt_dog.wav  -c:a libvorbis -b:a 96k -ac 1 gt_dog.ogg
-ffmpeg -i gt_dog.wav  -c:a libmp3lame -b:a 96k -ac 1 gt_dog.mp3
-# …repeat for gen_*.wav
+# Option A — pip
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+pip install -e .                      # installs the local `nanofm` package
+
+# Option B — conda
+conda env create -f environment.yml
+conda activate nanofm
+pip install -e .
 ```
 
----
+### Fast path — reproduce the evaluation (~15 min, no training)
 
-## Before submission — fill these in
+```bash
+# 1. Download the pre-tokenized dataset (~500 MB)  [host: HuggingFace — see data/README.md]
+huggingface-cli download ziyad-m97/nano4m-audio-tokenized --repo-type dataset \
+    --local-dir data/tokenized_v5
 
-- [ ] **Author SCIPER numbers** (`index.html`, `SCIPER 000000` ×3).
-- [ ] **Role-to-name mapping** in the Team cards — currently assigned in listed order
-      (Ziyad→data, Hassan→training, Marc→eval); confirm against the report's Individual
-      Contributions section.
-- [ ] **Author social links** (currently `href="#"`).
-- [x] **GitHub repo URL** — set to `https://github.com/ziyad-m97/nano4M-Audio` in the hero “Code”
-      button and the BibTeX `url`. Change only if you move the repo to another account.
-- [ ] **caption→RGB ResNet-50 top-5 hit rate** — replace the highlighted `XX%` (appears **twice** in
-      the Cross-modal Generation section: the figure caption and the contrast callout) with the
-      number from `eval_results/sanity_check_directions.json`.
-- [ ] Drop in the three real figure PNGs and the real audio clips (see above).
-- [ ] Update the footer date if needed.
+# 2. Download the trained checkpoint (~370 MB)      [see outputs/README.md]
+huggingface-cli download ziyad-m97/nano4m-audio checkpoint-final.safetensors \
+    --local-dir outputs/animal_full_5mod_v5
 
----
+# 3. Run the evaluation notebook (or scripts) — regenerates figures + eval_results/
+jupyter notebook notebooks/final_evaluation.ipynb
+```
 
-## Numbers reconciled with the report
+The committed [`eval_results/`](eval_results/) and [`figures/`](figures/) already contain the
+**actual outputs** of this run, so the report's numbers are verifiable without re-running anything.
 
-The site uses the **report (`main_final.tex`) as the source of truth** wherever it disagreed with
-the original website brief:
+### Full path — reproduce from scratch
 
-| Claim                | Brief said      | Report / site says                    |
-|----------------------|-----------------|---------------------------------------|
-| Parameters           | ~86M            | **~96M** (95.8M, d6-6w512)            |
-| Dataset size         | “~11k clips”    | **9,192 clips** (7,347/907/938)      |
-| Precision / runtime  | bf16, ~3h       | **fp32, ~1h10** (bf16 NaN’d)         |
-| Diagnostic causes    | two             | **three** (masking · tokenizer · scale) |
-| Data-scale framing   | ~10× gap        | 10⁴ clips; ~1000× below 4M; 10⁵–10⁶ in the contrastive AV literature |
+See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md): raw data → 3-stage filter → 5-modality
+tokenization → deterministic split → training (18.3k steps, ~1h10 on 1× H100) → evaluation.
 
-## Notes
+```bash
+torchrun --nproc_per_node=1 run_training.py --config cfgs/nano4M/animal_full_5mod_v5.yaml
+```
 
-- No tracking, no autoplay, no external CDNs — all assets are local.
-- Total page weight is well under the 15 MB budget (≈3 MB, dominated by `slides.pdf`).
-- Website based on the [Nerfies template](https://github.com/nerfies/nerfies.github.io),
-  Creative Commons Attribution-ShareAlike 4.0 — see `LICENSE`.
+## Repository structure
+
+```
+nano4M-Audio/
+├── nanofm/                 ← model code (modified from apple/ml-4m); FourM + span masking
+│   ├── models/fourm.py        ← 5-modality model (unified vocab = max(vocab_sizes))
+│   └── data/multimodal/
+│       ├── masking.py          ← Dirichlet masking + span masking (the contribution)
+│       └── simple_multimodal_dataset.py
+├── run_training.py         ← training entrypoint (Hydra-instantiated config)
+├── cfgs/nano4M/animal_full_5mod_v5.yaml   ← THE final training config
+├── splits.json             ← deterministic clip-level split (seed=42) — the reproducibility artifact
+├── scripts/
+│   ├── data_collection/    ← downloader + (filter pipeline documented in DATASET.md)
+│   ├── tokenization/       ← EnCodec audio · 4M-16k RGB · DAv2 depth · DSINE normal
+│   ├── splits/             ← stratified split + the v5 merge/offset that built splits.json
+│   ├── evaluation/         ← the full eval suite (CE, classification, retrieval, generation)
+│   └── slurm/              ← SBATCH launchers + the training orchestrator
+├── notebooks/final_evaluation.ipynb
+├── eval_results/           ← the ACTUAL eval outputs (JSON) behind the report numbers
+├── figures/                ← the real report figures (+ appendix/) and regeneration script
+├── data/                   ← README + metadata/ manifests (no clips/tokens committed)
+├── outputs/                ← README (checkpoint hosting; no checkpoint committed)
+└── docs/                   ← the deployed website (index.html, assets/) + engineering docs:
+    ├── REPRODUCIBILITY.md  ←   step-by-step reproduction
+    ├── DATASET.md          ←   sources, filter thresholds, statistics
+    ├── ARCHITECTURE.md     ←   model details, unified vocab, span masking
+    └── ABLATIONS.md        ←   the engineering decisions
+```
+
+## Reproducing the report figures
+
+| Figure | How |
+|--------|-----|
+| Architecture diagram | `docs/assets/img/method.svg` (hand-authored SVG) |
+| Per-modality CE drop | `python figures/render_fig1.py` (data: `eval_results/fig1_ce_drop.json`) |
+| Depth/Normal reconstruction | notebook cell / `scripts/evaluation/make_report_figures.py` → `figures/reconstruction_gallery.png` |
+| Caption→RGB gallery | `scripts/evaluation/make_report_figures.py` → `figures/caption2rgb_gallery.png` |
+| Framework-validation directions | `figures/sanity_check_directions.png` (data: `eval_results/sanity_check_directions.json`) |
+| Audio CE vs marginal | `docs/assets/img/audio_ce_vs_marginal.svg` (data: `eval_results/fig1_ce_drop.json`) |
+| Appendix (confusion, audio→RGB grid, spectrograms, retrieval) | `figures/appendix/` |
+
+## Citation
+
+```bibtex
+@misc{nano4m-audio-2026,
+  author      = {Mellal, Ziyad and Baddour, Hassan and Farhat, Marc},
+  title       = {Nano4M-Audio: Adding Audio as a 5th Modality to the 4M Architecture},
+  year        = {2026},
+  institution = {EPFL, COM-304},
+  url         = {https://github.com/ziyad-m97/nano4M-Audio}
+}
+```
+
+## Acknowledgements
+
+Supervised by **Jason Toskov** at EPFL VILAB. Built on the open-source 4M codebase
+([apple/ml-4m](https://github.com/apple/ml-4m); Mizrahi et al., NeurIPS 2023; Bachmann et al.,
+NeurIPS 2024). Compute provided by the EPFL SCITAS Kuma cluster.
+
+## License
+
+MIT for this repository's contributions (see [`LICENSE`](LICENSE)). The underlying 4M code is
+licensed under its own terms (Apache-2.0). The website under `docs/` reuses the
+[Nerfies template](https://github.com/nerfies/nerfies.github.io) (CC BY-SA 4.0).

@@ -1,0 +1,202 @@
+{
+  "9a": {
+    "sheep bleating": {
+      "rms_gen": 0.06554399707800579,
+      "rms_gt": 0.07143725879052655,
+      "zcr_gen": 0.19145741525165103,
+      "zcr_gt": 0.19266592609773067,
+      "pann_score": null
+    },
+    "chicken clucking": {
+      "rms_gen": 0.010359015103847857,
+      "rms_gt": 0.012123616028503589,
+      "zcr_gen": 0.10647102625764475,
+      "zcr_gt": 0.08758651839011707,
+      "pann_score": null
+    },
+    "duck quacking": {
+      "rms_gen": 0.05014915226918389,
+      "rms_gt": 0.06489898189118885,
+      "zcr_gen": 0.12545319156727988,
+      "zcr_gt": 0.11368546979333244,
+      "pann_score": null
+    },
+    "pig oinking": {
+      "rms_gen": 0.012445104285364286,
+      "rms_gt": 0.013011803230225239,
+      "zcr_gen": 0.331302872349516,
+      "zcr_gt": 0.33484295462591096,
+      "pann_score": null
+    },
+    "horse neighing": {
+      "rms_gen": 0.0874559511002168,
+      "rms_gt": 0.09484908401061576,
+      "zcr_gen": 0.14156666951500874,
+      "zcr_gt": 0.12192531647114833,
+      "pann_score": null
+    },
+    "lions roaring": {
+      "rms_gen": 0.0015737021230475628,
+      "rms_gt": 0.0016622751235305577,
+      "zcr_gen": 0.08647566498614485,
+      "zcr_gt": 0.07133876145949047,
+      "pann_score": null
+    },
+    "dog barking": {
+      "rms_gen": 0.049219395834796204,
+      "rms_gt": 0.05015633009511633,
+      "zcr_gen": 0.11555316837363737,
+      "zcr_gt": 0.10699593500897228,
+      "pann_score": null
+    },
+    "cat meowing": {
+      "rms_gen": 0.0014767291426178645,
+      "rms_gt": 0.0018534257238319836,
+      "zcr_gen": 0.09849973754562434,
+      "zcr_gt": 0.0921397966283768,
+      "pann_score": null
+    },
+    "cow lowing": {
+      "rms_gen": 0.014043190530529054,
+      "rms_gt": 0.014650144657718826,
+      "zcr_gen": 0.27989843626020827,
+      "zcr_gt": 0.2982336210158815,
+      "pann_score": null
+    },
+    "coyote howling": {
+      "rms_gen": 0.06603959356511666,
+      "rms_gt": 0.08044830680073327,
+      "zcr_gen": 0.12332914220144289,
+      "zcr_gt": 0.10249148549176626,
+      "pann_score": null
+    },
+    "pigeon cooing": {
+      "rms_gen": 0.025935858321845532,
+      "rms_gt": 0.02852414246365975,
+      "zcr_gen": 0.3640425298160378,
+      "zcr_gt": 0.38098609602167993,
+      "pann_score": null
+    }
+  },
+  "9b": {
+    "cat meowing": {
+      "rms": 0.10693950278069238,
+      "zcr": 0.10786264480767588,
+      "pann_score": null
+    },
+    "chicken clucking": {
+      "rms": 0.1448015637671825,
+      "zcr": 0.11176894249197378,
+      "pann_score": null
+    },
+    "cow lowing": {
+      "rms": 0.160223910254632,
+      "zcr": 0.1459734615901073,
+      "pann_score": null
+    },
+    "coyote howling": {
+      "rms": 0.1460886764334436,
+      "zcr": 0.11189101429460808,
+      "pann_score": null
+    },
+    "dog barking": {
+      "rms": 0.08106502054591887,
+      "zcr": 0.18113014074878844,
+      "pann_score": null
+    },
+    "duck quacking": {
+      "rms": 0.1302677670546808,
+      "zcr": 0.08133644209524042,
+      "pann_score": null
+    },
+    "horse neighing": {
+      "rms": 0.09950122192756818,
+      "zcr": 0.16933800461431414,
+      "pann_score": null
+    },
+    "lions roaring": {
+      "rms": 0.14595599040231508,
+      "zcr": 0.0980114503350871,
+      "pann_score": null
+    },
+    "pig oinking": {
+      "rms": 0.13673766779390029,
+      "zcr": 0.1238052222317167,
+      "pann_score": null
+    },
+    "sheep bleating": {
+      "rms": 0.15474232059827528,
+      "zcr": 0.07537933812668611,
+      "pann_score": null
+    },
+    "pigeon cooing": {
+      "rms": 0.11010290624541226,
+      "zcr": 0.14865904124806212,
+      "pann_score": null
+    }
+  },
+  "9c": {
+    "sheep bleating": {
+      "rms": 0.09883052174066896,
+      "zcr": 0.11557758273416424,
+      "pann_score": null
+    },
+    "chicken clucking": {
+      "rms": 0.08331215393320365,
+      "zcr": 0.13254556330033326,
+      "pann_score": null
+    },
+    "duck quacking": {
+      "rms": 0.07260266412346328,
+      "zcr": 0.09585077942845982,
+      "pann_score": null
+    },
+    "pig oinking": {
+      "rms": 0.09918147004050809,
+      "zcr": 0.0928844346244461,
+      "pann_score": null
+    },
+    "horse neighing": {
+      "rms": 0.08738760654854229,
+      "zcr": 0.145851389787473,
+      "pann_score": null
+    },
+    "lions roaring": {
+      "rms": 0.09253139760291632,
+      "zcr": 0.10953502850376591,
+      "pann_score": null
+    },
+    "dog barking": {
+      "rms": 0.1013352804357121,
+      "zcr": 0.08861192153224527,
+      "pann_score": null
+    },
+    "cat meowing": {
+      "rms": 0.13377587163430393,
+      "zcr": 0.11443010778940173,
+      "pann_score": null
+    },
+    "cow lowing": {
+      "rms": 0.13263696390821159,
+      "zcr": 0.12524566950280155,
+      "pann_score": null
+    },
+    "coyote howling": {
+      "rms": 0.07752467017898054,
+      "zcr": 0.1127211025525214,
+      "pann_score": null
+    },
+    "pigeon cooing": {
+      "rms": 0.09347824804354575,
+      "zcr": 0.1295670113160561,
+      "pann_score": null
+    }
+  },
+  "summary": {
+    "rms_std_gt": 0.0324133833809401,
+    "rms_std_9b": 0.024382184369914604,
+    "rms_std_9c": 0.018909255452787502,
+    "rms_spread_ratio_9b_over_gt": 0.7522258347227013,
+    "rms_spread_ratio_9c_over_gt": 0.5833780210647996
+  }
+}

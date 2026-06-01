@@ -1,0 +1,1419 @@
+{
+  "accuracy": 0.10660980810234541,
+  "random_baseline": 0.09090909090909091,
+  "per_class_accuracy": {
+    "cat meowing": 0.6736842105263158,
+    "chicken clucking": 0.07738095238095238,
+    "cow lowing": 0.27692307692307694,
+    "coyote howling": 0.0,
+    "dog barking": 0.03669724770642202,
+    "duck quacking": 0.0,
+    "horse neighing": 0.0,
+    "lions roaring": 0.0,
+    "pig oinking": 0.012987012987012988,
+    "sheep bleating": 0.0,
+    "pigeon cooing": 0.0
+  },
+  "per_sample": [
+    {
+      "stem": "as_-5Vzl5XrIMc_000020",
+      "true": "sheep bleating",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkingoing strategycowcowcowcowoingoingoinglinglinglinglingling strategy strategycowlinglingoingoingoinglinglinglinglinglinglingling strategylinglingoingoingoingoingoingoinglinglinglinglinglinglinglingoingoingoingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_-AjV0tRzp3U_000030",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoingowingcatcatcatcatlinglingcatcatcatcatoingoingoinglinglingling ap strategy strategy strategycat aplinglinglinglinglinglinglingling ap strategy strategy strategylinglingling ap apsembly anything aplinglinglingling strategylinglinglingling aplingillyilly strategy",
+      "correct": false
+    },
+    {
+      "stem": "as_-CbVHmgkE2g_000240",
+      "true": "duck quacking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoingoingowinginkingcatinkinginkinginkinglingcatcatcatcatoingoingoinglinglinglingcat Alex Alex strategycatcatcatcatcatlinglinglinglingcatcat Alex Alex strategycat himselfcatcatsemblysemblysemblysemblylingcatcatling himselfroniclingcatcatsemblysemblysemblysemblyling",
+      "correct": false
+    },
+    {
+      "stem": "as_-DjRUngZaog_000003",
+      "true": "pig oinking",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoinginkinginkinginkinginkinginkingoinglingcatcatcatoingoingoingoingoinglinglinglinglinglingroniclingdogoingoingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoingoingoingoingoinglinglinglinglinglinglinglinglinglinglingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_-EWvMAkKDRM_000020",
+      "true": "horse neighing",
+      "pred": "dog barking",
+      "pred_text": "dogdog barkingowing howlinglinginkinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_-GQO6aWy3Ng_000460",
+      "true": "duck quacking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoing ocowcowlinglinglinglingcowcatcat ap ap himself himselflingling ap ap strategy strategy strategycow ap ap ap ap himself himself himselfling ap ap strategy strategy strategyling ap ap ap ap ap himself himselflinglingling strategy strategy strategylinglingling ap ap himself himself himself",
+      "correct": false
+    },
+    {
+      "stem": "as_-IQsevXev_4_000040",
+      "true": "lions roaring",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing howlinglinglingcatcatcatcat Provlingcatcatcat RE RE RE RE RE RE RE RE RE RE strategycatcatcat RE RE RE RE REMichMichMich RE RE REcatcat RE RE RE RE RE RE RE RE RE RE RE strategylingcat RE RE RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_-VPoLzHsw1s_000030",
+      "true": "dog barking",
+      "pred": "pig oinking",
+      "pred_text": "chpigeon cooingoingowinginkinginkinginkinginkingoingoingoingoingoingoingoingoingoingoingoinglinglinglingling strategyoingoingoingoingoingoingoingoingoingoingoingoinglinglingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoing",
+      "correct": false
+    },
+    {
+      "stem": "as_-ZRub1poH_I_000051",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catcations roaring howlinglinglingcatcatcatling Provlingcatcatcat RE RE REling RE RE RE RE RE RE REcatcatcat RE RElinglinglinglingMich RE RE RE RElinglinglingling RElingling RE RE RE RE RE RElinglinglingling RE Mostlinglingc",
+      "correct": true
+    },
+    {
+      "stem": "as_-ZRub1poH_I_000070",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkinglinglingowingcatcatcatcatlinglingcatcatcatcatcatlinglinglinglingcatcatlingling strategycatcatcatcatcatlinglinglinglingcatcatcatlinglingcatcatcatcatcatlinglinglinglinglinglinglinglinglinglingcatlingcatlinglinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_-_QEsMNMSnw_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkingcatcatinkingoingoingcatcatcatcatoingoingoingoinglingcatcatcat Alex strategycatcatcatoingoingoingoinglingcatcatcatcat Alexroniccatcatcatcatcatcatcatcatcatcatcatdog 35lingcatcatcatcatcatcatcatcat",
+      "correct": true
+    },
+    {
+      "stem": "as_-_doikqlNSY_000030",
+      "true": "cat meowing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoinginkinginkingcowinkinginkinginkinginkingcowcowcowcowillyilly himself himselflinglingManyMany strategy strategycowillyillyilly himselflingillylinglinglingManyillyilly strategylingillyillyillyillyilly himself himselflinglinglinglinglinglinglinglinglinglinglinglingillyilly",
+      "correct": false
+    },
+    {
+      "stem": "as_-_umX4zgLVY_000029",
+      "true": "lions roaring",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkinginkinginkinginkinginkinginkingcowdogdogpinkingoingoingoinglinglinglinglinglingroniccowdogdogoinginkingoinglinglinglinglingdogdoglingroniclingdoglinglinginkinginkinglinglinglinglinglingcowlinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_-kKEV9mrbK4_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkinglingoinginkingcatcatcatlinglinglingcatcatcatcatcatlinglinglinglingcatcatcatlinglingcatcatcatcatcatcatcatlingcatcatcatcatcatlingcatcatcatcatcatdogcatcatcatdogdogdoglinglinglingcatcatcatdogdogdogdog",
+      "correct": true
+    },
+    {
+      "stem": "as_-mOH_bgkMOY_000040",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoing oinkinginkinginkinginkingoinginkingcatppppoingoingoingling ap ap ap strategy strategycow appoinginkingoingoinglingling ap ap ap strategy strategyoing apoingoinginkingoingoinglinglinglinglinglingling strategylingoingoinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_-pfbfEOVvIU_000060",
+      "true": "cow lowing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkingcatinkinginkingoingoingcatcatcatoingoingoingoingoingoingcatcat ap strategy strategycatcatoingoingoingoingoingoingoinglingling ap strategy strategyoingcatoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_-sRmcVJ8_jk_000020",
+      "true": "chicken clucking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing cl clinkinguckinguckinguckinguckingcowcowcowluckingoingoinguckinguckinguckinguckingManyMany strategycowcowoingoingoingoingoingoinglingoinguckingoingoingoinglingoingoingoingoingoinguckinguckinguckinguckinguckingoingoingoinginkingoingoingoingoingoingoingoing",
+      "correct": true
+    },
+    {
+      "stem": "as_-vZ-_4oFCzs_000017",
+      "true": "cat meowing",
+      "pred": "dog barking",
+      "pred_text": "dogdog barkingowing howlinglinginkinglinglinglinglinglinglinglingdoglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_-y2fmiPOBMw_000030",
+      "true": "horse neighing",
+      "pred": "cow lowing",
+      "pred_text": "cowpicken cluckingoingoing roaringlinglinglinginkingoing strategycowcowcowcowoingoingoinglinglinglinglingling strategy strategycowcowlingoingoingoingoinglinglinglinglinglingling strategylinglinglingoingoingoingoingoinglinglinglinglingling strategylinglinglinglingoinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_03kQ6oXb_xE_000040",
+      "true": "coyote howling",
+      "pred": "cow lowing",
+      "pred_text": "ccoyote howlinglingotelinglinglinglingling strategycowdoglinglinglinglinglinglinglinglinglinglingling strategylinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_04_1N_55VFw_000030",
+      "true": "cat meowing",
+      "pred": "dog barking",
+      "pred_text": "dudog meowingackingoingoinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling RE RE RElinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling RE RE RE RE RE RE RElinglinglingling RE RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_09UVb6Ac4EQ_000030",
+      "true": "dog barking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing cllinglinglinglingling strategycowcowcowlillyoinglinglinglingMany strategy strategy strategy strategylingillylinglingoinglinglinglinglinglingling strategy strategy strategylinglinglinglinglinglinglinglinglinglinglinglingling strategylinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_0F04c_rY4aw_000000",
+      "true": "coyote howling",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing clinkinginkinginkinguckinguckinguckingcowcowoingoingoingoingoingoinglinglinglinglingling strategylingoingoingoingoingoingoingoinglingoingoingoinglingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoinglingoingoingoingoingoingoingoing",
+      "correct": false
+    },
+    {
+      "stem": "as_0PSJsmQ9jVw_000030",
+      "true": "cat meowing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing roaringinkingcowlinginkingoingoingcowcowlloingoingoingoinglingcowlingling strategy strategycowcowoingoingoingoingoingoinglinglinglinglingling strategylinglingoingoingoingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_0Tt-hGJfwEY_000001",
+      "true": "cow lowing",
+      "pred": "cat meowing",
+      "pred_text": "chpigeon cooingoingowinginkingcatinkinginkinguckinguckingoinglingoingoingoingoingoinglinglinglinglinglingling strategylinglingoingoingoingoingoingoingoinglinglinglinglinglinglingoingoingoingoingoingoingoingoingoingoingoingoinglingoingoingoingoingoingoingoingoing",
+      "correct": false
+    },
+    {
+      "stem": "as_0W4SJfYYU20_000100",
+      "true": "cow lowing",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing cllinglinguckinguckinguckinguckingchchcowloingoingoinglinglingManyMany strategy strategy strategylinglinglingoingoingoinglinglinglinglinglinglingling strategylinglinglingoingoingoingoinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_0XbqnVocHNE_000030",
+      "true": "horse neighing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoingoingoingcatcatoingoingoingcatcatcatoingoingoingoingoingoingoingoingoinglinglingcatcatoingoingoingoingoingoinglingcatcatoinglinglinglingcatcatcatcatcatcatcatcatcatcatcatoinglinglingcatcatcatcatcatcatcat",
+      "correct": false
+    },
+    {
+      "stem": "as_0aEBPBTqMmw_000010",
+      "true": "cow lowing",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoinginkinginkingcatinkinginkinglinglinglingcatcatcatlinglinglinglinglinglinglinglingling strategylingcatlinglinglinglinglinglinglingcowlinglinglinglinglinglinglingling himself himself himself himselflinglinglinglinglinglinglinglinglingillyillyillyillyilly",
+      "correct": false
+    },
+    {
+      "stem": "as_0iYnAmBnPNI_000030",
+      "true": "horse neighing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoinginkinginkinginkinginkinginkinginkinginkinglingcatcatoingoingoingoinglinglinglinglinglingling strategylingcatlingoingoingoinglinglinglinglinglinglingling strategylinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingsemblyling",
+      "correct": false
+    },
+    {
+      "stem": "as_0o7mmdbK93A_000310",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing howlinglinglinglinglinglinglinglinglinglingcatcatlinglinglinglinglinglingling RE RE RElinglingcatlinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling RE RE RE RE RE RE RE RE RElinglingling RE RE RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_0pQKxpIrWJE_000050",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoingowinginkingcatcatinkingoinglingcatcatcatcatcatoinglinglingling ap ap ap strategy strategycat ap apcatcatlinglinglingling ap ap ap strategy strategycat ap ap ap ap ap anything ap ap ap ap anything strategy strategylinglinglinglingling ap apling",
+      "correct": false
+    },
+    {
+      "stem": "as_0rhb_K228gA_000030",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoingoingcatcatlinglinglinglingcatcatcatcatoingoingoinglinglinglinglinglinglinglingcatcatcatcatoingoinglingcatcatcatlinglinglinglingcatcatcatcatcat Most Most Mostcat Anton Antonlinglinglinglingcatcat Most Most Most Most Most",
+      "correct": false
+    },
+    {
+      "stem": "as_0sWu9bJTP5M_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoing oinkingcatinkinginkingoinglingcatcatcatpoingoingoinglinglinglingling ap strategy strategycatcatlinglingcatlinglinglinglingling ap ap strategy strategycatcatlinglingling ap ap aplingdogdog ap strategy strategylingcatlinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_0v18hKZoixc_000030",
+      "true": "pigeon cooing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing roaringlinglinglinginkingoing strategycowcowcowlloingoinglinglinglingling strategy strategy strategycowcowlingoingoingoingoinglinglinglinglingling strategy strategylinglinglingoingoingoingoinglinglinglinglinglingling strategylinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_0vK_6B2ikEA_000000",
+      "true": "cow lowing",
+      "pred": "cat meowing",
+      "pred_text": "dogdog meowing howlinglinglinglinglinglinglinglinglingcatcatcatcat RElinglinglinglingMichMich RE RElingcatcatcatcat RElinglinglinglinglingMich RElinglinglingcatcatling RE RE RE RE RE RE RE RE RElinglinglingling RE RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_0y2VT-HH1Q8_000030",
+      "true": "sheep bleating",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoingowinginkingcowinkinginkingoingoingcowcowcowpoingoingoinglinglinglingling strategy strategy strategycow aplingoingoingoinglinglinglinglingling strategy strategy strategylinglinglinglinglingoinglinglinglinglinglinglinglinglingoingoinglinglinglingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_15LM-MqLKOo_000080",
+      "true": "dog barking",
+      "pred": "cow lowing",
+      "pred_text": "ccoyote howlingling blelinglinglinglingling strategycowcowlinglinglinglinglinglinglinglinglingling strategy strategycow aplinglinglinglinglinglinglinglinglinglingling strategylinglinglingling himselfling himselflinglinglinglinglinglinglinglinglinglinglinglingling himselfling",
+      "correct": false
+    },
+    {
+      "stem": "as_15MbxPQg9Yg_000030",
+      "true": "horse neighing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkingcatcatinkingoinginkingcatcatcatcatoingoingoinglinglingling ap strategy strategy strategycatcatlingoingoingoinglinglinglingling ap strategy strategy strategycatlinglinglingoingoingroniclinglinglinglingling strategy strategyoingoinglinglinglinglingillyling",
+      "correct": false
+    },
+    {
+      "stem": "as_18exxLRmp40_000030",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkingcatcatinkingoinginkingcatcatcatcatcatoingoing ap ap ap ap ap strategy strategycat ap apcatcatcat ap ap ap ap ap ap strategy strategycat ap ap apsemblyronic ap ap ap ap ap anything strategy strategylingling ap ap ap ap ap ap",
+      "correct": false
+    },
+    {
+      "stem": "as_1BvR4ErtZdw_000190",
+      "true": "sheep bleating",
+      "pred": "cow lowing",
+      "pred_text": "ppicken cluckingoingoingowinginkingcowlinglinglinglingcowcowcowcowlinglinglinglinglinglinglingling strategy strategycowlinglinglinglinglinglinglinglinglinglingling strategy strategylinglinglinglinglinglinglinglinglinglinglingling strategy strategylinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_1CDmK9GfFFw_000030",
+      "true": "dog barking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing cllinglinguckinguckingucking strategycowcowcowillyoingoingoingillyManyManyManyilly strategy strategylingcowlingoingoingoingoinglinglinglinglingMany strategy strategylinglinglingoingoingoingoingoinglinglinglinglingling strategylinglinglingoinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_1DhAEZuFl1w_000020",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkinglingoingowingcatcatcatlinglinglingcatcatcatcatcatoinglinglinglingcatcatlingling strategycatcatcatcatcatcatcatcatcatcatcatcatlinglingcatcatcatcatcatcatcatcatcatdogdogdoglinglinglingcatcatcatdogdogdogcat",
+      "correct": false
+    },
+    {
+      "stem": "as_1Gd1RdvsSMo_000050",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "ppickenowing cooingoingowinginkingcatinkinginkingling strategycatcatcatcat himself himselflinglinglingling ap strategy strategy strategyling ap apling aplinglinglingling ap ap ap strategy strategyling ap ap ap apronic anything ap ap ap ap anything strategy strategylinglingling ap apilly ap ap",
+      "correct": false
+    },
+    {
+      "stem": "as_1M8tMjg1UAY_000000",
+      "true": "sheep bleating",
+      "pred": "cat meowing",
+      "pred_text": "dogdog barkingowing howlinglinglinglingcatlinglinglinglingcatcatcatcatlinglinglinglinglinglinglinglinglinglingcatcatcatlingcatlinglinglinglingcatlinglinglinglingcatcatcatcat RE RE RE RE RE RE RE RE RElinglingcatcat RE RE RE REMich",
+      "correct": false
+    },
+    {
+      "stem": "as_1PQEmUzUCU8_000030",
+      "true": "chicken clucking",
+      "pred": null,
+      "pred_text": "duduions roaringackingoinglingessessess RE RE RElingessess REessess REessessess RE RE RE REessessessessessessessessessessessess RE REessessessessessessessessessessess RE RE REessessessessessessessessess",
+      "correct": false
+    },
+    {
+      "stem": "as_1TdkxpDB-A4_000020",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoingoingoingcatcatoingoingoingcatcatcatcatoingoingoingoinglinglingcatlinglinglingcatcatcatoingoingoingoinglinglinglingcatlinglinglingcatcatcatlinglinglingling RE RE RE RE RElinglinglinglingling RE RElingess way",
+      "correct": false
+    },
+    {
+      "stem": "as_1ZW5rwfKQ4A_000060",
+      "true": "pig oinking",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoingowinginkingcatcatinkinglinglingcatcatcatcatcatoinglinglinglingling ap ap strategy strategycat ap ap apsemblyling himself apling ap ap ap strategy strategyling ap ap apsemblysembly ap ap ap ap ap ap strategy strategylingling ap ap apilly ap ap",
+      "correct": false
+    },
+    {
+      "stem": "as_1qxI5U_PHgU_000050",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing howlinglinglingcatcatcatling Prov Provcatcat RE RE RE RE RE REMichMichMich RE RE REcatcatcat RE RE RE RE REMichMichMichMich RE RElingcat RE RE RE RE RE RE RE RE RE RE RE REling RE RE RE RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_1tHhN-4fTiU_000030",
+      "true": "cat meowing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkingoing strategycowcowcowcowoingoinglinglinglinglingling strategy strategy strategycowlinglinglinglinglinglinglinglinglinglingling strategy strategylinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_1w-JE2HRC30_000015",
+      "true": "chicken clucking",
+      "pred": "chicken clucking",
+      "pred_text": "chchickenonuckingoingoing cl cluckinguckinguckinguckinguckinglllloingoingoingoinglingManyManyManyMany strategylingchoingoingoingoingoingoinglinglingoingoingoingoingoingoingoingoingoingoingoingoinglingoingoingoingoingoingoingoingoingoingoingoingoingoing",
+      "correct": true
+    },
+    {
+      "stem": "as_27Ep69_IV3w_000030",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoingowingcatcatcatcatcatoingcatcatcatcatcatoingoingcatcatcat 35 35 Asia 35catcatcatcatcatcatcatcatcatcat heads Asia Asia 35catcat orderscatcatcatcatcatcatcat heads 35 35 35catcatcatcatdogdogcatcat",
+      "correct": false
+    },
+    {
+      "stem": "as_27wIu9FCMJQ_000027",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "chpicken cluckingoingoingowinginkinginkinginkinginkinginking strategycatcatcowcowlinglinglinglinglinglinglingling strategy strategylinglinglingoingoinglinglinglinglinglinglinglingling strategylinglingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoingoingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_2Fy5zqWal5w_000030",
+      "true": "pig oinking",
+      "pred": "cow lowing",
+      "pred_text": "chpicken cluckingoingoing clinkingcowlinginkingling strategycowcowcowcowillyillyilly himselflinglingManyManyMany strategycowillylingillyillylingillyillylingManyManyManyMany strategylingillyillyillyillyilly himself himselflinglinglinglinglinglinglinglinglingillyillyillyillyilly",
+      "correct": false
+    },
+    {
+      "stem": "as_2G2H1jm58XU_000030",
+      "true": "horse neighing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing roaringinkingcowlinginkingoinginkingcowcowcowcowloingoinglinglingcowcowling strategy strategycowcowcowcowcowoingoinglinglingcowcowling strategy strategycowlinglingoingoingoingoinglinglinglinglinglingling strategylinglinglinglinglingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_2HfQ9h5BIi0_000010",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoingowingcatcatcatinkinginkinglingcatcatcatcatcatoinglinglinglinglinglingling strategy strategycatcatcatcatcatcatlinglinglinglinglinglingling strategyling apillyillysemblysemblysemblylinglinglinglinglinglinglinglingoingoing aplinglingilly strategy",
+      "correct": false
+    },
+    {
+      "stem": "as_2IQ7SYjzyV0_000030",
+      "true": "lions roaring",
+      "pred": "cow lowing",
+      "pred_text": "ppigeonuckingoingoing roaringcowcowlinginkingoing strategycowcowcowlloingoingoingling strategy strategy strategy strategy strategycowcowlingoingoingoingoinglinglinglinglingling strategy strategylinglinglingoingoingoingoingoinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_2Kz8a9S_Izs_000011",
+      "true": "cat meowing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoingowinginkinginkinginkinginkingoinginkingcowcowcowpoingoingoingoinglinglinglinglingling strategycowcowoingoingoingoingoingoinglinglinglinglinglinglingoingoingoingoingoingoingoingoinglinglingoingoinglinglinglinglinglingoingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_2Ow9Zz3AKqg_000010",
+      "true": "sheep bleating",
+      "pred": "cat meowing",
+      "pred_text": "cc meote howlinglinglinglingcatlinglinglinglingdogdogccclinglinglinglinglinglinglingling strategydogdoglinglinglinglinglinglinglinglinglinglingling strategylinglinglinglingling RElinglinglinglinglinglingling strategylinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_2PlreOsvHKo_000000",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoingowingcatcatcatinkinglinglingcatcatcatcatcatoingoinglinglingcatcatling strategy strategycatcatcatcatcatoinglinglinglinglinglingling strategy strategycatlinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_2XbCIbzstw8_000170",
+      "true": "lions roaring",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkingcowinkinginkingoinginkingcatpppoingoingoingoingling ap ap ap strategy strategydog appoingoingoingoingoinglinglingcow ap strategy strategyoing apoingoingoingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_2bYkSWdnZJo_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoingowingcatcatcatcatoinglingcatcatcatcatoingoingoingoinglingcatcatcat Alex strategycatcatcatcatoingoingoingcatcatcatcatcatling engcatcatcatcatcatcatcatcatcatcatcatcatcatlinglingcatcatcatcatcatcatcat",
+      "correct": true
+    },
+    {
+      "stem": "as_2eXZWPItDb8_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoingowingcatcatcatcatlinglingcatcatcatcatcatoinglinglinglingcatMich Provig 35catcatcatcatcatoinglinglingcatcatcatcatcatlingcatcatcatcat REcat RE RE RE RE RE RE RElinglingcatcat RE RE RE REMich",
+      "correct": false
+    },
+    {
+      "stem": "as_2hp-YTe4biQ_000060",
+      "true": "lions roaring",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing roaringinkingcowinkinguckinguckinguckingcowcowcowloingoingoingoinglinglinglinglingling strategylingcowoingoingoingoingoingoinglinglinglinglinglingoingoingoingoingoingoingoingoingoinglingoingoingoingoingoingoingoingoingoingoingoingoingling",
+      "correct": false
+    },
+    {
+      "stem": "as_2pbX5VxvB-Y_000030",
+      "true": "horse neighing",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoingowingcatcatcatcatcatoingcatcatcatcatcatoingoingoingcatcatcatcat strategy strategycatcatcatcatcatcatcatcatcatcatcat anything strategy strategycatcatcatcatcatsemblyroniccatcatcat health anything anythinglingcatcatcatcatlingling anything anything",
+      "correct": false
+    },
+    {
+      "stem": "as_2qR8yNXzP54_000030",
+      "true": "pigeon cooing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkingoingoingcowpppoingoingoingoinglingcowling strategy strategy strategycow apoingoingoingoingoingoinglinglinglingling strategy strategyoinglingoingoingoingoingoingoingoingoingoingoinglinglingoingoingoinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_2tvbXTF_MOA_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "chchicken cluckinglingling clinkingcatinkinginkinginking strategycatcatcatcatinkinglinglinglinglinglinglinglingling strategylinglinglingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoingoinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_323uKBR-l4o_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing howlinglinglinglingcatlinglinglinglingcatcatcatcatlinglinglinglinglinglinglinglinglinglingcatcatcatlinglinglinglinglinglinglinglinglinglinglinglingcatlingling RE RE RE RE RE RE RE RElinglinglingcat RE RE RE RE REMich",
+      "correct": true
+    },
+    {
+      "stem": "as_387WVkfK-5w_000057",
+      "true": "cow lowing",
+      "pred": "cow lowing",
+      "pred_text": "chpicken cluckingoingoingowinginkinglinginkinginkinginkinginkingcowcowcowcowcowoinglinglinglinglinglinglingling strategycowcowoingoingoingoinglinglinglinglinglinglingling strategylinglingoingoingoingoinglinglinglinglinglinglinglinglinglinglinglinglingoinglinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_39PRB26zZ6Q_000022",
+      "true": "horse neighing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoinginkinginkingcatcatoingoingoingcatcatcatcatoingoingoingoinglingcatcatcatling strategycatcatcatoingoingoinglingcatcatcatcatcatling strategycatcatcatcatcatsemblysembly Pecat Pe healthdoglinglinglingcatcatcatcatlingling anything",
+      "correct": false
+    },
+    {
+      "stem": "as_3CvJhpMHLTQ_000010",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoingowingcatcatcatcat strategyoingcatcatcatcatcatoingoinglingling himselfManyManyMany strategycat himself himselfcatcat eng himself himself himself himselfManyManyMany strategycat himself himself eng eng eng eng eng himselfcatlingManyMany strategycatcatcat eng eng eng eng eng",
+      "correct": true
+    },
+    {
+      "stem": "as_3Ez6bhUGPKk_000030",
+      "true": "cat meowing",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckinglinglingowinglinglinglinglinglinglingcowcowcowcowlinglinglinglinglinglinglinglinglinglingcowcowlinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_3ID149JSVkU_000029",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoinginkinginkinginkinginkinginkinginkinglinglingcatcatcatoingoingoinglinglinglinglinglingling strategylingcatlinglinglinglinglinglinglinglinglinglinglingroniclinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_3IdazIWh2Ew_000022",
+      "true": "coyote howling",
+      "pred": "chicken clucking",
+      "pred_text": "chchickenonuckingoingoing cllinglinguckinguckingucking strategycowllloingoingoingoinglinglingMany strategy strategy strategylinglingoingoingoingoingoinglinglinglinglinglingling strategylinglinglingoingoingoingoingoinglinglinglingoinglinglinglinglingoingoingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_3MoLb3EGK1g_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoinginkinginkingcatcatinkingoinglingcatcatcatcatoingoingoingoinglinglingcatlingling strategycatcatcatoingoingoinglinglinglingcatcatlinglinglinglingcatcatcatcatcatcatcatcatcatcatcatlinglinglingcatcatcatcatcatcatcat",
+      "correct": false
+    },
+    {
+      "stem": "as_3MqISwb01-0_000020",
+      "true": "sheep bleating",
+      "pred": "cow lowing",
+      "pred_text": "cowpicken cluckinglingling clinkingcowlinglingling strategycowcowcowcow himselflinglinglinglinglingling strategy strategy strategycowcowlingling himselflinglinglinglingcowlingilly strategy strategylinglingling himself himself himself himself himselflinglinglinglinglinglinglinglinglinglinglinglingillyilly",
+      "correct": false
+    },
+    {
+      "stem": "as_3TtIAWGJjdg_000023",
+      "true": "coyote howling",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing clillyillyuckinguckinguckinguckingchchillyillyillyuckingillyManyManyManyManyManyManyillychchuckinguckinguckinguckinguckingManyManyManyManyManyManyillychchuckinguckinguckinguckinguckinguckinguckinguckinguckinguckinguckinguckinguckinguckinguckinguckinguckinguckinglingMany",
+      "correct": false
+    },
+    {
+      "stem": "as_3UjvVNXo91s_000030",
+      "true": "cat meowing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoingowinginkinginkinginkinginkinginkinginkingcowcowcowoingoingoingoinglinglinglinglinglingling strategylinglingoingoingoingoingoinglinglinglinglinglingling strategyoingoingoingoingoingoingoingoingoingoingoingoinglinglingoingoingoingoingoingoingoingling",
+      "correct": false
+    },
+    {
+      "stem": "as_3Zts_lplADg_000000",
+      "true": "cat meowing",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing clinkinglinguckinguckingucking strategylingchlingillyillyoinglingManylingManyManyManyMany strategylinglinglingoingoingoingoinglinglinglinglinglingling strategylingoingoingoingoingoingoingoinglinglinglinglinglinglingoingoingoingoingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_3euuWBuunC0_000030",
+      "true": "sheep bleating",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowingackinglinglinglinglinglinglinglinglinglinglingcat RE RE RE RE RE RE RE RE RE RE RE RElingcat RE REling RE RE REling RE RE RE RE RElingling RE RE RE RE RE RE RE RE RE RE RElingling RE RE RE RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_3iQ_xRurgS8_000030",
+      "true": "horse neighing",
+      "pred": "chicken clucking",
+      "pred_text": "cowchicken cl howlingling clinkingcowlinginkinginking strategycowcowcowcowillylinglinglinglinglinglingMany strategy strategycow himselflinglinglinglinglinglinglinglinglinglingMany strategylinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_3iSYY6gExrA_000130",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoinginkinginkinginkinginkinginkinginkinginkingoingcatoingoingoingoingoingoingoingoingoingoingling strategyoingoingoingoingoingoingoingoingoingoingoingoingoing strategyoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoing",
+      "correct": false
+    },
+    {
+      "stem": "as_3jZrxnh42ZA_000020",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "chpickenowing cooingoingowingcatcatcatinkinglinglingcatcatcatcatoingoinglinglinglinglinglingling strategy strategylinglinglinglingoingoinglinglinglinglinglinglingling strategylinglinglinglingoinglinglinglinglinglinglinglinglinglingoingoingoinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_3n--reua_a0_000027",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoing oinkingppinkingoinginkingcatcatpppoingoing ap ap ap ap ap strategy strategycat ap apppoinglingling ap ap ap ap strategy strategycat ap ap app ap ap ap ap ap ap anything strategy strategylinglinglinglinglinglinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_3o2UsBnom5Q_000000",
+      "true": "pig oinking",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoingowinginkingcowinkinginkinginkinginkingcowcowcowcowoingoingoinglinglinglinglingling strategy strategycowlinglingoingoingoinglinglinglinglinglinglingling strategylinglinglingoingoingoinglinglinglinglinglinglinglinglinglingoingoinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_3rmbVWTJs6U_000016",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoinginkinginkinginkinginkinginkinginking strategycowcatcatcat himself himself himself himselflinglinglinglingMany strategycow himself himself himself himself himself himself himself himself himselfManyManyMany strategylingillyilly himself himself himself himself himself himself himselflinglinglinglinglingling himselfillyillyillyillyilly",
+      "correct": true
+    },
+    {
+      "stem": "as_3vAIsKPssC4_000150",
+      "true": "cat meowing",
+      "pred": "duck quacking",
+      "pred_text": "du Provions REackingoingoing RE RE RE RE RE RElingling RE RE RE RE RE REess RE RE RE RE RE REessessessessessessessessess RE RE RE REessessessessessessessessessess RE RE RE REess groupessessessessessessess",
+      "correct": false
+    },
+    {
+      "stem": "as_3zr8nXCk0Ss_000220",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoingowingcatcatcatcatoingoingcatcatcatcatoingoingoingoingcatcatcatcatling strategycatcatcatcatcatcatcatcatcatcatcatcatcatlingcatcatcatcatcatsemblysembly :cat Notcatcatcatlingcatcatcat Sciencesemblysemblysemblycat",
+      "correct": false
+    },
+    {
+      "stem": "as_4-UKKC_tb-s_000030",
+      "true": "dog barking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing clinkinglinginkinginkingling strategycowcowcowcowoingoinglinglinglinglinglingling strategy strategylinglinglingoingoingoinglinglinglinglinglinglingling strategylinglinglingoingoingoinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_4-_88phSi08_000029",
+      "true": "pigeon cooing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkinginkinginkingcowcowcowcowlingoinglinglinglinglinglingling strategy strategycow ap aplinglinglinglinglinglinglingling ap strategy strategyling aplinglingsemblyronicronic aplinglinglinglinglinglinglinglinglinglinglinglingronicling",
+      "correct": false
+    },
+    {
+      "stem": "as_46zbt7TQHRs_000000",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catc meowing howlinglinglinglingcatcatlinglinglingcatcatcat RE RElinglinglinglingMich RE RE RE strategylingcatlingling himselflinglingcccMich RE RE strategylinglinglingling himselfling himself RE RE RE RE RE RElinglinglingling himself himselflingling himself",
+      "correct": false
+    },
+    {
+      "stem": "as_47hLfDurGcY_000000",
+      "true": "pig oinking",
+      "pred": "cat meowing",
+      "pred_text": "duduions roaringackingoinglingling RE group group RE Provlinglingcat RE RE RE RE RE RE RE RE RE RE RE REessess RE REess RE RE RE RE RE RE RE REessessessess REess RE RE RE RE RE RE RE REess groupess REess RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_48sSYAOyqXc_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoingowingcatcatcatinkinginkingoingcatcatcatcatcatoingoingoingcatcat speaking 35 35 35catcatcatcatcatcatcatcatcatcatcatdog 35 35catcatcatcatcatcatcatcatcatcatdog 35 35lingcatcatcatcatcatcatcatcat",
+      "correct": false
+    },
+    {
+      "stem": "as_4ENCu-F0vE8_000030",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoinglinginkingcatcatlinginkinglinglingcatcatcatcatlinglinglinglinglinglinglinglingling strategyling himselfling himself himself himself himself himself himself himself himselflingling strategylingilly himself himself himself himself himself himself himself himself himselflinglinglinglingling himself himself himself himself himself himself",
+      "correct": false
+    },
+    {
+      "stem": "as_4JpCHnZtEyo_000000",
+      "true": "cow lowing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkingoinginkingcowcowcowcowoingoingoingoinglingcowcowoing strategy strategycowcowcowoingoingoingoingoinglingcowoingoingling strategylingcowoingoingoingoingoingoinglingoingoingoingoinglinglinglinglingoingoingoingoingling",
+      "correct": true
+    },
+    {
+      "stem": "as_4KVqEQuT1cw_000030",
+      "true": "pigeon cooing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkingoinginkingcowcowcowcow apoing himself himself ap ap ap strategy strategy strategycow aplinglingcow himself himself himselfling ap ap strategy strategy strategycow aplinglingling ap himself aplinglingling strategy strategy strategylinglinglinglinglingillyillyling",
+      "correct": false
+    },
+    {
+      "stem": "as_4N54GWAqSag_000020",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoingowingcatcatcatinkingoingoingcatcatcatcatcatoingoinglinglinglinglinglingling strategycat aplingoingcatoinglinglinglinglinglinglingling strategylingillyillyillysemblysembly himselflinglinglinglinglinglinglinglingoinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_4TuUYEnMItE_000030",
+      "true": "pig oinking",
+      "pred": "cat meowing",
+      "pred_text": "catpions roaringackingoingoingling RE RE RE RE Provlinglingcat RE RE RE REling RE RE RE RE RE RE RElinglinglinglinglinglinglinglingling RE RE RE RElinglinglinglinglingling RE RE RE RE RE RE RE RElinglingling RE RE RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_4aI5KBUZRjU_000020",
+      "true": "lions roaring",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkingoinginkingcowcowcowppoingoinglinglingcowcowling strategy strategycow aplingcowcowoinglinglinglingcowcow ap strategy strategylinglinglinglinglinglinglinglinglinglinglinglingling strategylinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_4bLFS9KnHJU_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catp meowinginkingoingoinginkinginkingcatcatinkingling strategycatcatcatcat himself himselflinglinglinglinglingling strategy strategyling himself himself himself himself himself himself himself himself himselfling himselfMany strategyling himself himself himselfsemblysembly himself himself himself himselflinglingling strategylingling himselfsemblysembly himself himself himself",
+      "correct": true
+    },
+    {
+      "stem": "as_4bV2fjMkSgk_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoingowinginkingcatcatcatoinglingcatcatcatcatcatoingoingoingcatcatcatcat strategy strategycatcatcatcatcatcatcatcatcatcatcatcat strategy strategycatcatcatcatcatsemblysemblycatcatcatdogdoglinglingcatcatcatcatsemblysemblysemblycat",
+      "correct": false
+    },
+    {
+      "stem": "as_4cs-QhLuWkA_000030",
+      "true": "dog barking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing cllinglinguckinguckinguckinguckingchchloingoingoingoingoinglinglingling strategy strategy strategylingchoingoingoingoingoingoinglinglinglinglingling strategyoinglingoingoingoingoingoingoinglinglinglinglinglinglinglinglingoingoingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_4dFvphSwb7k_000023",
+      "true": "dog barking",
+      "pred": "cow lowing",
+      "pred_text": "horsecowickening howlingling cllinglinglinglingling strategycowcowcowcowlinglinglinglinglinglinglinglingling strategylinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_4iq45VX3t_g_000010",
+      "true": "dog barking",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoingowinginkingcowinkinginkingoinginkingcowcowcowoingoingoingoingoinglinglinglinglingling strategycowlingoingoingoingoingoingoinglinglinglinglinglinglingoingoingoingoingoingoingoingoingoingoingoingoinglinglingoingoingoingoingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_4jGrLhMLulA_000014",
+      "true": "sheep bleating",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingling clinkinglinglinglingling strategylinglinglinglingillylinglinglinglinglinglingling strategy strategylinglinglingoingoingoinglinglinglinglinglinglingling strategylinglinglingoingoinglinglinglinglinglinglinglingling strategylinglinglinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_4lOTeIsN6wc_000017",
+      "true": "duck quacking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoingowingcatcatcatinkinglinglingcatcatcatcatcatlinglinglingling ap ap ap strategy strategycat ap ap apcatlinglinglingling ap ap ap ap strategyling ap ap ap apronic ap aplinglinglinglingling strategylinglingling ap aplinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_4reLwscTDh0_000030",
+      "true": "dog barking",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkingoinginkingcowcowcowppoingoingoinglingcowcowling strategy strategycowcowcowoingoingoingoinglinglingcowcowling strategy strategylinglingoingoingoingoingoingoinglinglinglinglingling strategylinglinglinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_4xw5z5u9Mtk_000024",
+      "true": "coyote howling",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoingoingowingcatcatcatcatlinglingcatcatcatcatcatcatlinglingcatcatcat : : strategycatcatcatcatcatcatcatcatcatcatcatdog aproniccatcatcatsemblysemblysemblysemblyroniclingdogdogdoglinglinglingcatcatcatsemblylinglingcat",
+      "correct": false
+    },
+    {
+      "stem": "as_4zFZ7AgWOKU_000030",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "chpigeon cooingoingowingcatcatinkinginkinginkinginkingcatcatcatcatinkingoingoinglinglinglinglinglingling strategylingoingoingoingoingoingoingoinglinglinglinglinglinglingoingoingoingoingoingoingoingoingoingoingoingoingoinglinglingoingoingoingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_50NZjmRCXH8_000030",
+      "true": "pigeon cooing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowlinginkingoinglingcowcowcowcow apoingoing ap ap ap ap strategy strategy strategycow ap ap apcowlinglinglingling ap ap ap strategy strategyling aplinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_54Br5mQ8idE_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoingowingcatcatcatinkinginkinglingcatcatcatcatoingoingoinglinglingcatcatlinglinglingcatcatoingoingoingoingoinglinglingcatlinglinglinglingcatcatoingoinglinglinglinglinglinglinglinglinglinglinglingoingoinglinglinglinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_54_s3qCrQyA_000030",
+      "true": "chicken clucking",
+      "pred": "pig oinking",
+      "pred_text": "ppigeon cooingoingowinginkinginkinginkinginkingoinginkingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoing",
+      "correct": false
+    },
+    {
+      "stem": "as_54s67FCXucs_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "horselions roaring howlinglinglinglingcat Prov Prov Prov Provlingcatcat RE RE RElinglingling RE RE RE RE RElinglinglinglinglinglinglinglingling RE RE RE RE RElinglinglingling RE RE RE RE RE RE RE RE RElinglingling RE RE RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_5ERtrFMNAx8_000030",
+      "true": "cat meowing",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing cllinglinglinguckingoing strategycowcowcowloingoingoinglinglinglinglingling strategy strategylinglinglingoingoingoingoinglinglinglinglinglingling strategylinglingoingoingoingoingoingoinglinglinglinglinglinglinglinglingoingoingoingoingoingling",
+      "correct": false
+    },
+    {
+      "stem": "as_5IfcwKMzDzA_000030",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoingoinginkinglinglinglinginkinglinglinglingcatlinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling howlinglinglinglinglinglinglinglinglinglinglinglinglingsemblylingsembly himself",
+      "correct": false
+    },
+    {
+      "stem": "as_5KJTz6qhOeI_000040",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "chpickenon cooingoingowinginkingcatinkinginkingoinginkingcatcatcatcatoingoingoinglinglinglingling strategy strategy strategycatlinglingoingoingoingoinglinglinglinglingilly strategy strategyoinglingoingoingoingoingoingoingoingoingoinglinglinglingoingoingoinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_5SFxo4VFhBM_000030",
+      "true": "dog barking",
+      "pred": "cow lowing",
+      "pred_text": "dogp barkingowinginkingoingoingowinginkinglinglinginkinglinginkinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingcowlinglinglinglinglinglinglinglinglinglingillyilly",
+      "correct": false
+    },
+    {
+      "stem": "as_5TiGP89UErY_000008",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoingowinginkingcatcatcatoinginkingcatcatcatcatoingoingoinglinglinglinglingling strategy strategycat aplinglinglinglinglinglinglinglinglingling strategy strategycat ap apsemblysemblysemblysembly himselflinglinglinglinglinglingoinglingling apsemblysembly himself himself",
+      "correct": true
+    },
+    {
+      "stem": "as_5VkzweX2NWo_000020",
+      "true": "lions roaring",
+      "pred": "cow lowing",
+      "pred_text": "chpicken cluckingoingoingowinginkinginkinginkinginkinglinginkingcowcowcowchchoingoinglinglinglinglinglingling strategycowcowoingoinginkingoingoinglinglinglinglinglingling strategylingoingoingoingoingoingoingoingoingoingoingoinglinglinglingoingoingoingoingoingoingling",
+      "correct": false
+    },
+    {
+      "stem": "as_5WhW8XPBods_000030",
+      "true": "pigeon cooing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkingoinginkingcowcowcowcowoingoingoinglinglinglinglingling strategy strategycowcowlingoingoingoinglinglinglinglinglingling strategy strategylinglinglinglinglingoinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_5ZEqR_HNkIQ_000060",
+      "true": "chicken clucking",
+      "pred": "pig oinking",
+      "pred_text": "ppigeon cooingoingowinginkinginkinginkinginkingoinginkingoingoingoingoingoingoingoingoingoingoingoingoinglinglingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoing",
+      "correct": false
+    },
+    {
+      "stem": "as_5fdIuC_Lw-M_000030",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "chchicken cluckinglinglingowingcatcatlinginkingling strategyhorsecowcowclinglinglinglinglinglinglinglingling strategyhorsecowlinglinglinglinglinglinglinglinglinglingling strategylinglinglinglinglinglinglinglinglinglinglinglingling strategylinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_5i9sWw_Ll08_000250",
+      "true": "lions roaring",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing roaringinkingcowlinginkingoinginkingcowcowcowcowoingoingoinglinglinglinglingling strategy strategycowcowcowoingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoingoingoinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_5iN_i7E8eFo_000150",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkinginkinginkinginkingoinginkingcatcatcatoingoingoingoingoingoingoingoinglingling strategyoingoingoingoingoingoingoingoingoinglinglinglingling strategyoingoingoingoingoingoingoingoingoingoingoingoinglinglingoingoingoingoingoingoingoingling",
+      "correct": false
+    },
+    {
+      "stem": "as_5iYXcP8P31w_000010",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowingcatcatcatcatinkinglingcatcatcatcatcatoingoinglingcat : : Asia Asia 35dogdogcatcatcatoingoingcatcatdogdog : 35 35catdogdogdogdogdogoingoinglingdogdogdog :linglingcatlinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_5muADGzBlgM_000020",
+      "true": "horse neighing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoinginkinginkingcatcatinkingoinginkingcatcatcatcatillyoingoinglinglingling ap strategy strategy strategycat ap apoingoingoinglinglinglingling ap strategy strategy strategylingillyillyoingoingoingroniclinglinglingoinglinglinglingoingoingoinglingoingoingillyling",
+      "correct": false
+    },
+    {
+      "stem": "as_5vUtusnPXXs_000120",
+      "true": "duck quacking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoingowingcatcatcatcatlingoingcatcatcatcatcatoingoingling ap ap ap ap strategy strategycat ap apcatcatcat ap ap ap ap ap ap strategy strategycat ap ap apsemblysembly anything ap ap ap ap ap strategy strategylingcat ap apsembly ap ap ap",
+      "correct": false
+    },
+    {
+      "stem": "as_5wwFFsLuRcQ_000190",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoingowinginkingcatcatinkinginkinginkingcatcatcatcatcatoingoinglinglingcatcatcatling strategycat apcatcatcatcatcatlinglingdogdogdogling strategycat ap ap apsemblysemblyroniclinglinglingdoglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_5xTnWz440UM_000170",
+      "true": "lions roaring",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkinginkinginkinginkinginkinginkingcowcowcowcowinkingoingoinglinglingcowcow how Alex strategycow aplinginkinginkingoinglinglinglingcowcowronicronic strategycowlinglinglinginkinginkinglinglinglinglingcowlinglingroniclinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_64EcdCriKFU_000015",
+      "true": "dog barking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing cllinglinguckinguckinguckinguckingchchchchoingoinglinglinglingManyManyManyMany strategylingchlingoingoingoinglinglinglinglinglinglinglinglinglinglinglingoingoingoingoinglinglinglinglinglinglinglinglinglinglinglingoinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_6Crk0tnUZPY_000040",
+      "true": "lions roaring",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing cllinglinguckinguckinguckinguckingchchchloingoingoinglinglinglinglingling strategy strategylinglinglingoingoingoingoinglinglinglinglinglingling strategylinglinglingoingoingoingoinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_6F9hivlCDuE_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoingowingcatcatcatcatoinglingcatcatcatcatoingoingoinglinglinglinglingling strategy strategycatcatlinglinglinglinglinglinglingcatcat himself strategy strategycatcatlingling himself himself himself himselflingcatcatlinglinglinglingcatlinglingillyillyillyilly",
+      "correct": false
+    },
+    {
+      "stem": "as_6FoKBRFK970_000060",
+      "true": "duck quacking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoingoingowingcatcatcatcatlinglingcatcatcatcatoingoingoingoinglingcatcatlingling strategycatcatcatcatoingoingcatcatcatcatcatcatlinglingcatcatcatcatcatcatcatcatcatcatcatcatlinglinglinglinglingcatlinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_6HWI66RqiWo_000050",
+      "true": "cow lowing",
+      "pred": "pig oinking",
+      "pred_text": "ppigeon cooingoingowinginkinginkinginkinginkingoinginkingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoinglingoingoingoingoingoingoingoing",
+      "correct": false
+    },
+    {
+      "stem": "as_6Kn4bXCPvaA_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "dogdog barkingowing howlinglingowinglinglinglinglinglinglingdogdogdogcat Destlinglinglinglinglinglinglingling strategylingdoglinglinglinglinglinglinglinglinglinglinglinglinglinglingling heads heads heads heads Peling Pelinglinglinglinglinglingling Sciencelinglinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_6MrZ-9tZUfs_000030",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "pp meowinginkingoingoinginkinginkinginkinginkinginkinginkinginkingcatcatcatcatoingoinglinglinglinglinglingling Alex strategylingcatlinglinglinglinglinglinglinglinglinglingling strategylinglinglinglingsemblysemblysemblysemblylinglinglinglinglinglinglinglinglingsemblysemblysemblysembly ap",
+      "correct": false
+    },
+    {
+      "stem": "as_6O7QYcam21E_000030",
+      "true": "dog barking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckinglingling cllinglinguckinguckinguckinguckingchchchillyillyillyillyManyManyManyManyManyMany strategylinglinglinglingoinglinglinglinglingManyManyManyManyillylinglinglinglingoinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_6OFDugcFz6o_000022",
+      "true": "chicken clucking",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkinginkinginkingcowcowcowcow himselfoingoing himselfling strategy strategy strategy strategy strategycow ap ap ap himselflinglinglinglingling strategy strategy strategy strategylingillylinglinglinglinglinglinglinglinglinglingling strategylinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_6Ue7-jOgmtI_000010",
+      "true": "dog barking",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkingoinginkingcowcowcowpoingoingoinglinglinglingling strategy strategy strategycow aplingoingoingoingoinglinglinglingling strategy strategy strategylinglingoingoingoingoingoinglinglinglinglinglinglinglinglinglinglinglinglingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_6dvq5W-9D04_000030",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkinglinglingowingcatcatcatlinglinglingcatcatcatcatcatlinglinglinglingcatcatlingling strategycatcatcatcatcatlinglingcatcatcatcatcatlinglingcatcatcatsemblysemblysemblyronicronic ap Not :linglinglinglinglinglingsemblysemblysemblysemblyling",
+      "correct": false
+    },
+    {
+      "stem": "as_6ggw_r915-M_000024",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoingowinginkingcatcatinking strategyinkingcatcatcat himself himself himself himself himself himself himself Alex Alex strategy strategycat himself himself himself himself himself himself himself himself himselfManyMany strategy strategycat himself himself ap himself himself himself himself himself ap ap strategy strategy strategylingling ap apillyillyilly himself",
+      "correct": false
+    },
+    {
+      "stem": "as_6h_HTMN50Ck_000030",
+      "true": "dog barking",
+      "pred": "cow lowing",
+      "pred_text": "chpigeonuckingoingoing clinkinglinglinginkingoing strategycowcowcowcowoingoingoinglinglinglingilly strategy strategy strategylinglinglingoingoingoinglinglinglinglinglingling strategy strategylinglinglingoingoingoingoingoinglinglinglinglingling strategylinglinglinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_6kEVmrfasFE_000100",
+      "true": "pig oinking",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoingowinginkinglinglinginkingoing strategycowcowcowpoingoingoinglinglinglingling strategy strategy strategycowlinglingoingoingoingoinglinglinglinglingling strategy strategylinglinglingoingoingoingoinglinglinglinglinglinglinglinglingoinglinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_6natRZpISn4_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoingowingcatcatcatcatoingoingcatcatcatcatoingoingoingoingcatcatcat 35 35 35catcatcatcatcatoingcatcatcatcatcatdog Asiaroniccatcatcatcatcatcatcatcatcatcatdogdog :lingcatcatcatcatcatcatcatcat",
+      "correct": false
+    },
+    {
+      "stem": "as_6rr2icdL5X8_000010",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoinginkinginkinginkinginkinginkingoinginkingcatcatcatcatoingoingoingoinglinglinglingling strategy strategycat aplingoingoingoingoinglinglinglinglingling strategy strategyling aplingoingoingoingoinglinglingoingoingoinglinglingoingoingoinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_6tjY5jA3i2c_000030",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoingowingcatcatcatinkingoinginkingcatcatcatcatoingoingoinglinglinglinglingling strategy strategycatcatlingoingcatoinglinglinglinglingling anything strategy strategycatlinglinglinglinglinglinglinglinglinglinglingling strategylingoinglinglinglinglingillyilly",
+      "correct": false
+    },
+    {
+      "stem": "as_6xLB4s9Afc8_000020",
+      "true": "sheep bleating",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoinglingowingcatcatcatcatlinglingcatcatcatcatcatlinglinglinglinglinglinglingling strategycatcatcatcatcatlinglinglinglinglinglinglinglinglingcatlinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_7-spIPmjIxg_000010",
+      "true": "horse neighing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoing oinkingcowinkinginkingoinginkingcatcatcatpoingoingoinglinglinglingling strategy strategy strategycow aplingoingoingoinglinglinglingling ap strategy strategy strategyling ap ap ap apronic aplinglinglinglingling strategy strategylinglinglinglinglinglingilly ap",
+      "correct": false
+    },
+    {
+      "stem": "as_71Ef8xUQ9xQ_000024",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkingcatcatcat strategylingcatcatcat himself himself himself himself himself himselfManyManyMany strategy strategycatilly himself himself himself himself himself himselfManyManyManyManyMany strategycatillyillyillyilly himself himself himselfMany himselfManyilly strategy strategylingling himselfillyillyillyillyilly",
+      "correct": true
+    },
+    {
+      "stem": "as_72ai_MiEKWc_000520",
+      "true": "lions roaring",
+      "pred": "cat meowing",
+      "pred_text": "dogdog meowing colinglingowingcatcatcatcatlinglingcatcatcatcatcatcatoinglingcatcatcat Asia Asia voidcatcatcatcatcatcatcatcatcatcatcatcat Asia voidcatcatcatcatcatcatcatcatcatcat heads heads Asialingcatcatcatcatcatcatcatcat",
+      "correct": false
+    },
+    {
+      "stem": "as_73MhTEyv3W4_000004",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoingoingowingcatcatcatcatcatlingcatcatcatcatcatoinglinglinglingcatcatlinglinglingcatcatcatcatcatlinglinglinglinglingcatlinglinglingcatlinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_78ZrHDLvwh0_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "dup meowing cooingoingoinglingcatlinglingoinglinglingcatcatoingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoingoinglinglinglinglinglinglinglinglinglinglinglingdogdogdogdogdog",
+      "correct": true
+    },
+    {
+      "stem": "as_7BTIACdXbPw_000020",
+      "true": "lions roaring",
+      "pred": "duck quacking",
+      "pred_text": "du Provions REackinglingling RE RE RE RE RE RElingling RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE RE REling RE RE RE RE RE RE RE RE RE RE RE RE REling RE RE RE RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_7FP7bVQRbjs_000007",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoinginkinginkingcatcatinkingling strategycatcatcatcatlinglinglinglinglinglinglingling strategy strategylingillylinglinglinglinglinglinglinglinglinglingling strategylingillyillysemblysemblysembly himself himself himselflinglinglinglinglinglinglingling himselfsemblysembly himself himself",
+      "correct": false
+    },
+    {
+      "stem": "as_7H9QvBrV3fY_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkingcatcatcatoingoingcatcatcatcatcatoingoinglingling ap ap ap strategy strategycat ap ap apcat himself ap ap ap ap ap ap strategy strategycat ap ap apsembly ap anything anything ap ap ap anything strategy strategylingcatling ap ap anything ap ap",
+      "correct": false
+    },
+    {
+      "stem": "as_7IXx3NhSbi0_000050",
+      "true": "cat meowing",
+      "pred": "cow lowing",
+      "pred_text": "chpickenon cooingoing clinkinglinginkinginkinginkinginkingcowcowcowloingoingoingoinglinglinglinglinglinglingcowcowoingoingoingoingoingoinglinglinglinglinglingoingoingoingoingoingoingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_7LncmPx_1js_000004",
+      "true": "dog barking",
+      "pred": "pig oinking",
+      "pred_text": "ppigeon cooingoing clinkinginkinginkinginkingoinginkingoingpoingoingoingoingoingoingoingoingoingoingoing strategyoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoinginkingoingoingoingoingoingoingoing",
+      "correct": false
+    },
+    {
+      "stem": "as_7MozkaLRTn8_000030",
+      "true": "cat meowing",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckinglingling clinkinglinglinginkinglinguckinglingcowcowlinglinglinglinglinglinglinglinglingling strategylinglinglingoingoinglinglinglinglinglinglinglinglinglinglinglinglinglingoinguckinglinglinglinglinglinglinglinglinglinglinglingoingoingoingoingling",
+      "correct": false
+    },
+    {
+      "stem": "as_7OWbhCjq9EI_000010",
+      "true": "pig oinking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoing oinkingcatinkinginkingoinginkingcowcatcatcatoingoingoinglinglinglingling Alex strategy strategycowlinglinglingoingoinglinglinglingling ap strategy strategy strategylinglinglinglinglingling himselflinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_7Ue76pgrPHY_000030",
+      "true": "dog barking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing clinkinglinginkinginkingoing strategycowcowcowcowoingoingoinglinglinglinglingling strategy strategycowcowoingoingoingoingoinglinglinglinglinglingling strategylinglingoingoingoingoingoingoinglinglinglinglingling strategylinglinglinglingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_7da7gMWpfnM_000369",
+      "true": "cow lowing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoingowinginkinginkinginkinginkingoinginkingcowpoingoingoingoingoingoingoingoingoingoingling strategyoingoingoingoingoingoingoingoingoingoingoingoingoinglingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoing",
+      "correct": true
+    },
+    {
+      "stem": "as_7f8BXla32wY_000030",
+      "true": "horse neighing",
+      "pred": "cow lowing",
+      "pred_text": "ppigeon cooingoing oinkingcowcowinkingoinginkingcowcowcowcowcowoingoinglingling ap ap strategy strategy strategycow ap aplingcowlinglinglinglingling ap strategy strategy strategylinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_7gS1wtC64cU_000030",
+      "true": "chicken clucking",
+      "pred": "pig oinking",
+      "pred_text": "ppigeon cooingoingowinginkinginkinginkinginkingoinginkingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoinglingoingoingoingoingoingoingoing",
+      "correct": false
+    },
+    {
+      "stem": "as_7o5Q7fKYXL4_000009",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoingoingowingcatcatcatcatcat groupcatcatcatcat meowingowingcatcatcatcatcatling groupcatcatcatcat REcat meidcatcatcatcatcat groupcatcatcatcatlicowingowingowingcatcatcatcatcat group groupcatcat ordersplayer anything anything anything",
+      "correct": true
+    },
+    {
+      "stem": "as_7oiDzl-h1xs_000002",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "chchicken cluckingoingoinginkinglingcatinkinginkinglinglingcatlingcatcatoingoingoinglinglinglinglinglinglinglinglinglingoingoingoingoingoinglinglinglinglinglinglinglinglinglingoingoingoingoingoinglinglingoingoingoingoinglinglingoingoinglinglingoinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_7r10dnkTC-g_000070",
+      "true": "horse neighing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoingowingcatcatcatcatcatlingcatcatcatcatcatoingoingcatcatcatcatcat 35 35catcatcatcatcatcatcatcatcatcatcatcat 35 35catcatcatcatcatcatcatcatcatcatcatdogdoglingcatcatcatcatcatcatcatcat",
+      "correct": false
+    },
+    {
+      "stem": "as_8-LEQR_FD9g_000030",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkinginkinginkinginkingoinginkingcatoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoinglingoingoingoingoingoinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_8-yKZLSR5v0_000040",
+      "true": "horse neighing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkingcatinkinginkingoingoingcatcatcatpoingoingoingoingoingcatcat ap strategy strategycat ap apoingoingoingoingoingling ap ap ap strategy strategycat ap apoingoingoingoingoingoingoingoingoing strategy strategyoingoingoingoingoingoingilly strategy",
+      "correct": false
+    },
+    {
+      "stem": "as_85s_rl2OMvY_000028",
+      "true": "sheep bleating",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoinglinginkinginkingcatinkinginkinglinglinglingcatcatcatlinglinglinglinglinglinglinglingling strategyling himselflinglinglinglinglinglinglinglinglinglingling strategylinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_8Fn9UB55-aA_000000",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoingowingcatcatcatcatlinglingcatcatcatcatlinglinglinglinglinglinglinglingling strategycatcatlinglinglinglinglinglingcowcowlinglinglinglingcatlingling himself himself himself himself himself himselflinglinglinglinglinglingling himselfillyillyillyillyilly",
+      "correct": true
+    },
+    {
+      "stem": "as_8IdCiapDYCU_000020",
+      "true": "dog barking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing cllinglinguckinguckinguckinguckingchchchchoingoingoinglingManyManyManyMany strategy strategylinglinglingoingoingoingoinglinglinglinglinglingling strategylinglinglingoingoingoingoinglinglinglinglinglingling strategylinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_8KS36FPL2S8_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoingowingcatcatcatcatoinglingcatcatcatcatcatoingoingoingcatcatcatcat 35 strategycatcatcatcatcatcatcatcatcatcatcatcatlingroniccatcatcatcatcatcatcatcatcatcatcatdogdoglinglingcatcatcatcatcatcatcat",
+      "correct": false
+    },
+    {
+      "stem": "as_8O5usPUa1Yc_000030",
+      "true": "dog barking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckinglingling cllinglinglinglingling strategycowlinglingillyillylinglinglinglinglingling strategy strategy strategylingillylinglinglinglinglinglinglinglinglinglingling strategylinglingillyillyillylinglinglinglinglinglinglingling strategylinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_8ZkPLFpwcqQ_000030",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoinglinginkingcatcatcatlinglinglingcatcatcatcatlinglinglinglinglinglinglinglingling strategylinglinglinglinglinglinglinglinglinglinglinglingling strategylinglinglinglingsemblysemblysembly himself himselflinglinglinglinglinglinglinglingsemblysemblysemblysemblysembly",
+      "correct": false
+    },
+    {
+      "stem": "as_8Zvk2z_sp_Q_000018",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoingoingowingcatcatcatcatcatlingcatcatcatcatowingowingowinglingcatcatcatMich 35 strategycatcatcatcatcatcatcatcatcatcatcatcatcat strategycatcatcatcat REocaustocaustocaustocaustocaustocaustocaust RE group groupcatcatocaustocaustocaustocaust RE",
+      "correct": false
+    },
+    {
+      "stem": "as_8_fJcQtkfgg_000020",
+      "true": "dog barking",
+      "pred": "cow lowing",
+      "pred_text": "chpigeonuckingoingoing clinkinginkinginkinguckinguckinguckingoingcowoingoingoingoingoingoinglinglingoingoingling strategyoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoingoinginkingoingoingoingoingoingoingoing",
+      "correct": false
+    },
+    {
+      "stem": "as_8_lULKucaF4_000023",
+      "true": "sheep bleating",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken roaringuckingoingoing roaringinkingcowinkinguckinguckinguckingcowcowlloingoingoingoinglinglingoingling strategy strategycowcowoingoingoingoingoingoinglingoingoingoinglingoingoingoingoingoingoingoingoingoinglinglinglinglinglingoinglingoingoingoingoingoingoingling",
+      "correct": false
+    },
+    {
+      "stem": "as_8bRkNxweytE_000030",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowing cooingoingowingcatcatcatcatcatoingcatcatcatcatcatoingoingoingcatcatcatcat 35 35catcatcatcatcatcatcatcatcatcatcatcatcat 35catcatcatcatcatcatcatcatcat RE RE REcatlingcatcatcatcatcatcatcatcat",
+      "correct": false
+    },
+    {
+      "stem": "as_8bWbJb88chE_000044",
+      "true": "cow lowing",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoinginkingoingcatcatinkingoingoingcatcatcatcatoingoingoingoingoingcatcatcatling 35catcatcatcatoingoingoingoingcatcatcatdoglinglingcatcatcatcatdogdogoingoinglingdogdogdoglinglinglingcatcatlingdoglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_8gXQiHBL3vE_000030",
+      "true": "duck quacking",
+      "pred": "cat meowing",
+      "pred_text": "dogdog meowing howlinglinglinglingdogdoglinglinglingdogcatcatcatlinglinglinglinglingMich RE REling strategydogdogcatoingoingoinglinglinglingdogdog RElinglinglingcatcatlinglinglinglinglingling RE RElinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_8iIHUVBR2P4_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoingoingowingcatcatcatlinglinglingcatcatcatcatlinglinglinglinglinglinglinglingling strategycatcatlinglingcatlinglinglinglinglinglinglingling strategylinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_8k2wEy46pHM_000000",
+      "true": "coyote howling",
+      "pred": "cat meowing",
+      "pred_text": "chchicken cluckingoingoing clcatcatchillyillyillycowcowlchchlinglinglinglinglinglinglinglingillycowcowlinglingclinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_8ud4ULFlKNw_000050",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoinginkinginkingcatcatoingoingoingcatcatcatcatoingoingoingoingoingcatcatcatlinglingcatcatcatcatcatoingcatcatcatcatcatcatcatlingcatcatcatdogdogdog speakingcatcatcatdogdogcatlinglingcatcatdogdogdogdogcat",
+      "correct": false
+    },
+    {
+      "stem": "as_8vtJozEhLxc_000004",
+      "true": "chicken clucking",
+      "pred": "chicken clucking",
+      "pred_text": "chchicken cluckingoingoing cl cluckinguckinguckinguckinguckingcowchchchuckinguckinguckinguckinguckingManyManyManyManyManycowchoing cooingoingoingoinguckinguckinguckingManyManyManycowcowoinguckingoinguckinguckinguckinguckinguckinguckinguckinguckinguckinginkingoingoingoingoingoingoingucking",
+      "correct": true
+    },
+    {
+      "stem": "as_91Gid732STA_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "chchickenowinguckinglinglingowinglinglinglinglingling strategycatcatccillylinglinglinglingling strategy strategy strategy strategyling anything anythinglinglinglinglinglinglinglinglingling strategy strategylingillyillyillyilly strategy anythinglinglinglinglinglingling strategylinglinglingillyillylinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_93evGRkuq1E_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoinginkinginkinginkinginkinginkinginkinginkinglingcatcatoingoingoingoingoinglinglinglinglingling strategylinglinglingoingoingoingoinglinglinglinglinglinglinglinglinglinglingoinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_9IRVqupPXrw_000010",
+      "true": "coyote howling",
+      "pred": null,
+      "pred_text": "Prov Prov RE RE RE RE Prov RE Prov Prov Prov Prov Prov Provling RE RE RE RE RE RE RE RE RE RE RE RE REling RE RE RE RE RE RE RE RE RE RE RE RE RElinglingling REling RE RE RE RE RE RE RE RElinglinglinglinglinglinglinglingling",
+      "correct": false
+    },
+    {
+      "stem": "as_9M4zEx1-hNc_000040",
+      "true": "dog barking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoingoinginkingcatcatcatlinglinglingcatcatcatcatlinglinglinglinglinglinglinglinglinglingcatcatlinglinglinglinglinglinglingcatlinglinglinglinglingcatlinglingsemblysembly himself himself himselflinglinglinglinglinglinglingling apsemblyillyilly himself",
+      "correct": false
+    },
+    {
+      "stem": "as_9N45lyLXeVs_000030",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "c Provions RE RElinglinglinglingling RE RE Prov Provlingling RE RE RE RE RE RE RE RE RE RE RE RElinglingling RE RE RE RE RE RE RE RE RE RE RElingling RE RE RE RE RE RE RE RE RE RE RE REling RE RE RE RE RE RE RE",
+      "correct": false
+    },
+    {
+      "stem": "as_9TZBF1tZ1RU_000090",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoinginkingcatcatcatinkinglinglingcatcatcatcat himselfilly himselflinglinglinglingMany strategy strategylingillyilly himself himself himself himself himselfling himselfManyManyMany strategylingillyillyilly himself himself himself himself himselflinglinglinglinglinglinglingling himself himselfillyilly himself",
+      "correct": false
+    },
+    {
+      "stem": "as_9W_GwwsWXlc_000030",
+      "true": "pig oinking",
+      "pred": "cat meowing",
+      "pred_text": "dogdog barkingowinginkinglinglingowingcatcatcatcatlinglingcatcatcatcatlinglinglinglinglinglinglinglingling strategycatcatcatcatcatlinglinglinglingcatclinglinglinglingcatcatcatsemblysemblyronicidling Not Notlinglinglinglingcatcat apsemblyling ap ap",
+      "correct": false
+    },
+    {
+      "stem": "as_9YI1MOznR3Q_000130",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoinginkinginkingcatlinglingoinglingcatcatcatcatoingoinglinglinglinglingling himself strategy strategycat aplinglinglinglinglinglingling ap ap strategy strategy strategyling ap ap ap apronic anything anything anything ap anything strategy strategy strategylinglingling apillyillyillyilly",
+      "correct": false
+    },
+    {
+      "stem": "as_9f4JcQ6qoEY_000027",
+      "true": "horse neighing",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoingowinginkingcatcatcatoingoingcatcatcatcatcatoingoinglinglingcatcat Alex strategy strategycat apcatcatcatlinglinglinglingcatcat ap strategy strategycatcatcatcatsemblysemblysemblysemblycatcatcatlinglinglinglingcatlinglingsemblysemblysemblyling",
+      "correct": false
+    },
+    {
+      "stem": "as_9ktdj18IStU_000030",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoingoingoingcatcatoingoingoingcatcatcatcatoingoingoingoingoingcatcatoinglinglingcatcatcatoingoingoingoingoinglingcatcatcatlinglingcatcatcatcatoingcatoingoinglingcatcatdoglinglinglingcatcatcatcatcatcatcat",
+      "correct": false
+    },
+    {
+      "stem": "as_9vqpE1ZqrCU_000030",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "catp meowing cooingoinginkinginkingcatinkinginkinginkinginkingcatcatcatcatoinglinglinglinglinglinglinglingling strategylinglinglinglinglinglinglinglinglingcowlinglingling strategylingling himself himself himselfsembly himself himself himselflinglinglinglinglinglinglingillyillyillyillyillyilly",
+      "correct": true
+    },
+    {
+      "stem": "as_A-7kQF3QN54_000460",
+      "true": "lions roaring",
+      "pred": "cat meowing",
+      "pred_text": "ppigeowing cooingoingowinginkingcatinkinginkingoingoingcatcatcatcatoingoingoingoingoingcatcat 35 35 strategycatcatcatoingoingoingoingoinglingdogdogdoglingroniccatcatcatdogdogdogoingoingoingdogdogdoglinglinglingcatcatdogdoglinglingdog",
+      "correct": false
+    },
+    {
+      "stem": "as_A4di0SfVKRc_000030",
+      "true": "pigeon cooing",
+      "pred": "cat meowing",
+      "pred_text": "pp meowing cooingoinginkinginkinginkinginkinginkinginkinginkingcatcatcatoingoingoingoingoinglinglinglinglingling Bitlingcatlingoingoingoinglinglinglinglinglinglingling strategylinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingsemblyling",
+      "correct": false
+    },
+    {
+      "stem": "as_A9ViVyrI0ls_000002",
+      "true": "cat meowing",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkingcowlinginkingoinglingcatcatcatcatoingoingoinglinglinglinglinglinglinglingcowcatoingoingoingoingoinglinglinglinglinglinglinglinglinglinglingoingoingoinglinglinglinglinglinglinglinglinglinglinglinglinglinglinglingling",
+      "correct": true
+    },
+    {
+      "stem": "as_AB4wUibgXRw_000010",
+      "true": "cow lowing",
+      "pred": "cat meowing",
+      "pred_text": "catp meowingackingoingoinglinglinglinglinglinglinglinglingcatcatduoingoinglinglingling RE RE RE RElinglingcatcatlinglinglingling way waylingling RE RE wayling way way way way way way way way RE RE RE RE group group group group way RE groupess group",
+      "correct": false
+    },
+    {
+      "stem": "as_ABQwPis0LM4_000050",
+      "true": "pig oinking",
+      "pred": "cat meowing",
+      "pred_text": "catcat meowinginkingoingoinginkingcatcatcatlinglinglingcatcatcatcatoinglinglinglinglinglinglinglingling strategycatcatlinglinglinglinglinglinglingcatlinglinglinglinglinglinglinglingsemblysemblysembly himselflinglinglinglinglinglinglinglinglingsemblysemblysemblysembly himself",
+      "correct": false
+    },
+    {
+      "stem": "as_ADoQlPVF4XU_000027",
+      "true": "chicken clucking",
+      "pred": "cat meowing",
+      "pred_text": "ppigeon cooingoingowinginkinginkinginkinginkingoinginkingcowcatppoingoingoingoinglinglinglinglingling strategycowlingoingoingoingoingoingoinglinglinglingling strategy strategyoinglingoingoingoingoingoingoingoingoingoingoinglinglinglingoingoinglingoingoinglingling",
+      "correct": false
+    }
+  ]
+}

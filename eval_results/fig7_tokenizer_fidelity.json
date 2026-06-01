@@ -1,0 +1,10 @@
+{
+  "real_mean_psnr": 19.09436530096906,
+  "real_mean_ssim": 0.7977310040479323,
+  "n_real": 60,
+  "synthetic_psnr": 4.936173049757978,
+  "synthetic_ssim": 0.008674033219563004,
+  "tokens_per_image": 196,
+  "bits_per_token": 14,
+  "compression_ratio_vs_uint8": 438.85714285714283
+}

@@ -1,0 +1,28 @@
+{
+  "T1": {
+    "global_min": 5,
+    "global_max": 16382,
+    "in_range": true,
+    "dtypes": [
+      "int32"
+    ],
+    "shapes": [
+      [
+        10,
+        196
+      ]
+    ]
+  },
+  "T3": {
+    "mean_token_match_rate": 0.9991071428571431,
+    "n_checked": 40
+  },
+  "T2": {
+    "note": "decode of on-disk tokens shown in figure (top data rows)"
+  },
+  "decode_resolution": [
+    448,
+    448,
+    3
+  ]
+}

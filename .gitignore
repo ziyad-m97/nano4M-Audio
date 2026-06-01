@@ -1,15 +1,54 @@
-# macOS
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+.venv/
+venv/
+env/
+
+# ---------- Jupyter ----------
+.ipynb_checkpoints/
+
+# ---------- OS / editor ----------
 .DS_Store
 ._*
-.Spotlight-V100
-.Trashes
-
-# editors
+Thumbs.db
 .vscode/
 .idea/
 *.swp
+*~
 
-# build / temp
-node_modules/
+# ---------- project: data, checkpoints, logs (host externally) ----------
+data/raw*/
+data/filtered*/
+data/tokenized*/
+data/clips/
+outputs/*/
+!outputs/README.md
+wandb/
+*.ckpt
+*.pt
+*.safetensors
+*.npy
+*.tar.gz
 *.log
-_probe.*
+slurm-*.out
+slurm-*.err
+*.out
+*.err
+
+# Keep committed artifacts that the above globs would otherwise catch:
+!splits.json
+!data/metadata/*.csv
+!eval_results/*.json
+!figures/**/*.png
+
+# ---------- large media (host externally), but keep the website's demo clips ----------
+*.wav
+*.mp3
+*.ogg
+*.mp4
+!docs/assets/audio/*.ogg
+!docs/assets/audio/*.mp3

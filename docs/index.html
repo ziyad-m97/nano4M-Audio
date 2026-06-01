@@ -220,14 +220,14 @@
 
     <figure class="wide">
       <video class="ex-video" controls preload="metadata" playsinline poster="assets/example/rgb.jpg">
-        <source src="assets/example/clip_dog.mp4" type="video/mp4">
+        <source src="assets/example/clip_cat.mp4" type="video/mp4">
         Your browser does not support embedded video — the clip is a montage of the ten keyframes over the ground-truth audio.
       </video>
-      <p class="ex-vidcap">A real clip — class <code>dog</code> (AudioSet&nbsp;<code>6srAUdAG-8c</code> @ 27&nbsp;s), kept by the oracle at PANNs&nbsp;1.08 · CLIP&nbsp;0.30 · VAD&nbsp;0.0.</p>
+      <p class="ex-vidcap">A real clip — class <code>cat</code> (AudioSet&nbsp;<code>2REf8hLLYMw</code> @ 30&nbsp;s), kept by the oracle at PANNs&nbsp;2.02 · CLIP&nbsp;0.27 · VAD&nbsp;0.0.</p>
       <div class="example-grid">
-        <div class="ex-tile"><img src="assets/example/rgb.jpg" alt="RGB keyframe of a dog" loading="lazy"><span class="lbl">RGB<span>real keyframe</span></span></div>
-        <div class="ex-tile ex-audio"><audio controls preload="none"><source src="assets/example/dog_audio.ogg" type="audio/ogg"><source src="assets/example/dog_audio.mp3" type="audio/mpeg">Audio not supported.</audio><span class="lbl">Audio<span>EnCodec · 512 tok</span></span></div>
-        <div class="ex-tile ex-cap"><div class="ex-quote">“a photo of a dog”</div><span class="lbl">Caption<span>GPT-2 BPE</span></span></div>
+        <div class="ex-tile"><img src="assets/example/rgb.jpg" alt="RGB keyframe of two cats" loading="lazy"><span class="lbl">RGB<span>real keyframe</span></span></div>
+        <div class="ex-tile ex-audio"><audio controls preload="none"><source src="assets/example/cat_audio.ogg" type="audio/ogg"><source src="assets/example/cat_audio.mp3" type="audio/mpeg">Audio not supported.</audio><span class="lbl">Audio<span>EnCodec · 512 tok</span></span></div>
+        <div class="ex-tile ex-cap"><div class="ex-quote">“a photo of a cat”</div><span class="lbl">Caption<span>GPT-2 BPE</span></span></div>
       </div>
       <figcaption>
         One clip end-to-end: the player is its ten real keyframes over the ground-truth audio,
@@ -278,10 +278,10 @@
 
     <figure class="chart-fig">
       <img src="assets/img/gt_structural.jpg" loading="lazy"
-           alt="Four samples (cat, mallard duck, lion, wild boar), each shown as an RGB photo, a Depth-Anything-V2 depth map, and the paired surface-normal map.">
+           alt="Four samples (dog, pig, pigeon, duck), each shown as an RGB photo, a Depth-Anything-V2 depth map, and the paired DSINE surface-normal map.">
       <figcaption>
         The structural targets the model is trained to predict: <strong>Depth-Anything-V2</strong>
-        depth and the paired surface normals, on representative samples. These pseudo-labels are clean
+        depth and <strong>DSINE</strong> surface normals, on representative samples. These pseudo-labels are clean
         and well defined — RGB→depth and RGB→normal token prediction reach <strong>11%</strong> and
         <strong>18%</strong> top-1 (≈1000× the 1/8192 random-token baseline), and their eval
         cross-entropy drops ~1.2 nats each (above).
@@ -304,6 +304,20 @@
       ResNet-50 check (≈0% top-5, against ~0.5–5% expected by chance), producing no class-recognizable
       image. The limiting factor is RGB synthesis itself, not the conditioning modality.
     </p>
+
+    <figure class="wide">
+      <img src="assets/img/audio2rgb_grid.jpg" loading="lazy"
+           alt="Grid of audio-to-RGB generations. The leftmost column is the ground-truth image through the tokenizer; the remaining columns, sampled at several temperatures, are almost entirely black with a few scattered pixels.">
+      <figcaption>
+        Audio→RGB generation, the hardest direction. The first column is the <strong>ground-truth
+        keyframe through the RGB tokenizer</strong> — already lossy at our 14×14 latent and dense
+        16k vocab — and every column to its right is the model's output sampled at temperatures
+        0.8–1.2. The generations collapse to near-black noise: an ImageNet ResNet-50 recognises
+        <strong>0%</strong> of them. We show this as a <strong>negative result</strong> — the model
+        learns structural token prediction (depth, normals) but not high-entropy pixel synthesis
+        from sound at this data scale, exactly as the diagnostic predicts.
+      </figcaption>
+    </figure>
 
     <div class="callout">
       <p>
@@ -335,6 +349,18 @@
     <figure class="chart-fig">
       <img src="assets/img/audio_ce_vs_marginal.svg" alt="Bar chart: marginal entropy 6.2 nats versus final audio cross-entropy 5.2 nats, a 1.0-nat gap, below the uniform-codebook bound of 7.62 nats.">
       <figcaption>The model captures ~1 nat of conditional information per audio token beyond a marginal predictor — measurable token-level learning.</figcaption>
+    </figure>
+
+    <figure class="wide">
+      <img src="assets/img/gen_spectrograms.jpg" loading="lazy"
+           alt="Log-frequency spectrograms of audio generated from the class label alone, one panel per class. All eleven share a similar burst-then-decay envelope with little class-specific structure.">
+      <figcaption>
+        Audio generated from the <strong>class label alone</strong> (audio fully masked,
+        MaskGIT-decoded, EnCodec-vocoded), one panel per class. There is genuine spectral
+        content — broadband energy with formant-like banding — but the eleven classes share a
+        near-identical burst-then-decay envelope: the token-level signal does not separate into
+        class-distinct sounds. This is the mode collapse the diagnostic below characterises.
+      </figcaption>
     </figure>
 
     <h3>Where it stops</h3>
@@ -432,55 +458,64 @@
   <section id="demo" class="prose">
     <h2>Listen for yourself</h2>
     <p>
-      Six classes spanning the best- and worst-recovered cases. Ground-truth clips are diverse;
-      generated clips share a flattened character — the audible signature of the mode collapse the
-      diagnostic identifies.
+      Six classes spanning the best- and worst-recovered cases, with three real EnCodec-decoded
+      clips each. <strong>Ground truth</strong> is the original recording through the codec.
+      <strong>Continuation</strong> is the charitable probe: the model hears the first 80% of the
+      audio tokens (plus the paired RGB and caption) and predicts only the final 20% — so the
+      opening is real and the tail is the model's. <strong>Class-only generation</strong> is the
+      hardest setting: the entire audio stream is masked and decoded from the class label alone.
     </p>
     <p class="note-inline" role="note">
-      Note: the clips below are <strong>synthetic placeholders for layout</strong> (varied tones for
-      ground truth, one flat tone for every generated cell). Replace them with EnCodec-decoded
-      <code>gt_*.ogg</code> / <code>gen_*.ogg</code> files before submission — see the repository README.
+      All clips are decoded through EnCodec, so even ground truth sounds band-limited. Listen for the
+      <em>diversity</em> across ground-truth clips versus the flattened, near-identical character the
+      generations collapse to — the audible signature of the mode collapse the diagnostic identifies.
     </p>
 
     <div class="table-wrap">
       <table class="audio-demo">
         <thead>
-          <tr><th scope="col">Class</th><th scope="col">Ground truth</th><th scope="col">Model output</th><th scope="col">Note</th></tr>
+          <tr><th scope="col">Class</th><th scope="col">Ground truth</th><th scope="col">Continuation<br><span class="th-sub">hears 80%, predicts 20%</span></th><th scope="col">Class-only generation</th><th scope="col">Note</th></tr>
         </thead>
         <tbody>
           <tr>
             <td class="cls">Pig</td>
             <td><audio controls preload="none"><source src="assets/audio/gt_pig.ogg" type="audio/ogg"><source src="assets/audio/gt_pig.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/cont_pig.ogg" type="audio/ogg"><source src="assets/audio/cont_pig.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td><audio controls preload="none"><source src="assets/audio/gen_pig.ogg" type="audio/ogg"><source src="assets/audio/gen_pig.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td>Best-recovered class — 5.1× chance in audio→class.</td>
           </tr>
           <tr>
             <td class="cls">Sheep</td>
             <td><audio controls preload="none"><source src="assets/audio/gt_sheep.ogg" type="audio/ogg"><source src="assets/audio/gt_sheep.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/cont_sheep.ogg" type="audio/ogg"><source src="assets/audio/cont_sheep.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td><audio controls preload="none"><source src="assets/audio/gen_sheep.ogg" type="audio/ogg"><source src="assets/audio/gen_sheep.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td>Best-recovered class — 5.1× chance.</td>
           </tr>
           <tr>
             <td class="cls">Dog</td>
             <td><audio controls preload="none"><source src="assets/audio/gt_dog.ogg" type="audio/ogg"><source src="assets/audio/gt_dog.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/cont_dog.ogg" type="audio/ogg"><source src="assets/audio/cont_dog.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td><audio controls preload="none"><source src="assets/audio/gen_dog.ogg" type="audio/ogg"><source src="assets/audio/gen_dog.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td>Learned at 2.4× chance; attractor for the canid cluster.</td>
           </tr>
           <tr>
             <td class="cls">Cat</td>
             <td><audio controls preload="none"><source src="assets/audio/gt_cat.ogg" type="audio/ogg"><source src="assets/audio/gt_cat.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/cont_cat.ogg" type="audio/ogg"><source src="assets/audio/cont_cat.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td><audio controls preload="none"><source src="assets/audio/gen_cat.ogg" type="audio/ogg"><source src="assets/audio/gen_cat.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td>Acts as an attractor class in the confusion structure.</td>
           </tr>
           <tr>
             <td class="cls">Chicken</td>
             <td><audio controls preload="none"><source src="assets/audio/gt_chicken.ogg" type="audio/ogg"><source src="assets/audio/gt_chicken.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/cont_chicken.ogg" type="audio/ogg"><source src="assets/audio/cont_chicken.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td><audio controls preload="none"><source src="assets/audio/gen_chicken.ogg" type="audio/ogg"><source src="assets/audio/gen_chicken.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td>Bird cluster — collapses with duck and pigeon.</td>
           </tr>
           <tr>
             <td class="cls">Horse</td>
             <td><audio controls preload="none"><source src="assets/audio/gt_horse.ogg" type="audio/ogg"><source src="assets/audio/gt_horse.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/cont_horse.ogg" type="audio/ogg"><source src="assets/audio/cont_horse.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td><audio controls preload="none"><source src="assets/audio/gen_horse.ogg" type="audio/ogg"><source src="assets/audio/gen_horse.mp3" type="audio/mpeg">Audio not supported.</audio></td>
             <td>Never recovered in audio→class (0% top-1).</td>
           </tr>
@@ -488,9 +523,10 @@
       </table>
     </div>
     <p class="fig-cap">
-      Generated audio is conditioned on caption + RGB + depth + normals (audio fully masked).
-      Compare the spectral diversity of ground-truth clips against the consistent flattened
-      character of the generated outputs.
+      Continuation conditions on the first 80% of the audio plus the paired RGB and caption;
+      class-only generation conditions on the label alone (audio fully masked). Compare the
+      spectral diversity of the ground-truth clips against the consistent flattened character the
+      model's outputs collapse to.
     </p>
   </section>
 

@@ -10,25 +10,25 @@
 
   <!-- 1 waveform -->
   <rect x="16" y="50" width="150" height="100" rx="9" fill="#fff" stroke="#e4e4dd" stroke-width="1.5"/>
-  <polyline points="30,100 42,80 52,118 64,72 76,124 88,86 100,112 112,90 124,108 136,96 150,100" fill="none" stroke="#1F6FEB" stroke-width="2.2"/>
+  <polyline points="30,100 42,80 52,118 64,72 76,124 88,86 100,112 112,90 124,108 136,96 150,100" fill="none" stroke="#42648a" stroke-width="2.2"/>
   <text class="s t" x="91" y="170" text-anchor="middle">Waveform</text>
   <text class="s sub" x="91" y="186" text-anchor="middle">~3.41 s · 24 kHz</text>
   <line x1="166" y1="100" x2="206" y2="100" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#ap)"/>
 
   <!-- 2 EnCodec -->
-  <rect x="206" y="50" width="150" height="100" rx="9" fill="#eef4fc" stroke="#1F6FEB" stroke-width="1.5"/>
-  <text class="s t" x="281" y="95" text-anchor="middle" fill="#0b3a6b">EnCodec</text>
-  <text class="s sub" x="281" y="112" text-anchor="middle" fill="#3d6a99">encoder</text>
+  <rect x="206" y="50" width="150" height="100" rx="9" fill="#eef1f4" stroke="#42648a" stroke-width="1.5"/>
+  <text class="s t" x="281" y="95" text-anchor="middle" fill="#2e3f52">EnCodec</text>
+  <text class="s sub" x="281" y="112" text-anchor="middle" fill="#4a5e72">encoder</text>
   <text class="s sub" x="281" y="170" text-anchor="middle">1.5 kbps · K=2 RVQ</text>
   <text class="s sub" x="281" y="186" text-anchor="middle">75 Hz</text>
   <line x1="356" y1="100" x2="396" y2="100" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#ap)"/>
 
   <!-- 3 two codebooks -->
   <rect x="396" y="50" width="176" height="100" rx="9" fill="#fff" stroke="#e4e4dd" stroke-width="1.5"/>
-  <text class="s sub" x="412" y="78" fill="#1F6FEB" font-weight="700">cb1</text>
-  <g fill="#1F6FEB"><rect x="440" y="68" width="14" height="14" rx="2" opacity=".9"/><rect x="458" y="68" width="14" height="14" rx="2" opacity=".6"/><rect x="476" y="68" width="14" height="14" rx="2" opacity=".8"/><rect x="494" y="68" width="14" height="14" rx="2" opacity=".55"/><rect x="512" y="68" width="14" height="14" rx="2" opacity=".75"/><rect x="530" y="68" width="14" height="14" rx="2" opacity=".9"/></g>
-  <text class="s sub" x="412" y="112" fill="#7aa6e0" font-weight="700">cb2</text>
-  <g fill="#7aa6e0"><rect x="440" y="102" width="14" height="14" rx="2" opacity=".8"/><rect x="458" y="102" width="14" height="14" rx="2" opacity=".6"/><rect x="476" y="102" width="14" height="14" rx="2" opacity=".9"/><rect x="494" y="102" width="14" height="14" rx="2" opacity=".7"/><rect x="512" y="102" width="14" height="14" rx="2" opacity=".55"/><rect x="530" y="102" width="14" height="14" rx="2" opacity=".85"/></g>
+  <text class="s sub" x="412" y="78" fill="#42648a" font-weight="700">cb1</text>
+  <g fill="#42648a"><rect x="440" y="68" width="14" height="14" rx="2" opacity=".9"/><rect x="458" y="68" width="14" height="14" rx="2" opacity=".6"/><rect x="476" y="68" width="14" height="14" rx="2" opacity=".8"/><rect x="494" y="68" width="14" height="14" rx="2" opacity=".55"/><rect x="512" y="68" width="14" height="14" rx="2" opacity=".75"/><rect x="530" y="68" width="14" height="14" rx="2" opacity=".9"/></g>
+  <text class="s sub" x="412" y="112" fill="#8aa0b8" font-weight="700">cb2</text>
+  <g fill="#8aa0b8"><rect x="440" y="102" width="14" height="14" rx="2" opacity=".8"/><rect x="458" y="102" width="14" height="14" rx="2" opacity=".6"/><rect x="476" y="102" width="14" height="14" rx="2" opacity=".9"/><rect x="494" y="102" width="14" height="14" rx="2" opacity=".7"/><rect x="512" y="102" width="14" height="14" rx="2" opacity=".55"/><rect x="530" y="102" width="14" height="14" rx="2" opacity=".85"/></g>
   <text class="s sub" x="484" y="142" text-anchor="middle">256 frames × 2 codebooks</text>
   <line x1="572" y1="100" x2="612" y2="100" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#ap)"/>
 
@@ -41,8 +41,8 @@
   <line x1="762" y1="100" x2="802" y2="100" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#ap)"/>
 
   <!-- 5 512 tokens -->
-  <rect x="802" y="50" width="182" height="100" rx="9" fill="#eef4fc" stroke="#1F6FEB" stroke-width="1.5"/>
-  <g><rect x="818" y="86" width="11" height="14" rx="2" fill="#1F6FEB"/><rect x="831" y="86" width="11" height="14" rx="2" fill="#7aa6e0"/><rect x="844" y="86" width="11" height="14" rx="2" fill="#1F6FEB" opacity=".8"/><rect x="857" y="86" width="11" height="14" rx="2" fill="#7aa6e0" opacity=".8"/><rect x="870" y="86" width="11" height="14" rx="2" fill="#1F6FEB" opacity=".7"/><rect x="883" y="86" width="11" height="14" rx="2" fill="#7aa6e0" opacity=".7"/><rect x="896" y="86" width="11" height="14" rx="2" fill="#1F6FEB" opacity=".85"/><rect x="909" y="86" width="11" height="14" rx="2" fill="#7aa6e0" opacity=".6"/><rect x="922" y="86" width="11" height="14" rx="2" fill="#1F6FEB" opacity=".6"/><rect x="935" y="86" width="11" height="14" rx="2" fill="#7aa6e0" opacity=".9"/><rect x="948" y="86" width="11" height="14" rx="2" fill="#1F6FEB" opacity=".75"/><rect x="961" y="86" width="11" height="14" rx="2" fill="#7aa6e0" opacity=".7"/></g>
-  <text class="s t" x="893" y="135" text-anchor="middle" fill="#0b3a6b">512 audio tokens</text>
+  <rect x="802" y="50" width="182" height="100" rx="9" fill="#eef1f4" stroke="#42648a" stroke-width="1.5"/>
+  <g><rect x="818" y="86" width="11" height="14" rx="2" fill="#42648a"/><rect x="831" y="86" width="11" height="14" rx="2" fill="#8aa0b8"/><rect x="844" y="86" width="11" height="14" rx="2" fill="#42648a" opacity=".8"/><rect x="857" y="86" width="11" height="14" rx="2" fill="#8aa0b8" opacity=".8"/><rect x="870" y="86" width="11" height="14" rx="2" fill="#42648a" opacity=".7"/><rect x="883" y="86" width="11" height="14" rx="2" fill="#8aa0b8" opacity=".7"/><rect x="896" y="86" width="11" height="14" rx="2" fill="#42648a" opacity=".85"/><rect x="909" y="86" width="11" height="14" rx="2" fill="#8aa0b8" opacity=".6"/><rect x="922" y="86" width="11" height="14" rx="2" fill="#42648a" opacity=".6"/><rect x="935" y="86" width="11" height="14" rx="2" fill="#8aa0b8" opacity=".9"/><rect x="948" y="86" width="11" height="14" rx="2" fill="#42648a" opacity=".75"/><rect x="961" y="86" width="11" height="14" rx="2" fill="#8aa0b8" opacity=".7"/></g>
+  <text class="s t" x="893" y="135" text-anchor="middle" fill="#2e3f52">512 audio tokens</text>
   <text class="s sub" x="893" y="186" text-anchor="middle">single shared sequence</text>
 </svg>

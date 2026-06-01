@@ -6,11 +6,11 @@
     .val{font-size:17px;font-weight:700}
     .lab{font-size:13px;font-weight:600;fill:#333}
     .note{font-size:11px;fill:#888}
-    .gap{font-size:12px;font-weight:700;fill:#0b3a6b}
+    .gap{font-size:12px;font-weight:700;fill:#2e3f52}
   </style>
   <defs>
-    <marker id="d2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M1,1 L7,4 L1,7 z" fill="#0b3a6b"/></marker>
-    <marker id="u2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M7,1 L1,4 L7,7 z" fill="#0b3a6b"/></marker>
+    <marker id="d2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M1,1 L7,4 L1,7 z" fill="#2e3f52"/></marker>
+    <marker id="u2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M7,1 L1,4 L7,7 z" fill="#2e3f52"/></marker>
   </defs>
   <rect x="0" y="0" width="560" height="430" fill="#ffffff"/>
 
@@ -33,12 +33,12 @@
   <rect x="150" y="112" width="100" height="248" rx="3" fill="#b9bfc6"/>
   <text class="s val" x="200" y="104" text-anchor="middle" fill="#5e6a76">6.2</text>
   <!-- CE bar -->
-  <rect x="330" y="152" width="100" height="208" rx="3" fill="#1F6FEB"/>
-  <text class="s val" x="380" y="144" text-anchor="middle" fill="#1F6FEB">5.2</text>
+  <rect x="330" y="152" width="100" height="208" rx="3" fill="#42648a"/>
+  <text class="s val" x="380" y="144" text-anchor="middle" fill="#42648a">5.2</text>
 
   <!-- gap annotation -->
   <line x1="250" y1="112" x2="448" y2="112" stroke="#9aa0a6" stroke-width="1" stroke-dasharray="4 3"/>
-  <line x1="448" y1="112" x2="448" y2="152" stroke="#0b3a6b" stroke-width="1.6" marker-start="url(#d2)" marker-end="url(#u2)"/>
+  <line x1="448" y1="112" x2="448" y2="152" stroke="#2e3f52" stroke-width="1.6" marker-start="url(#d2)" marker-end="url(#u2)"/>
   <text class="s gap" x="456" y="128">≈ 1.0 nat</text>
   <text class="s gap" x="456" y="143" font-weight="600" font-size="11">conditional</text>
   <text class="s gap" x="456" y="156" font-weight="600" font-size="11">structure</text>

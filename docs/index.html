@@ -12,7 +12,7 @@
 <meta property="og:title" content="Nano4M-Audio: Adding Audio as a 5th Modality to the 4M Architecture">
 <meta property="og:description" content="A controlled study of cross-modal alignment with audio at small scale (COM-304, EPFL).">
 <meta property="og:image" content="assets/img/method.svg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230066CC'/%3E%3Ctext x='16' y='22' font-size='17' font-family='Georgia,serif' fill='white' text-anchor='middle'%3E4M%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -20,14 +20,14 @@
 
 <!-- mobile top bar -->
 <header class="topbar">
-  <a class="topbar-brand" href="#top">nano4M-Audio</a>
+  <a class="topbar-brand" href="#top"><img class="topbar-logo" src="assets/img/logo.png" alt="">nano4M-Audio</a>
   <button id="navToggle" class="nav-toggle" aria-label="Open section navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
 </header>
 
 <!-- sticky section navigation -->
 <nav id="sidebar" class="sidebar" aria-label="Section navigation">
-  <a class="brand" href="#top">nano4M&#8209;Audio</a>
-  <p class="brand-sub">5th-modality study</p>
+  <a class="brand" href="#top"><img class="brand-logo" src="assets/img/logo.png" alt="4M-Audio logo"><span>nano4M&#8209;Audio</span></a>
+  <p class="brand-sub">audio as a 5th modality</p>
   <ul class="nav-list">
     <li><a href="#summary">Summary</a></li>
     <li><a href="#journey">Data journey</a></li>
@@ -47,7 +47,8 @@
 
   <!-- ===================== 1. HERO ===================== -->
   <section id="top" class="hero">
-    <span class="badge">COM-304 · Foundation Models · Spring 2026 · EPFL</span>
+    <img class="hero-logo" src="assets/img/logo.png" alt="4M-Audio logo" width="104" height="104">
+    <p class="venue">COM-304 · Foundation Models · EPFL · Spring 2026</p>
     <h1>Nano4M-Audio: Adding Audio as a 5th Modality to the 4M Architecture</h1>
     <p class="subtitle">A controlled study of cross-modal alignment with audio at small scale.</p>
     <p class="authors">
@@ -545,28 +546,22 @@
   <!-- ===================== 10. TEAM ===================== -->
   <section id="team" class="prose">
     <h2>Team</h2>
-    <div class="cards team-cards">
-      <article class="card author">
-        <div class="avatar" aria-hidden="true">ZM</div>
+    <div class="authors-list">
+      <div class="author">
         <h3>Ziyad Mellal</h3>
-        <p class="role">Data pipeline &amp; tokenizers — download, PANNs/CLIP/VAD filtering, deduplication, clip-level splits, and the five tokenizers including the EnCodec delay-flatten audio path.</p>
-        <p class="sciper">SCIPER 000000</p>
-        <p class="links"><a href="#" aria-label="Email Ziyad">✉</a> <a href="#" aria-label="Ziyad on GitHub">GitHub</a> <a href="#" aria-label="Ziyad on LinkedIn">LinkedIn</a></p>
-      </article>
-      <article class="card author">
-        <div class="avatar" aria-hidden="true">HB</div>
+        <p class="role">Data pipeline and tokenizers: download, PANNs/CLIP/VAD filtering, deduplication, the clip-level splits, and the five tokenizers including the EnCodec delay-flatten audio path.</p>
+        <p class="meta">SCIPER 000000 · <a href="#">GitHub</a> · <a href="#">email</a></p>
+      </div>
+      <div class="author">
         <h3>Hassan Baddour</h3>
-        <p class="role">Training infrastructure &amp; ablations — the span-masking patch, unified-vocab config, precision and empty-encoder debugging, and the scaling and model-size sweeps.</p>
-        <p class="sciper">SCIPER 000000</p>
-        <p class="links"><a href="#" aria-label="Email Hassan">✉</a> <a href="#" aria-label="Hassan on GitHub">GitHub</a> <a href="#" aria-label="Hassan on LinkedIn">LinkedIn</a></p>
-      </article>
-      <article class="card author">
-        <div class="avatar" aria-hidden="true">MF</div>
+        <p class="role">Training infrastructure and ablations: the span-masking patch, the unified-vocab config, precision and empty-encoder debugging, and the scaling and model-size sweeps.</p>
+        <p class="meta">SCIPER 000000 · <a href="#">GitHub</a> · <a href="#">email</a></p>
+      </div>
+      <div class="author">
         <h3>Marc Farhat</h3>
-        <p class="role">Evaluation &amp; figures — per-modality CE, classification, retrieval, conditional generation, external-classifier validation, and the figures.</p>
-        <p class="sciper">SCIPER 000000</p>
-        <p class="links"><a href="#" aria-label="Email Marc">✉</a> <a href="#" aria-label="Marc on GitHub">GitHub</a> <a href="#" aria-label="Marc on LinkedIn">LinkedIn</a></p>
-      </article>
+        <p class="role">Evaluation and figures: per-modality CE, classification, retrieval, conditional generation, the external-classifier validation, and the report figures.</p>
+        <p class="meta">SCIPER 000000 · <a href="#">GitHub</a> · <a href="#">email</a></p>
+      </div>
     </div>
 
     <div class="ack">
@@ -578,11 +573,9 @@
       </p>
     </div>
 
+    <h3 class="cite-h">Citation</h3>
     <div class="bibtex-block">
-      <div class="bibtex-head">
-        <h3>Cite this work</h3>
-        <button id="copyBib" class="copy-btn" type="button" aria-label="Copy BibTeX to clipboard">Copy</button>
-      </div>
+      <button id="copyBib" class="copy-btn" type="button" aria-label="Copy BibTeX to clipboard">copy</button>
       <pre id="bibtex"><code>@misc{nano4m-audio-2026,
   author      = {Mellal, Ziyad and Baddour, Hassan and Farhat, Marc},
   title       = {Nano4M-Audio: Adding Audio as a 5th Modality to the 4M Architecture},

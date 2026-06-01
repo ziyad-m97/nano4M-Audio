@@ -7,13 +7,13 @@
     .sub{font-size:10.5px;fill:#6b6b6b}
     .pill{font-size:10px;font-weight:600;fill:#fff}
     .hdr{font-size:12px;font-weight:700;letter-spacing:1.2px;fill:#9a9a92}
-    .big{font-size:24px;font-weight:700;fill:#0b3a6b}
+    .big{font-size:24px;font-weight:700;fill:#2e3f52}
   </style>
   <defs>
     <marker id="j" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 z" fill="#9aa0a6"/></marker>
     <linearGradient id="depthg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#454a52"/><stop offset="1" stop-color="#e6e8ea"/></linearGradient>
     <linearGradient id="normg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a86d8"/><stop offset="0.55" stop-color="#9b76c8"/><stop offset="1" stop-color="#6fb89a"/></linearGradient>
-    <linearGradient id="specg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0b2e63"/><stop offset="0.5" stop-color="#1F6FEB"/><stop offset="1" stop-color="#bcd4f2"/></linearGradient>
+    <linearGradient id="specg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0b2e63"/><stop offset="0.5" stop-color="#42648a"/><stop offset="1" stop-color="#c9d2dc"/></linearGradient>
     <!-- recolorable dog silhouette (no fill -> inherits from <use fill>) -->
     <g id="dog">
       <path d="M12,30 L6,6 L30,26 Z"/><path d="M40,26 L48,4 L58,28 Z"/>
@@ -32,16 +32,16 @@
   <!-- raw clip -->
   <rect x="40" y="46" width="180" height="100" rx="10" fill="#fff" stroke="#e4e4dd" stroke-width="1.5"/>
   <g fill="#cfd4da"><rect x="56" y="60" width="32" height="24" rx="2"/><rect x="92" y="60" width="32" height="24" rx="2"/><rect x="128" y="60" width="32" height="24" rx="2"/><rect x="164" y="60" width="34" height="24" rx="2"/></g>
-  <polyline points="56,108 70,96 82,120 96,90 110,122 124,100 138,114 152,98 166,116 180,104 198,108" fill="none" stroke="#1F6FEB" stroke-width="2"/>
+  <polyline points="56,108 70,96 82,120 96,90 110,122 124,100 138,114 152,98 166,116 180,104 198,108" fill="none" stroke="#42648a" stroke-width="2"/>
   <text class="s t" x="130" y="138" text-anchor="middle">Raw 10 s clip</text>
   <text class="s sub" x="130" y="162" text-anchor="middle">AudioSet · VGGSound · ~50k candidates</text>
   <line x1="222" y1="96" x2="266" y2="96" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#j)"/>
 
   <!-- 3-stage filter -->
   <g>
-    <rect x="278" y="52" width="140" height="20" rx="10" fill="#1F6FEB"/><text class="s pill" x="348" y="66" text-anchor="middle">PANNs ≥ 0.30</text>
-    <rect x="278" y="80" width="140" height="20" rx="10" fill="#2E8B57"/><text class="s pill" x="348" y="94" text-anchor="middle">CLIP ≥ 0.25</text>
-    <rect x="278" y="108" width="140" height="20" rx="10" fill="#C9A227"/><text class="s pill" x="348" y="122" text-anchor="middle">Silero VAD = 0</text>
+    <rect x="278" y="52" width="140" height="20" rx="10" fill="#42648a"/><text class="s pill" x="348" y="66" text-anchor="middle">PANNs ≥ 0.30</text>
+    <rect x="278" y="80" width="140" height="20" rx="10" fill="#9a9a92"/><text class="s pill" x="348" y="94" text-anchor="middle">CLIP ≥ 0.25</text>
+    <rect x="278" y="108" width="140" height="20" rx="10" fill="#9a9a92"/><text class="s pill" x="348" y="122" text-anchor="middle">Silero VAD = 0</text>
     <text class="s sub" x="348" y="162" text-anchor="middle">3-stage oracle filter</text>
   </g>
   <line x1="420" y1="96" x2="464" y2="96" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#j)"/>
@@ -55,7 +55,7 @@
   <line x1="628" y1="96" x2="672" y2="96" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#j)"/>
 
   <!-- tally -->
-  <rect x="684" y="46" width="150" height="100" rx="10" fill="#eef4fc" stroke="#1F6FEB" stroke-width="1.5"/>
+  <rect x="684" y="46" width="150" height="100" rx="10" fill="#eef1f4" stroke="#42648a" stroke-width="1.5"/>
   <text class="s big serif" x="759" y="96" text-anchor="middle">9,192</text>
   <text class="s sub" x="759" y="116" text-anchor="middle">clips kept · 11 classes</text>
   <text class="s sub" x="759" y="162" text-anchor="middle">leakage-free clip-level split</text>
@@ -67,7 +67,7 @@
   <!-- ===== bottom band: 5 modality tiles ===== -->
   <!-- RGB -->
   <g>
-    <rect x="40" y="226" width="152" height="150" rx="10" fill="#fff" stroke="#E0742F" stroke-width="1.8"/>
+    <rect x="40" y="226" width="152" height="150" rx="10" fill="#fff" stroke="#9a9a92" stroke-width="1.8"/>
     <rect x="52" y="238" width="128" height="100" rx="4" fill="#cfe3f5"/><rect x="52" y="300" width="128" height="38" fill="#cdbb94"/>
     <use href="#dog" fill="#3a3a3a" transform="translate(72,276) scale(0.5)"/>
     <text class="s t" x="116" y="356" text-anchor="middle">RGB</text>
@@ -75,7 +75,7 @@
   </g>
   <!-- Depth -->
   <g>
-    <rect x="232" y="226" width="152" height="150" rx="10" fill="#fff" stroke="#2E8B57" stroke-width="1.8"/>
+    <rect x="232" y="226" width="152" height="150" rx="10" fill="#fff" stroke="#9a9a92" stroke-width="1.8"/>
     <rect x="244" y="238" width="128" height="100" rx="4" fill="url(#depthg)"/>
     <use href="#dog" fill="#9aa0a6" transform="translate(264,276) scale(0.5)"/>
     <text class="s t" x="308" y="356" text-anchor="middle">Depth</text>
@@ -83,7 +83,7 @@
   </g>
   <!-- Normals -->
   <g>
-    <rect x="424" y="226" width="152" height="150" rx="10" fill="#fff" stroke="#8E44AD" stroke-width="1.8"/>
+    <rect x="424" y="226" width="152" height="150" rx="10" fill="#fff" stroke="#9a9a92" stroke-width="1.8"/>
     <rect x="436" y="238" width="128" height="100" rx="4" fill="url(#normg)"/>
     <use href="#dog" fill="#6fe0a6" transform="translate(456,276) scale(0.5)"/>
     <text class="s t" x="500" y="356" text-anchor="middle">Surface normals</text>
@@ -91,21 +91,21 @@
   </g>
   <!-- Audio -->
   <g>
-    <rect x="616" y="226" width="152" height="150" rx="10" fill="#fff" stroke="#1F6FEB" stroke-width="1.8"/>
+    <rect x="616" y="226" width="152" height="150" rx="10" fill="#fff" stroke="#42648a" stroke-width="1.8"/>
     <rect x="628" y="238" width="128" height="58" rx="4" fill="url(#specg)"/>
-    <text class="s sub" x="634" y="312" fill="#1F6FEB" font-weight="700">cb1</text>
-    <g fill="#1F6FEB"><rect x="660" y="302" width="12" height="12" rx="2" opacity=".9"/><rect x="676" y="302" width="12" height="12" rx="2" opacity=".6"/><rect x="692" y="302" width="12" height="12" rx="2" opacity=".8"/><rect x="708" y="302" width="12" height="12" rx="2" opacity=".55"/><rect x="724" y="302" width="12" height="12" rx="2" opacity=".75"/><rect x="740" y="302" width="12" height="12" rx="2" opacity=".9"/></g>
-    <text class="s sub" x="634" y="332" fill="#7aa6e0" font-weight="700">cb2</text>
-    <g fill="#7aa6e0"><rect x="660" y="322" width="12" height="12" rx="2" opacity=".8"/><rect x="676" y="322" width="12" height="12" rx="2" opacity=".6"/><rect x="692" y="322" width="12" height="12" rx="2" opacity=".9"/><rect x="708" y="322" width="12" height="12" rx="2" opacity=".7"/><rect x="724" y="322" width="12" height="12" rx="2" opacity=".55"/><rect x="740" y="322" width="12" height="12" rx="2" opacity=".85"/></g>
+    <text class="s sub" x="634" y="312" fill="#42648a" font-weight="700">cb1</text>
+    <g fill="#42648a"><rect x="660" y="302" width="12" height="12" rx="2" opacity=".9"/><rect x="676" y="302" width="12" height="12" rx="2" opacity=".6"/><rect x="692" y="302" width="12" height="12" rx="2" opacity=".8"/><rect x="708" y="302" width="12" height="12" rx="2" opacity=".55"/><rect x="724" y="302" width="12" height="12" rx="2" opacity=".75"/><rect x="740" y="302" width="12" height="12" rx="2" opacity=".9"/></g>
+    <text class="s sub" x="634" y="332" fill="#8aa0b8" font-weight="700">cb2</text>
+    <g fill="#8aa0b8"><rect x="660" y="322" width="12" height="12" rx="2" opacity=".8"/><rect x="676" y="322" width="12" height="12" rx="2" opacity=".6"/><rect x="692" y="322" width="12" height="12" rx="2" opacity=".9"/><rect x="708" y="322" width="12" height="12" rx="2" opacity=".7"/><rect x="724" y="322" width="12" height="12" rx="2" opacity=".55"/><rect x="740" y="322" width="12" height="12" rx="2" opacity=".85"/></g>
     <text class="s t" x="692" y="356" text-anchor="middle">Audio</text>
     <text class="s sub" x="692" y="371" text-anchor="middle">EnCodec 24k · 512 tok</text>
   </g>
   <!-- Caption -->
   <g>
-    <rect x="808" y="226" width="152" height="150" rx="10" fill="#fff" stroke="#C9A227" stroke-width="1.8"/>
+    <rect x="808" y="226" width="152" height="150" rx="10" fill="#fff" stroke="#9a9a92" stroke-width="1.8"/>
     <rect x="820" y="238" width="128" height="100" rx="4" fill="#fdf8ec"/>
-    <text class="serif" x="884" y="284" text-anchor="middle" font-size="15" font-style="italic" fill="#7a6300">“a photo</text>
-    <text class="serif" x="884" y="306" text-anchor="middle" font-size="15" font-style="italic" fill="#7a6300">of a dog”</text>
+    <text class="serif" x="884" y="284" text-anchor="middle" font-size="15" font-style="italic" fill="#6b6b6b">“a photo</text>
+    <text class="serif" x="884" y="306" text-anchor="middle" font-size="15" font-style="italic" fill="#6b6b6b">of a dog”</text>
     <text class="s t" x="884" y="356" text-anchor="middle">Caption</text>
     <text class="s sub" x="884" y="371" text-anchor="middle">GPT-2 BPE</text>
   </g>

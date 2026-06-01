@@ -16,28 +16,28 @@
     <!-- P1 RGB -->
     <rect x="30" y="80" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
     <text class="s ttl" x="42" y="102">RGB · 9.7 → 9.2</text>
-    <polyline points="55,118 130,150 220,168 320,176 375,180" fill="none" stroke="#E0742F" stroke-width="2"/>
-    <polyline points="55,122 130,154 220,172 320,180 375,184" fill="none" stroke="#E0742F" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+    <polyline points="55,118 130,150 220,168 320,176 375,180" fill="none" stroke="#9a9a92" stroke-width="2"/>
+    <polyline points="55,122 130,154 220,172 320,180 375,184" fill="none" stroke="#9a9a92" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
     <!-- P2 Audio -->
     <rect x="410" y="80" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
     <text class="s ttl" x="422" y="102">Audio · 6.75 → 5.2</text>
-    <polyline points="435,112 510,140 600,164 700,180 755,186" fill="none" stroke="#1F6FEB" stroke-width="2"/>
-    <polyline points="435,116 510,144 600,168 700,184 755,190" fill="none" stroke="#1F6FEB" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+    <polyline points="435,112 510,140 600,164 700,180 755,186" fill="none" stroke="#42648a" stroke-width="2"/>
+    <polyline points="435,116 510,144 600,168 700,184 755,190" fill="none" stroke="#42648a" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
     <!-- P3 Depth -->
     <rect x="790" y="80" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
     <text class="s ttl" x="802" y="102">Depth · 6.3 → 5.1</text>
-    <polyline points="815,120 890,150 980,176 1080,192 1135,198" fill="none" stroke="#2E8B57" stroke-width="2"/>
-    <polyline points="815,124 890,154 980,180 1080,196 1135,202" fill="none" stroke="#2E8B57" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+    <polyline points="815,120 890,150 980,176 1080,192 1135,198" fill="none" stroke="#9a9a92" stroke-width="2"/>
+    <polyline points="815,124 890,154 980,180 1080,196 1135,202" fill="none" stroke="#9a9a92" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
     <!-- P4 Normals -->
     <rect x="30" y="290" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
     <text class="s ttl" x="42" y="312">Normals · 4.7 → 3.5</text>
-    <polyline points="55,332 130,368 220,398 320,414 375,420" fill="none" stroke="#8E44AD" stroke-width="2"/>
-    <polyline points="55,336 130,372 220,402 320,418 375,424" fill="none" stroke="#8E44AD" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+    <polyline points="55,332 130,368 220,398 320,414 375,420" fill="none" stroke="#9a9a92" stroke-width="2"/>
+    <polyline points="55,336 130,372 220,402 320,418 375,424" fill="none" stroke="#9a9a92" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
     <!-- P5 Caption -->
     <rect x="410" y="290" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
     <text class="s ttl" x="422" y="312">Caption · → 0.05</text>
-    <polyline points="435,318 480,400 540,440 650,452 755,454" fill="none" stroke="#C9A227" stroke-width="2"/>
-    <polyline points="435,322 480,404 540,444 650,456 755,458" fill="none" stroke="#C9A227" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+    <polyline points="435,318 480,400 540,440 650,452 755,454" fill="none" stroke="#9a9a92" stroke-width="2"/>
+    <polyline points="435,322 480,404 540,444 650,456 755,458" fill="none" stroke="#9a9a92" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
     <!-- P6 Total -->
     <rect x="790" y="290" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
     <text class="s ttl" x="802" y="312">Total loss</text>

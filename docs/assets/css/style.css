@@ -65,7 +65,8 @@ p{margin:0 0 1em}
   backdrop-filter:saturate(140%) blur(6px);
   border-bottom:1px solid var(--border);
 }
-.topbar-brand{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink)}
+.topbar-brand{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px}
+.topbar-logo{width:26px;height:26px}
 .topbar-brand:hover{text-decoration:none}
 .nav-toggle{
   font-size:1.4rem;line-height:1;background:none;border:1px solid var(--border);
@@ -78,17 +79,18 @@ p{margin:0 0 1em}
   padding:34px 24px;border-right:1px solid var(--border);
   background:var(--bg);overflow-y:auto;z-index:50;
 }
-.brand{font-family:var(--serif);font-size:1.55rem;font-weight:600;color:var(--ink);display:block;line-height:1.1}
+.brand{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:10px;line-height:1.1}
+.brand-logo{width:34px;height:34px;flex:none}
 .brand:hover{text-decoration:none}
 .brand-sub{font-size:.8rem;color:var(--soft);margin:.2em 0 1.6em}
 .nav-list{list-style:none;margin:0;padding:0}
 .nav-list li{margin:0}
 .nav-list a{
-  display:block;padding:7px 12px;margin:1px 0;border-radius:7px;
-  color:var(--gray);font-size:.93rem;border-left:3px solid transparent;
+  display:block;padding:6px 12px;margin:1px 0;
+  color:var(--gray);font-size:.93rem;border-left:2px solid transparent;
 }
-.nav-list a:hover{color:var(--accent);background:var(--accent-bg);text-decoration:none}
-.nav-list a.active{color:var(--accent-dk);background:var(--accent-bg);border-left-color:var(--accent);font-weight:600}
+.nav-list a:hover{color:var(--ink);text-decoration:none}
+.nav-list a.active{color:var(--ink);border-left-color:#1a1a1a;font-weight:600}
 .nav-foot{margin-top:24px;padding-top:16px;border-top:1px solid var(--border);font-size:.74rem;color:var(--soft)}
 
 /* ---------- main ---------- */
@@ -98,15 +100,12 @@ section{scroll-margin-top:24px}
 
 /* ---------- hero ---------- */
 .hero{
-  min-height:84vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:72px 24px 56px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:52px 24px 48px;
 }
-.badge{
-  display:inline-block;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--accent-dk);background:var(--accent-bg);border:1px solid #d4e3f6;
-  padding:6px 14px;border-radius:20px;margin-bottom:26px;font-weight:600;
-}
-.hero h1{font-size:clamp(2rem,4.6vw,3.15rem);max-width:16ch;margin:0 0 .35em}
+.hero-logo{width:104px;height:104px;display:block;margin:0 auto 20px}
+.venue{font-size:.8rem;letter-spacing:.02em;color:var(--gray);margin:0 0 16px;font-weight:500}
+.hero h1{font-size:clamp(1.85rem,3.7vw,2.75rem);max-width:24ch;margin:0 0 .4em;text-wrap:balance}
 .subtitle{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--gray);max-width:42ch;margin:0 0 1.4em}
 .authors{font-size:1rem;color:var(--ink);margin:0 0 2em;max-width:60ch}
 .authors-sup{color:var(--gray)}
@@ -172,26 +171,22 @@ thead th{background:#f3f3ee;font-family:var(--sans);font-weight:600;color:var(--
 .card .lever{margin:14px 0 0;padding-top:12px;border-top:1px dashed var(--border);font-size:.9rem;color:#444}
 
 /* team */
-.team-cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.author{text-align:center}
-.avatar{width:66px;height:66px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--serif);
-  font-size:1.5rem;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-weight:600}
-.author h3{margin:0 0 .4em;font-size:1.2rem}
-.author .role{font-size:.88rem;color:var(--gray);line-height:1.55}
-.author .sciper{font-family:var(--mono);font-size:.78rem;color:var(--soft);margin:.4em 0}
-.author .links{font-size:.85rem;margin:.6em 0 0}
-.author .links a{margin:0 4px}
+.authors-list{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin:6px 0 4px}
+.author h3{margin:0 0 .35em;font-size:1.12rem}
+.author .role{font-size:.9rem;color:var(--gray);line-height:1.6;margin:0 0 .5em}
+.author .meta{font-family:var(--mono);font-size:.76rem;color:var(--soft);margin:0}
+.author .meta a{font-family:var(--sans)}
+@media (max-width:760px){.authors-list{grid-template-columns:1fr;gap:22px}}
 
 /* acknowledgements + bibtex */
 .ack{margin-top:36px}
-.bibtex-block{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-top:28px}
-.bibtex-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.bibtex-head h3{margin:0;font-size:1.15rem}
-.copy-btn{font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--accent);background:#fff;
-  border:1px solid var(--border);border-radius:7px;padding:6px 14px;cursor:pointer}
-.copy-btn:hover{border-color:var(--accent);background:var(--accent-bg)}
-.copy-btn.copied{color:#1a7a3c;border-color:#bfe3c8;background:#eefaf0}
-.bibtex-block pre{background:#f5f5f0;border:1px solid var(--border-soft);border-radius:8px;padding:16px;overflow-x:auto;margin:14px 0 0}
+.cite-h{margin-top:34px;margin-bottom:.45em}
+.bibtex-block{position:relative;margin-top:4px}
+.copy-btn{position:absolute;top:12px;right:14px;font-family:var(--sans);font-size:.74rem;color:var(--gray);
+  background:transparent;border:0;border-bottom:1px dashed var(--soft);padding:1px 0;cursor:pointer}
+.copy-btn:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.copy-btn.copied{color:#1a7a3c;border-bottom-color:#1a7a3c}
+.bibtex-block pre{background:#f5f5f0;border:1px solid var(--border-soft);border-radius:8px;padding:16px;overflow-x:auto;margin:0}
 .bibtex-block code{background:none;padding:0;font-size:.84rem;line-height:1.5;color:#2a2a2a}
 
 /* audio demo */

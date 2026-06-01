@@ -4,7 +4,7 @@
     .s{font-family:'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
     .t{font-size:14px;font-weight:700;fill:#1a1a1a}
     .sub{font-size:10.5px;fill:#6b6b6b}
-    .end{font-size:12.5px;font-weight:700;fill:#0b3a6b}
+    .end{font-size:12.5px;font-weight:700;fill:#2e3f52}
   </style>
   <defs><marker id="dp" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L7,3 L0,6 z" fill="#9aa0a6"/></marker></defs>
   <rect x="0" y="0" width="1040" height="210" fill="#ffffff"/>
@@ -17,30 +17,30 @@
   <line x1="192" y1="80" x2="220" y2="80" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#dp)"/>
 
   <!-- box 2 PANNs -->
-  <rect x="224" y="28" width="176" height="104" rx="9" fill="#fff" stroke="#cfe0f7" stroke-width="1.5"/>
-  <polyline points="288,58 298,44 306,68 314,40 322,66 332,50 340,58" fill="none" stroke="#1F6FEB" stroke-width="2"/>
+  <rect x="224" y="28" width="176" height="104" rx="9" fill="#fff" stroke="#d3dae1" stroke-width="1.5"/>
+  <polyline points="288,58 298,44 306,68 314,40 322,66 332,50 340,58" fill="none" stroke="#42648a" stroke-width="2"/>
   <text class="s t" x="312" y="98" text-anchor="middle">PANNs filter</text>
   <text class="s sub" x="312" y="115" text-anchor="middle">audio score ≥ 0.30</text>
   <line x1="400" y1="80" x2="428" y2="80" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#dp)"/>
 
   <!-- box 3 CLIP -->
-  <rect x="432" y="28" width="176" height="104" rx="9" fill="#fff" stroke="#cfe0f7" stroke-width="1.5"/>
-  <circle cx="520" cy="54" r="13" fill="none" stroke="#2E8B57" stroke-width="2.4"/><circle cx="520" cy="54" r="4.5" fill="#2E8B57"/>
+  <rect x="432" y="28" width="176" height="104" rx="9" fill="#fff" stroke="#d3dae1" stroke-width="1.5"/>
+  <circle cx="520" cy="54" r="13" fill="none" stroke="#9a9a92" stroke-width="2.4"/><circle cx="520" cy="54" r="4.5" fill="#9a9a92"/>
   <text class="s t" x="520" y="98" text-anchor="middle">CLIP filter</text>
   <text class="s sub" x="520" y="115" text-anchor="middle">img–text cos ≥ 0.25</text>
   <line x1="608" y1="80" x2="636" y2="80" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#dp)"/>
 
   <!-- box 4 VAD -->
-  <rect x="640" y="28" width="176" height="104" rx="9" fill="#fff" stroke="#cfe0f7" stroke-width="1.5"/>
+  <rect x="640" y="28" width="176" height="104" rx="9" fill="#fff" stroke="#d3dae1" stroke-width="1.5"/>
   <g><rect x="722" y="42" width="13" height="22" rx="6" fill="#c44"/><rect x="715" y="64" width="27" height="4" rx="2" fill="#c44"/><line x1="712" y1="40" x2="746" y2="70" stroke="#c44" stroke-width="2.4"/></g>
   <text class="s t" x="728" y="98" text-anchor="middle">Silero VAD</text>
   <text class="s sub" x="728" y="115" text-anchor="middle">no human speech</text>
   <line x1="816" y1="80" x2="844" y2="80" stroke="#9aa0a6" stroke-width="1.6" marker-end="url(#dp)"/>
 
   <!-- box 5 tokenize -->
-  <rect x="848" y="28" width="176" height="104" rx="9" fill="#eef4fc" stroke="#1F6FEB" stroke-width="1.5"/>
-  <g><rect x="906" y="42" width="12" height="12" rx="2" fill="#E0742F"/><rect x="920" y="42" width="12" height="12" rx="2" fill="#1F6FEB"/><rect x="934" y="42" width="12" height="12" rx="2" fill="#2E8B57"/><rect x="906" y="56" width="12" height="12" rx="2" fill="#8E44AD"/><rect x="920" y="56" width="12" height="12" rx="2" fill="#C9A227"/><rect x="934" y="56" width="12" height="12" rx="2" fill="#9aa0a6"/></g>
-  <text class="s t" x="936" y="98" text-anchor="middle" fill="#0b3a6b">Tokenize</text>
+  <rect x="848" y="28" width="176" height="104" rx="9" fill="#eef1f4" stroke="#42648a" stroke-width="1.5"/>
+  <g><rect x="906" y="42" width="12" height="12" rx="2" fill="#9a9a92"/><rect x="920" y="42" width="12" height="12" rx="2" fill="#42648a"/><rect x="934" y="42" width="12" height="12" rx="2" fill="#9a9a92"/><rect x="906" y="56" width="12" height="12" rx="2" fill="#9a9a92"/><rect x="920" y="56" width="12" height="12" rx="2" fill="#9a9a92"/><rect x="934" y="56" width="12" height="12" rx="2" fill="#9aa0a6"/></g>
+  <text class="s t" x="936" y="98" text-anchor="middle" fill="#2e3f52">Tokenize</text>
   <text class="s sub" x="936" y="115" text-anchor="middle">5 modalities · 10 frames/clip</text>
 
   <!-- end annotation -->

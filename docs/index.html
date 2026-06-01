@@ -30,7 +30,6 @@
   <p class="brand-sub">audio as a 5th modality</p>
   <ul class="nav-list">
     <li><a href="#summary">Summary</a></li>
-    <li><a href="#journey">Data journey</a></li>
     <li><a href="#problem">The problem</a></li>
     <li><a href="#method">Method</a></li>
     <li><a href="#worked">What worked</a></li>
@@ -87,11 +86,10 @@
       single H100 in ~1h10.
     </p>
     <p>
-      Structural modalities (depth, surface normals) converge strongly — their reconstructions
-      are visibly correct. Caption-conditioned RGB generation produces recognizable class outputs.
-      Audio learns conditional structure at the token level (cross-entropy ~1 nat below the
-      marginal codebook entropy), but this signal does not lift to usable cross-modal
-      audio↔vision generation. We diagnose three specific causes — a train/inference masking
+      Structural modalities (depth, surface normals) are learned strongly in token space — their
+      cross-entropy drops the most, on clean pseudo-label targets. Audio learns conditional structure
+      at the token level (cross-entropy ~1 nat below the marginal codebook entropy), but neither this
+      nor full-image RGB synthesis lifts to usable cross-modal audio↔vision generation at our scale. We diagnose three specific causes — a train/inference masking
       mismatch, an acoustic-only EnCodec tokenizer, and a data-scale gap relative to the
       contrastive audio-visual literature — and propose a concrete validation path for each.
       <strong>The diagnostic, not the generation, is the contribution.</strong>
@@ -99,37 +97,6 @@
   </section>
 
   <!-- ===================== 2b. DATA JOURNEY ===================== -->
-  <section id="journey" class="prose">
-    <h2>From a clip to a training example</h2>
-    <p>
-      Every training example begins as a noisy ten-second web clip. A three-stage oracle — PANNs on
-      the audio, CLIP on the frames, and Silero VAD for silence — keeps only the clips where sound,
-      image, and the absence of speech agree on the class. Each survivor is decoded into ten keyframes
-      and five aligned token streams — RGB, depth, surface normals, EnCodec audio, and a class caption
-      — that the model consumes jointly.
-    </p>
-    <figure class="wide">
-      <video class="ex-video" controls preload="metadata" playsinline poster="assets/example/rgb.jpg">
-        <source src="assets/example/clip_dog.mp4" type="video/mp4">
-        Your browser does not support embedded video — the clip is a montage of the ten keyframes over the ground-truth audio.
-      </video>
-      <p class="ex-vidcap">A real clip — class <code>dog</code> (AudioSet&nbsp;<code>6srAUdAG-8c</code> @ 27&nbsp;s), kept by the oracle at PANNs&nbsp;1.08 · CLIP&nbsp;0.30 · VAD&nbsp;0.0.</p>
-      <div class="example-grid">
-        <div class="ex-tile"><img src="assets/example/rgb.jpg" alt="RGB keyframe of a dog" loading="lazy"><span class="lbl">RGB<span>real keyframe</span></span></div>
-        <div class="ex-tile"><img src="assets/example/depth.png" alt="Decoded depth map of the dog clip" loading="lazy"><span class="lbl">Depth<span>DAv2 → 4M-8k</span></span></div>
-        <div class="ex-tile"><img src="assets/example/normal.png" alt="Decoded surface normals of the dog clip" loading="lazy"><span class="lbl">Normals<span>DSINE → 4M-8k</span></span></div>
-        <div class="ex-tile ex-audio"><audio controls preload="none"><source src="assets/example/dog_audio.ogg" type="audio/ogg"><source src="assets/example/dog_audio.mp3" type="audio/mpeg">Audio not supported.</audio><span class="lbl">Audio<span>EnCodec · 512 tok</span></span></div>
-        <div class="ex-tile ex-cap"><div class="ex-quote">“a photo of a dog”</div><span class="lbl">Caption<span>GPT-2 BPE</span></span></div>
-      </div>
-      <figcaption>
-        One real clip, in full. The player is its ten keyframes over the ground-truth audio; the five
-        tiles are the aligned streams the model consumes — the real RGB keyframe, plus depth, surface
-        normals, and audio <strong>decoded from the exact tokens</strong> (depth/normals via the 4M-8k
-        DiVAE, audio via EnCodec). One training clip, shown to make the encoding concrete.
-      </figcaption>
-    </figure>
-  </section>
-
   <!-- ===================== 3. THE PROBLEM ===================== -->
   <section id="problem" class="prose">
     <h2>The problem</h2>
@@ -253,6 +220,25 @@
       <figcaption>Three oracle filters (PANNs, CLIP, Silero VAD) clean web-sourced clips before five-modality tokenization, yielding a leakage-free clip-level split.</figcaption>
     </figure>
 
+    <figure class="wide">
+      <video class="ex-video" controls preload="metadata" playsinline poster="assets/example/rgb.jpg">
+        <source src="assets/example/clip_dog.mp4" type="video/mp4">
+        Your browser does not support embedded video — the clip is a montage of the ten keyframes over the ground-truth audio.
+      </video>
+      <p class="ex-vidcap">A real clip — class <code>dog</code> (AudioSet&nbsp;<code>6srAUdAG-8c</code> @ 27&nbsp;s), kept by the oracle at PANNs&nbsp;1.08 · CLIP&nbsp;0.30 · VAD&nbsp;0.0.</p>
+      <div class="example-grid">
+        <div class="ex-tile"><img src="assets/example/rgb.jpg" alt="RGB keyframe of a dog" loading="lazy"><span class="lbl">RGB<span>real keyframe</span></span></div>
+        <div class="ex-tile ex-audio"><audio controls preload="none"><source src="assets/example/dog_audio.ogg" type="audio/ogg"><source src="assets/example/dog_audio.mp3" type="audio/mpeg">Audio not supported.</audio><span class="lbl">Audio<span>EnCodec · 512 tok</span></span></div>
+        <div class="ex-tile ex-cap"><div class="ex-quote">“a photo of a dog”</div><span class="lbl">Caption<span>GPT-2 BPE</span></span></div>
+      </div>
+      <figcaption>
+        One clip end-to-end: the player is its ten real keyframes over the ground-truth audio,
+        alongside the paired streams it becomes — the RGB keyframe, the EnCodec audio (512 tokens),
+        and the class caption. The depth and surface-normal targets are shown in
+        <a href="#worked">What worked</a>.
+      </figcaption>
+    </figure>
+
     <h3>Training</h3>
     <p>
       We train for <strong>18,311 steps</strong> (batch 64, ~600M tokens, ~1h10 on a single
@@ -270,8 +256,8 @@
   <section id="worked" class="prose">
     <h2>What worked: structural modalities</h2>
     <p class="lead-italic">
-      Depth and surface normals converge cleanly. Reconstructions are visibly correct, validating
-      that the 4M framework absorbs new structural modalities with minimal modification.
+      Depth and surface normals are the modalities the model learns most strongly — their token-level
+      cross-entropy drops the most, on clean, well-defined targets.
     </p>
     <p>
       Across 18,311 steps, depth eval cross-entropy falls ~1.2 nats (~6.3 → 5.1) and normals fall
@@ -283,27 +269,24 @@
 
     <figure class="wide">
       <img src="assets/img/training_curves.png" loading="lazy"
-           alt="Per-modality training and validation cross-entropy over 18,311 steps for RGB, audio, depth, normals, caption, and total loss."
-           onerror="this.onerror=null;this.src='assets/img/ph_training_curves.svg'">
+           alt="Six W&amp;B panels of per-modality evaluation cross-entropy over ~18k steps: RGB, surface normals, depth, audio, caption, and total loss, each decreasing.">
       <figcaption>
-        Per-modality eval cross-entropy over 18,311 steps. Train (solid) and val (dashed) track
-        tightly — clip-level stratification eliminates frame-level leakage. Four of five
-        modalities converge cleanly; RGB plateaus ~0.45 nats from random.
+        Per-modality evaluation cross-entropy over training (Weights &amp; Biases). Audio falls
+        6.75&nbsp;→&nbsp;5.2, depth 6.3&nbsp;→&nbsp;5.1, and normals 4.7&nbsp;→&nbsp;3.5; the caption
+        saturates near zero; RGB is the hardest and barely moves. The total loss decreases
+        monotonically.
       </figcaption>
     </figure>
 
-    <figure class="wide">
-      <img src="assets/img/reconstruction_gallery.png" loading="lazy"
-           alt="Three rows (RGB input, predicted depth, predicted surface normals) across six held-out test samples spanning different animal classes."
-           onerror="this.onerror=null;this.src='assets/img/ph_reconstruction_gallery.svg'">
+    <figure class="chart-fig">
+      <img src="assets/img/gt_structural.jpg" loading="lazy"
+           alt="Four samples (cat, mallard duck, lion, wild boar), each shown as an RGB photo, a Depth-Anything-V2 depth map, and the paired surface-normal map.">
       <figcaption>
-        Depth and normal reconstructions on held-out test samples. Animal silhouettes are clearly
-        distinguishable in both modalities — the model learned visual structure conditional on RGB
-        tokens without ever seeing ground-truth depth or normal labels (pseudo-labels via
-        Depth-Anything-V2 and DSINE). RGB→depth and RGB→normal token prediction each reach ~20%
-        token-level top-1 accuracy, far above a random-token baseline; pixel-space PSNR averages
-        ~21&nbsp;dB (tokenizer domain shift), but the cross-modal results are measured directly in
-        token space and are unaffected.
+        The structural targets the model is trained to predict: <strong>Depth-Anything-V2</strong>
+        depth and the paired surface normals, on representative samples. These pseudo-labels are clean
+        and well defined — RGB→depth and RGB→normal token prediction reach <strong>11%</strong> and
+        <strong>18%</strong> top-1 (≈1000× the 1/8192 random-token baseline), and their eval
+        cross-entropy drops ~1.2 nats each (above).
       </figcaption>
     </figure>
   </section>
@@ -312,42 +295,23 @@
   <section id="crossmodal" class="prose">
     <h2>Cross-modal generation</h2>
     <p class="lead-italic">
-      Given a strong conditioning signal, the model generates the corresponding visual output.
-      This isolates the audio failure as specifically about audio, not about the generative
-      framework itself.
+      The framework predicts structural modalities from RGB well above chance. Generating a full RGB
+      image from scratch is the hard part — and it stays hard for every conditioning, not only audio.
     </p>
     <p>
-      Before attributing any failure to audio, we validate the generation infrastructure in four
-      directions the original 4M handles canonically: caption→RGB, RGB→depth, RGB→normal, and
-      RGB→caption. For caption→RGB we condition on the class-caption template
-      <code>"a photo of a &lt;class&gt;"</code> and generate the 196 RGB tokens with 8-iteration
-      MaskGIT-style decoding, decoding to pixels through the 4M-16k DiVAE. Each direction is scored
-      by a metric tailored to its target: an external ImageNet ResNet-50 top-5 hit for caption→RGB,
-      SSIM for depth, cosine similarity for normals, and exact class match for the caption.
+      We probe the canonical 4M directions in token space. <strong>RGB→depth</strong> and
+      <strong>RGB→normal</strong> reach 11% and 18% token-level top-1 — roughly 1000× the 1/8192
+      random-token baseline — so deterministic structural prediction works. High-entropy image
+      synthesis is far harder at this scale: both caption→RGB and audio→RGB fail an external ImageNet
+      ResNet-50 check (≈0% top-5, against ~0.5–5% expected by chance), producing no class-recognizable
+      image. The limiting factor is RGB synthesis itself, not the conditioning modality.
     </p>
-
-    <figure class="wide">
-      <img src="assets/img/caption2rgb_gallery.png" loading="lazy"
-           alt="Two rows across eight samples: a caption label and the RGB image generated from it."
-           onerror="this.onerror=null;this.src='assets/img/ph_caption2rgb_gallery.svg'">
-      <figcaption>
-        Caption-conditioned RGB generation on held-out captions. Images are imperfect but
-        class-identifiable, validated by an external ImageNet ResNet-50 top-5 hit
-        (<span class="todo" title="Fill from eval_results/sanity_check_directions.json">XX%</span>;
-        random ~0.5%). This confirms the iterative generation framework functions when the
-        conditioning carries class information — the logical pivot for the audio analysis that
-        follows.
-      </figcaption>
-    </figure>
 
     <div class="callout">
       <p>
-        <strong>The contrast that matters.</strong> The same MaskGIT procedure that yields
-        class-identifiable images from a caption (ImageNet ResNet-50 top-5 hit
-        <span class="todo" title="Fill from eval_results/sanity_check_directions.json">XX%</span>,
-        random ~0.5%) yields <strong>0% recognizable images from audio</strong> (over 80 samples,
-        random ~5%). Identical decoder, identical objective — only the conditioning modality
-        changes. The bottleneck is audio, not the framework.
+        We therefore read the audio result through what is <strong>measurable</strong> — token-level
+        cross-entropy, classification, and retrieval — rather than through generated pixels, which
+        carry little signal at 10⁴ clips. That analysis is next.
       </p>
     </div>
   </section>

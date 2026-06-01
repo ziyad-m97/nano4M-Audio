@@ -243,7 +243,7 @@ thead th{background:#f3f3ee;font-family:var(--sans);font-weight:600;color:var(--
 .ex-video{display:block;width:100%;max-width:460px;margin:0 auto;border:1px solid var(--border);border-radius:10px;background:#000}
 .ex-vidcap{font-size:.82rem;color:var(--gray);text-align:center;margin:10px auto 20px;max-width:560px}
 .ex-vidcap code{font-size:.82em}
-.example-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.example-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:600px;margin:0 auto}
 .ex-tile{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px;text-align:center;display:flex;flex-direction:column}
 .ex-tile img{width:100%;border-radius:6px;display:block;aspect-ratio:4/3;object-fit:cover}
 .ex-tile .lbl{font-weight:600;font-size:.82rem;margin-top:8px;color:var(--ink)}

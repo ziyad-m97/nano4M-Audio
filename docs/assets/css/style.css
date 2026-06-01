@@ -24,7 +24,7 @@
   --serif:'Crimson Pro','Lora',Georgia,'Iowan Old Style','Times New Roman',serif;
   --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --sidebar-w:236px;
+  --sidebar-w:250px;
   --maxw:900px;
 }
 
@@ -79,8 +79,8 @@ p{margin:0 0 1em}
   padding:34px 24px;border-right:1px solid var(--border);
   background:var(--bg);overflow-y:auto;z-index:50;
 }
-.brand{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:10px;line-height:1.1}
-.brand-logo{width:34px;height:34px;flex:none}
+.brand{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px;line-height:1.1}
+.brand-logo{width:30px;height:30px;flex:none}
 .brand:hover{text-decoration:none}
 .brand-sub{font-size:.8rem;color:var(--soft);margin:.2em 0 1.6em}
 .nav-list{list-style:none;margin:0;padding:0}
@@ -117,6 +117,7 @@ section{scroll-margin-top:24px}
   color:var(--ink);font-size:.95rem;font-weight:500;transition:border-color .15s,color .15s,background .15s;
 }
 .btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+.btn-ico{flex:none;display:block}
 .btn-accent{background:var(--accent);border-color:var(--accent);color:#fff}
 .btn-accent:hover{background:var(--accent-dk);border-color:var(--accent-dk);color:#fff}
 

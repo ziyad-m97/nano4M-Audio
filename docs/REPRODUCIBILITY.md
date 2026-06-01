@@ -29,8 +29,8 @@ pulled from `apple/ml-4m`.
 
 **Fast path:**
 ```bash
-huggingface-cli download ziyad-m97/nano4m-audio-tokenized --repo-type dataset \
-    --local-dir data/tokenized_v5
+huggingface-cli download zed-m97/nano4m-audio-tokenized tokenized_v5.tar.gz \
+    --repo-type dataset --local-dir data/ && tar xzf data/tokenized_v5.tar.gz -C data/
 ```
 **Full path:** follow [`DATASET.md`](DATASET.md) (download → 3-stage filter → tokenize → split). The
 resulting `splits.json` must match the committed one (same seed 42, same data → same partition).
@@ -39,7 +39,7 @@ resulting `splits.json` must match the committed one (same seed 42, same data �
 
 **Download:**
 ```bash
-huggingface-cli download ziyad-m97/nano4m-audio checkpoint-final.safetensors \
+huggingface-cli download zed-m97/nano4m-audio checkpoint-final.safetensors \
     --local-dir outputs/animal_full_5mod_v5
 ```
 **Train from scratch:**

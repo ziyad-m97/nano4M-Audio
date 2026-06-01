@@ -12,8 +12,8 @@ classes**, drawn from AudioSet and VGGSound and cleaned by a three-stage oracle.
 Download the pre-tokenized dataset and skip to evaluation (see the main README):
 
 ```bash
-huggingface-cli download ziyad-m97/nano4m-audio-tokenized --repo-type dataset \
-    --local-dir data/tokenized_v5
+huggingface-cli download zed-m97/nano4m-audio-tokenized tokenized_v5.tar.gz \
+    --repo-type dataset --local-dir data/ && tar xzf data/tokenized_v5.tar.gz -C data/
 ```
 
 ## Classes

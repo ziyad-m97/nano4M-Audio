@@ -6,10 +6,10 @@ the per-clip metadata/manifests; everything else is hosted externally or rebuilt
 ## Fast path (graders)
 
 ```bash
-huggingface-cli download ziyad-m97/nano4m-audio-tokenized --repo-type dataset \
-    --local-dir data/tokenized_v5
+huggingface-cli download zed-m97/nano4m-audio-tokenized tokenized_v5.tar.gz \
+    --repo-type dataset --local-dir data/ && tar xzf data/tokenized_v5.tar.gz -C data/
 ```
-~500 MB; then follow the fast path in the main README.
+~200 MB tarball (extracts to `data/tokenized_v5/`); then follow the fast path in the main README.
 
 ## Tiers
 
@@ -17,7 +17,7 @@ huggingface-cli download ziyad-m97/nano4m-audio-tokenized --repo-type dataset \
 |---|---|---|---|
 | 1 | Raw VGGSound / AudioSet clips | ~50–100 GB | not redistributed — see [`../docs/DATASET.md`](../docs/DATASET.md) |
 | 2 | Filtered, paired clips | ~5–10 GB | host externally (HuggingFace) |
-| 3 | **Tokenized** `tok_rgb/audio/depth/normal` + `scene_desc` | ~500 MB | HuggingFace (`ziyad-m97/nano4m-audio-tokenized`) — what the eval needs |
+| 3 | **Tokenized** `tok_rgb/audio/depth/normal` + `scene_desc` | ~200 MB (.tar.gz) | HuggingFace (`zed-m97/nano4m-audio-tokenized`) — what the eval needs |
 
 ## `metadata/`
 
@@ -29,5 +29,5 @@ huggingface-cli download ziyad-m97/nano4m-audio-tokenized --repo-type dataset \
 
 The deterministic split (seed 42) is committed at the repo root: [`../splits.json`](../splits.json).
 
-> To upload the tokenized dataset yourself: `huggingface-cli upload ziyad-m97/nano4m-audio-tokenized
-> data/tokenized_v5 --repo-type dataset`.
+> To (re)upload: `tar czf tokenized_v5.tar.gz -C data tokenized_v5` then
+> `huggingface-cli upload zed-m97/nano4m-audio-tokenized tokenized_v5.tar.gz tokenized_v5.tar.gz --repo-type dataset`.

@@ -10,8 +10,8 @@
 - 🌐 **Project website:** https://ziyad-m97.github.io/nano4M-Audio/
 - 📄 **Report (PDF):** [`docs/assets/report.pdf`](docs/assets/report.pdf)
 - 🎤 **Slides (PDF):** [`docs/assets/slides.pdf`](docs/assets/slides.pdf)
-- 🤗 **Trained checkpoint:** _to upload_ → `ziyad-m97/nano4m-audio` (see [`outputs/README.md`](outputs/README.md))
-- 📊 **Tokenized dataset:** _to upload_ → `ziyad-m97/nano4m-audio-tokenized` (see [`data/README.md`](data/README.md))
+- 🤗 **Trained checkpoint:** _to upload_ → `zed-m97/nano4m-audio` (see [`outputs/README.md`](outputs/README.md))
+- 📊 **Tokenized dataset:** _to upload_ → `zed-m97/nano4m-audio-tokenized` (see [`data/README.md`](data/README.md))
 
 ## TL;DR
 
@@ -49,12 +49,12 @@ pip install -e .
 ### Fast path — reproduce the evaluation (~15 min, no training)
 
 ```bash
-# 1. Download the pre-tokenized dataset (~500 MB)  [host: HuggingFace — see data/README.md]
-huggingface-cli download ziyad-m97/nano4m-audio-tokenized --repo-type dataset \
-    --local-dir data/tokenized_v5
+# 1. Download the pre-tokenized dataset (~200 MB tarball)  [HuggingFace — see data/README.md]
+huggingface-cli download zed-m97/nano4m-audio-tokenized tokenized_v5.tar.gz \
+    --repo-type dataset --local-dir data/ && tar xzf data/tokenized_v5.tar.gz -C data/
 
 # 2. Download the trained checkpoint (~370 MB)      [see outputs/README.md]
-huggingface-cli download ziyad-m97/nano4m-audio checkpoint-final.safetensors \
+huggingface-cli download zed-m97/nano4m-audio checkpoint-final.safetensors \
     --local-dir outputs/animal_full_5mod_v5
 
 # 3. Run the evaluation notebook (or scripts) — regenerates figures + eval_results/

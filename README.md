@@ -10,8 +10,8 @@
 - 🌐 **Project website:** https://ziyad-m97.github.io/nano4M-Audio/
 - 📄 **Report (PDF):** [`docs/assets/report.pdf`](docs/assets/report.pdf)
 - 🎤 **Slides (PDF):** [`docs/assets/slides.pdf`](docs/assets/slides.pdf)
-- 🤗 **Trained checkpoint:** _to upload_ → [`zed-m97/nano4m-audio`](https://huggingface.co/zed-m97/nano4m-audio)
-- 📊 **Tokenized dataset:** _to upload_ → [`zed-m97/nano4m-audio-tokenized`](https://huggingface.co/datasets/zed-m97/nano4m-audio-tokenized)
+- 🤗 **Trained checkpoint:** [`zed-m97/nano4m-audio`](https://huggingface.co/zed-m97/nano4m-audio)
+- 📊 **Tokenized dataset:** [`zed-m97/nano4m-audio-tokenized`](https://huggingface.co/datasets/zed-m97/nano4m-audio-tokenized)
 
 ## TL;DR
 

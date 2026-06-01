@@ -35,8 +35,8 @@
     <li><a href="#worked">What worked</a></li>
     <li><a href="#crossmodal">Cross-modal generation</a></li>
     <li><a href="#audio">The audio story</a></li>
-    <li><a href="#diagnostic">Diagnostic &amp; path forward</a></li>
     <li><a href="#demo">Live audio demo</a></li>
+    <li><a href="#diagnostic">Diagnostic &amp; path forward</a></li>
   </ul>
   <div class="nav-foot">COM-304 · EPFL · Spring 2026</div>
 </nav>
@@ -232,8 +232,20 @@
       <figcaption>
         One clip end-to-end: the player is its ten real keyframes over the ground-truth audio,
         alongside the paired streams it becomes — the RGB keyframe, the EnCodec audio (512 tokens),
-        and the class caption. The depth and surface-normal targets are shown in
-        <a href="#worked">What worked</a>.
+        and the class caption. The depth and surface-normal targets it is also tokenized into are
+        shown next.
+      </figcaption>
+    </figure>
+
+    <figure class="chart-fig">
+      <img src="assets/img/gt_structural.jpg" loading="lazy"
+           alt="Four samples (dog, pig, pigeon, duck), each shown as an RGB photo, a Depth-Anything-V2 depth map, and the paired DSINE surface-normal map.">
+      <figcaption>
+        The two structural modalities are <strong>pseudo-labeled</strong> before tokenization:
+        <strong>Depth-Anything-V2</strong> for depth and <strong>DSINE</strong> for surface normals,
+        each then quantized by a 4M-8k DiVAE. Unlike the noisy web RGB, these targets are clean and
+        well defined — which is exactly why they become the modalities the model learns most
+        strongly (<a href="#worked">What worked</a>).
       </figcaption>
     </figure>
 
@@ -275,18 +287,6 @@
         monotonically.
       </figcaption>
     </figure>
-
-    <figure class="chart-fig">
-      <img src="assets/img/gt_structural.jpg" loading="lazy"
-           alt="Four samples (dog, pig, pigeon, duck), each shown as an RGB photo, a Depth-Anything-V2 depth map, and the paired DSINE surface-normal map.">
-      <figcaption>
-        The structural targets the model is trained to predict: <strong>Depth-Anything-V2</strong>
-        depth and <strong>DSINE</strong> surface normals, on representative samples. These pseudo-labels are clean
-        and well defined — RGB→depth and RGB→normal token prediction reach <strong>11%</strong> and
-        <strong>18%</strong> top-1 (≈1000× the 1/8192 random-token baseline), and their eval
-        cross-entropy drops ~1.2 nats each (above).
-      </figcaption>
-    </figure>
   </section>
 
   <!-- ===================== 6. CROSS-MODAL GENERATION ===================== -->
@@ -304,20 +304,6 @@
       ResNet-50 check (≈0% top-5, against ~0.5–5% expected by chance), producing no class-recognizable
       image. The limiting factor is RGB synthesis itself, not the conditioning modality.
     </p>
-
-    <figure class="wide">
-      <img src="assets/img/audio2rgb_grid.jpg" loading="lazy"
-           alt="Grid of audio-to-RGB generations. The leftmost column is the ground-truth image through the tokenizer; the remaining columns, sampled at several temperatures, are almost entirely black with a few scattered pixels.">
-      <figcaption>
-        Audio→RGB generation, the hardest direction. The first column is the <strong>ground-truth
-        keyframe through the RGB tokenizer</strong> — already lossy at our 14×14 latent and dense
-        16k vocab — and every column to its right is the model's output sampled at temperatures
-        0.8–1.2. The generations collapse to near-black noise: an ImageNet ResNet-50 recognises
-        <strong>0%</strong> of them. We show this as a <strong>negative result</strong> — the model
-        learns structural token prediction (depth, normals) but not high-entropy pixel synthesis
-        from sound at this data scale, exactly as the diagnostic predicts.
-      </figcaption>
-    </figure>
 
     <div class="callout">
       <p>
@@ -397,76 +383,20 @@
     </p>
   </section>
 
-  <!-- ===================== 8. DIAGNOSTIC ===================== -->
-  <section id="diagnostic" class="prose">
-    <h2>Diagnostic and path forward</h2>
-    <p>
-      We isolate three causes, each backed by direct evidence and each mapped to a concrete,
-      validatable next experiment.
-    </p>
-
-    <div class="cards">
-      <article class="card">
-        <h3>Cause 1 — Acoustic ≠ semantic</h3>
-        <p>
-          EnCodec is a neural codec optimized for waveform reconstruction. Its tokens encode
-          timbre, pitch, and energy envelope — not class identity. Small token errors decode to
-          similar textures, so the model learns acoustic regularities it cannot promote to
-          categories. This reconciles the 1-nat conditional gain with near-chance classification.
-        </p>
-        <p class="lever"><strong>Lever:</strong> replace EnCodec with a semantically grounded
-          tokenizer (SpeechTokenizer, MERT). <em>Validation:</em> re-run on the same data; expect
-          audio classification to lift to ≥3× random.</p>
-      </article>
-
-      <article class="card">
-        <h3>Cause 2 — Train/inference mismatch</h3>
-        <p>
-          Random Dirichlet masking almost never presents the "predict an entire modality from
-          another alone" condition, so single-source MaskGIT decoding is out of distribution —
-          which is exactly why adding more conditioning <em>reduces</em> the generated energy
-          spread (75% → 58% of ground truth) instead of helping.
-        </p>
-        <p class="lever"><strong>Lever:</strong> asymmetric / curriculum / modality-dropout masking
-          that explicitly trains single-source→full-modality prediction. <em>Validation:</em>
-          expect added context to help, not hurt, the energy spread.</p>
-      </article>
-
-      <article class="card">
-        <h3>Cause 3 — Below the emergence threshold</h3>
-        <p>
-          Contrastive audio-visual learning works at 10⁵–10⁶ paired clips (AudioCLIP, CLAP,
-          ImageBind); we operate at ~10⁴, roughly 1000× below 4M's training scale. The curves
-          saturate cleanly with val ≤ train throughout, so more compute on this data would not
-          help — the binding limit is data quantity.
-        </p>
-        <p class="lever"><strong>Lever:</strong> scale to full VGGSound (~150k clips) and a larger
-          model. <em>Validation:</em> a 10k → 30k → 100k scan to locate the emergence threshold.</p>
-      </article>
-    </div>
-
-    <p>
-      We expect the semantic tokenizer to lift classification, the masking fix to repair the
-      out-of-distribution generation, and the data scale to lift retrieval — together closing the
-      cross-modal generation gap. A quantitative generation metric (Fréchet Audio Distance via a
-      CLAP embedder) would replace informal listening. The contribution of this project is the
-      precise diagnostic and the validated framework; the next steps are concrete and well-scoped.
-    </p>
-  </section>
-
-  <!-- ===================== 9. LIVE DEMO ===================== -->
+  <!-- ===================== 8. LIVE DEMO ===================== -->
   <section id="demo" class="prose">
     <h2>Listen for yourself</h2>
     <p>
-      Six classes spanning the best- and worst-recovered cases, with three real EnCodec-decoded
-      clips each. <strong>Ground truth</strong> is the original recording through the codec.
+      Six classes spanning the best- and worst-recovered cases, three clips each.
+      <strong>Ground truth</strong> is the original recording.
       <strong>Continuation</strong> is the charitable probe: the model hears the first 80% of the
       audio tokens (plus the paired RGB and caption) and predicts only the final 20% — so the
       opening is real and the tail is the model's. <strong>Class-only generation</strong> is the
       hardest setting: the entire audio stream is masked and decoded from the class label alone.
     </p>
     <p class="note-inline" role="note">
-      All clips are decoded through EnCodec, so even ground truth sounds band-limited. Listen for the
+      Ground truth is the untouched recording; the model's outputs (continuation and class-only
+      generation) are EnCodec-decoded, so they sound band-limited by the codec. Listen for the
       <em>diversity</em> across ground-truth clips versus the flattened, near-identical character the
       generations collapse to — the audible signature of the mode collapse the diagnostic identifies.
     </p>
@@ -527,6 +457,63 @@
       class-only generation conditions on the label alone (audio fully masked). Compare the
       spectral diversity of the ground-truth clips against the consistent flattened character the
       model's outputs collapse to.
+    </p>
+  </section>
+
+  <!-- ===================== 9. DIAGNOSTIC ===================== -->
+  <section id="diagnostic" class="prose">
+    <h2>Diagnostic and path forward</h2>
+    <p>
+      We isolate three causes, each backed by direct evidence and each mapped to a concrete,
+      validatable next experiment.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <h3>Cause 1 — Acoustic ≠ semantic</h3>
+        <p>
+          EnCodec is a neural codec optimized for waveform reconstruction. Its tokens encode
+          timbre, pitch, and energy envelope — not class identity. Small token errors decode to
+          similar textures, so the model learns acoustic regularities it cannot promote to
+          categories. This reconciles the 1-nat conditional gain with near-chance classification.
+        </p>
+        <p class="lever"><strong>Lever:</strong> replace EnCodec with a semantically grounded
+          tokenizer (SpeechTokenizer, MERT). <em>Validation:</em> re-run on the same data; expect
+          audio classification to lift to ≥3× random.</p>
+      </article>
+
+      <article class="card">
+        <h3>Cause 2 — Train/inference mismatch</h3>
+        <p>
+          Random Dirichlet masking almost never presents the "predict an entire modality from
+          another alone" condition, so single-source MaskGIT decoding is out of distribution —
+          which is exactly why adding more conditioning <em>reduces</em> the generated energy
+          spread (75% → 58% of ground truth) instead of helping.
+        </p>
+        <p class="lever"><strong>Lever:</strong> asymmetric / curriculum / modality-dropout masking
+          that explicitly trains single-source→full-modality prediction. <em>Validation:</em>
+          expect added context to help, not hurt, the energy spread.</p>
+      </article>
+
+      <article class="card">
+        <h3>Cause 3 — Below the emergence threshold</h3>
+        <p>
+          Contrastive audio-visual learning works at 10⁵–10⁶ paired clips (AudioCLIP, CLAP,
+          ImageBind); we operate at ~10⁴, roughly 1000× below 4M's training scale. The curves
+          saturate cleanly with val ≤ train throughout, so more compute on this data would not
+          help — the binding limit is data quantity.
+        </p>
+        <p class="lever"><strong>Lever:</strong> scale to full VGGSound (~150k clips) and a larger
+          model. <em>Validation:</em> a 10k → 30k → 100k scan to locate the emergence threshold.</p>
+      </article>
+    </div>
+
+    <p>
+      We expect the semantic tokenizer to lift classification, the masking fix to repair the
+      out-of-distribution generation, and the data scale to lift retrieval — together closing the
+      cross-modal generation gap. A quantitative generation metric (Fréchet Audio Distance via a
+      CLAP embedder) would replace informal listening. The contribution of this project is the
+      precise diagnostic and the validated framework; the next steps are concrete and well-scoped.
     </p>
   </section>
 

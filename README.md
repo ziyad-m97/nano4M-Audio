@@ -10,8 +10,8 @@
 - 🌐 **Project website:** https://ziyad-m97.github.io/nano4M-Audio/
 - 📄 **Report (PDF):** [`docs/assets/report.pdf`](docs/assets/report.pdf)
 - 🎤 **Slides (PDF):** [`docs/assets/slides.pdf`](docs/assets/slides.pdf)
-- 🤗 **Trained checkpoint:** _to upload_ → `zed-m97/nano4m-audio` (see [`outputs/README.md`](outputs/README.md))
-- 📊 **Tokenized dataset:** _to upload_ → `zed-m97/nano4m-audio-tokenized` (see [`data/README.md`](data/README.md))
+- 🤗 **Trained checkpoint:** _to upload_ → [`zed-m97/nano4m-audio`](https://huggingface.co/zed-m97/nano4m-audio)
+- 📊 **Tokenized dataset:** _to upload_ → [`zed-m97/nano4m-audio-tokenized`](https://huggingface.co/datasets/zed-m97/nano4m-audio-tokenized)
 
 ## TL;DR
 
@@ -20,13 +20,10 @@ We extend **nano4M** (a d6-6w512 encoder–decoder transformer, **~95.8M params*
 dataset of **9,192 animal-vocalization clips** across 11 classes, cleaned with a 3-stage oracle
 (PANNs → CLIP → Silero VAD). Structural modalities (depth, normal) converge strongly; the iterative
 generation framework works in the structural directions; audio learns conditional structure at the
-token level (audio CE 5.2 nats, ~1 nat below its marginal) **but does not lift to usable cross-modal
-generation**. We diagnose three causes — a train/inference masking mismatch, an acoustic-only
-tokenizer, and a data-scale gap — and propose a validated next step for each. **The precise
-diagnostic, not the generation, is the contribution.**
+token level **but does not lift to usable cross-modal generation**. We diagnose three causes — a train/inference masking mismatch, an acoustic-only
+tokenizer, and a data-scale gap — and propose a validated next step for each. 
 
-This repository is a **curated, runnable subset** of four weeks of work on the EPFL SCITAS Kuma
-cluster: the modified nano4M code, the final config, the data/tokenization/eval pipeline, the
+This repository is a **curated, runnable subset** of four weeks of work: the modified nano4M code, the final config, the data/tokenization/eval pipeline, the
 deterministic split, the real evaluation outputs, and the report figures.
 
 ## Setup
@@ -114,24 +111,6 @@ nano4M-Audio/
 | Framework-validation directions | `figures/sanity_check_directions.png` (data: `eval_results/sanity_check_directions.json`) |
 | Audio CE vs marginal | `docs/assets/img/audio_ce_vs_marginal.svg` (data: `eval_results/fig1_ce_drop.json`) |
 | Appendix (confusion, audio→RGB grid, spectrograms, retrieval) | `figures/appendix/` |
-
-## Citation
-
-```bibtex
-@misc{nano4m-audio-2026,
-  author      = {Mellal, Ziyad and Baddour, Hassan and Farhat, Marc},
-  title       = {Nano4M-Audio: Adding Audio as a 5th Modality to the 4M Architecture},
-  year        = {2026},
-  institution = {EPFL, COM-304},
-  url         = {https://github.com/ziyad-m97/nano4M-Audio}
-}
-```
-
-## Acknowledgements
-
-Supervised by **Jason Toskov** at EPFL VILAB. Built on the open-source 4M codebase
-([apple/ml-4m](https://github.com/apple/ml-4m); Mizrahi et al., NeurIPS 2023; Bachmann et al.,
-NeurIPS 2024). Compute provided by the EPFL SCITAS Kuma cluster.
 
 ## License
 

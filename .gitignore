@@ -52,3 +52,6 @@ slurm-*.err
 *.mp4
 !docs/assets/audio/*.ogg
 !docs/assets/audio/*.mp3
+!docs/assets/example/*.ogg
+!docs/assets/example/*.mp3
+!docs/assets/example/*.mp4

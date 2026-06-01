@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-label="Placeholder for the per-modality training and validation cross-entropy curves figure.">
+  <style>
+    .s{font-family:'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .ttl{font-size:13px;font-weight:700;fill:#8a8a82}
+    .pl{font-size:12px;font-weight:600;fill:#555}
+    .badge{font-size:12px;font-weight:700;fill:#b07d2b}
+    .ax{font-size:10px;fill:#aaa}
+  </style>
+  <rect x="0" y="0" width="1200" height="520" fill="#fbfbf8" stroke="#dcdcd2" stroke-width="2" stroke-dasharray="9 6" rx="10"/>
+  <rect x="24" y="20" width="372" height="26" rx="13" fill="#fdf3df"/>
+  <text class="s badge" x="38" y="38">PLACEHOLDER · assets/img/training_curves.png</text>
+  <text class="s pl" x="1176" y="40" text-anchor="end">Per-modality train (solid) / val (dashed) cross-entropy · 18,311 steps</text>
+
+  <!-- 6 panels -->
+  <g>
+    <!-- P1 RGB -->
+    <rect x="30" y="80" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
+    <text class="s ttl" x="42" y="102">RGB · 9.7 → 9.2</text>
+    <polyline points="55,118 130,150 220,168 320,176 375,180" fill="none" stroke="#E0742F" stroke-width="2"/>
+    <polyline points="55,122 130,154 220,172 320,180 375,184" fill="none" stroke="#E0742F" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+    <!-- P2 Audio -->
+    <rect x="410" y="80" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
+    <text class="s ttl" x="422" y="102">Audio · 6.75 → 5.2</text>
+    <polyline points="435,112 510,140 600,164 700,180 755,186" fill="none" stroke="#1F6FEB" stroke-width="2"/>
+    <polyline points="435,116 510,144 600,168 700,184 755,190" fill="none" stroke="#1F6FEB" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+    <!-- P3 Depth -->
+    <rect x="790" y="80" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
+    <text class="s ttl" x="802" y="102">Depth · 6.3 → 5.1</text>
+    <polyline points="815,120 890,150 980,176 1080,192 1135,198" fill="none" stroke="#2E8B57" stroke-width="2"/>
+    <polyline points="815,124 890,154 980,180 1080,196 1135,202" fill="none" stroke="#2E8B57" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+    <!-- P4 Normals -->
+    <rect x="30" y="290" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
+    <text class="s ttl" x="42" y="312">Normals · 4.7 → 3.5</text>
+    <polyline points="55,332 130,368 220,398 320,414 375,420" fill="none" stroke="#8E44AD" stroke-width="2"/>
+    <polyline points="55,336 130,372 220,402 320,418 375,424" fill="none" stroke="#8E44AD" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+    <!-- P5 Caption -->
+    <rect x="410" y="290" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
+    <text class="s ttl" x="422" y="312">Caption · → 0.05</text>
+    <polyline points="435,318 480,400 540,440 650,452 755,454" fill="none" stroke="#C9A227" stroke-width="2"/>
+    <polyline points="435,322 480,404 540,444 650,456 755,458" fill="none" stroke="#C9A227" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+    <!-- P6 Total -->
+    <rect x="790" y="290" width="360" height="190" rx="6" fill="#fff" stroke="#e7e7df"/>
+    <text class="s ttl" x="802" y="312">Total loss</text>
+    <polyline points="815,322 890,360 980,392 1080,410 1135,416" fill="none" stroke="#555" stroke-width="2"/>
+    <polyline points="815,326 890,364 980,396 1080,414 1135,420" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>
+  </g>
+  <text class="s ax" x="600" y="504" text-anchor="middle">Drop the W&amp;B export here as training_curves.png — it will replace this placeholder automatically.</text>
+</svg>

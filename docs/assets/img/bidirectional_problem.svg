@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 320" role="img"
+     aria-label="The bidirectional goal: a single shared transformer mapping between a dog image (vision) and the spectrogram of a bark (audio), in both directions.">
+  <style>
+    .s{font-family:'Inter',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    .hdr{font-size:12px;font-weight:700;letter-spacing:1.4px;fill:#9a9a92}
+    .cap{font-size:12px;fill:#666}
+    .arr{font-size:12px;font-weight:600;fill:#0b3a6b}
+  </style>
+  <defs>
+    <marker id="bp" markerWidth="11" markerHeight="11" refX="8" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L8,4 L0,8 z" fill="#1F6FEB"/></marker>
+    <linearGradient id="spec" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#0b2e63"/><stop offset="0.5" stop-color="#1F6FEB"/><stop offset="1" stop-color="#bcd4f2"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="660" height="320" fill="#ffffff"/>
+
+  <!-- VISION card -->
+  <text class="s hdr" x="130" y="46" text-anchor="middle">VISION</text>
+  <rect x="30" y="60" width="200" height="170" rx="10" fill="#fcfbf9" stroke="#e4e4dd" stroke-width="1.5"/>
+  <g fill="#4a4a4a">
+    <path d="M70,118 L64,96 L88,114 Z"/>
+    <path d="M96,114 L104,94 L114,116 Z"/>
+    <circle cx="88" cy="140" r="22"/>
+    <rect x="104" y="138" width="26" height="15" rx="6"/>
+    <ellipse cx="152" cy="160" rx="48" ry="25"/>
+    <rect x="116" y="180" width="9" height="30" rx="3"/>
+    <rect x="136" y="180" width="9" height="30" rx="3"/>
+    <rect x="166" y="180" width="9" height="30" rx="3"/>
+    <rect x="186" y="180" width="9" height="30" rx="3"/>
+    <path d="M198,150 q24,-6 16,-30" fill="none" stroke="#4a4a4a" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <circle cx="130" cy="146" r="3.2" fill="#1a1a1a"/>
+  <text class="s cap" x="130" y="250" text-anchor="middle">RGB image</text>
+
+  <!-- AUDIO card -->
+  <text class="s hdr" x="530" y="46" text-anchor="middle">AUDIO</text>
+  <rect x="430" y="60" width="200" height="170" rx="10" fill="#fcfbf9" stroke="#e4e4dd" stroke-width="1.5"/>
+  <rect x="446" y="78" width="168" height="120" rx="4" fill="url(#spec)"/>
+  <g stroke="#cfe0f7" stroke-width="1" opacity="0.5">
+    <line x1="460" y1="78" x2="460" y2="198"/><line x1="474" y1="78" x2="474" y2="198"/><line x1="488" y1="78" x2="488" y2="198"/><line x1="502" y1="78" x2="502" y2="198"/><line x1="516" y1="78" x2="516" y2="198"/><line x1="530" y1="78" x2="530" y2="198"/><line x1="544" y1="78" x2="544" y2="198"/><line x1="558" y1="78" x2="558" y2="198"/><line x1="572" y1="78" x2="572" y2="198"/><line x1="586" y1="78" x2="586" y2="198"/><line x1="600" y1="78" x2="600" y2="198"/>
+  </g>
+  <g fill="#eaf3ff" opacity="0.55"><rect x="446" y="104" width="168" height="9"/><rect x="446" y="138" width="168" height="7"/><rect x="446" y="168" width="168" height="6"/></g>
+  <text class="s cap" x="530" y="218" text-anchor="middle" fill="#666" font-size="10">freq ↑   ·   time →</text>
+  <text class="s cap" x="530" y="250" text-anchor="middle">spectrogram of a bark</text>
+
+  <!-- bidirectional arrows -->
+  <path d="M236,120 C310,92 350,92 424,120" fill="none" stroke="#1F6FEB" stroke-width="2" marker-end="url(#bp)"/>
+  <path d="M424,176 C350,204 310,204 236,176" fill="none" stroke="#1F6FEB" stroke-width="2" marker-end="url(#bp)"/>
+  <rect x="278" y="138" width="104" height="22" rx="11" fill="#0b3a6b"/>
+  <text class="s" x="330" y="153" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">shared transformer</text>
+  <text class="s arr" x="330" y="100" text-anchor="middle" font-size="11">vision → audio</text>
+  <text class="s arr" x="330" y="200" text-anchor="middle" font-size="11">audio → vision</text>
+</svg>

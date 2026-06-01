@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nano4M-Audio · Adding Audio as a 5th Modality to the 4M Architecture</title>
+<meta name="description" content="A controlled study of cross-modal alignment with audio at small scale: extending the 4M multimodal transformer with an audio modality. COM-304, EPFL, Spring 2026.">
+<meta name="author" content="Ziyad Mellal, Hassan Baddour, Marc Farhat">
+<meta name="theme-color" content="#FAFAF8">
+<!-- Open Graph (static metadata only; no tracking) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nano4M-Audio: Adding Audio as a 5th Modality to the 4M Architecture">
+<meta property="og:description" content="A controlled study of cross-modal alignment with audio at small scale (COM-304, EPFL).">
+<meta property="og:image" content="assets/img/method.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230066CC'/%3E%3Ctext x='16' y='22' font-size='17' font-family='Georgia,serif' fill='white' text-anchor='middle'%3E4M%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- mobile top bar -->
+<header class="topbar">
+  <a class="topbar-brand" href="#top">nano4M-Audio</a>
+  <button id="navToggle" class="nav-toggle" aria-label="Open section navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+</header>
+
+<!-- sticky section navigation -->
+<nav id="sidebar" class="sidebar" aria-label="Section navigation">
+  <a class="brand" href="#top">nano4M&#8209;Audio</a>
+  <p class="brand-sub">5th-modality study</p>
+  <ul class="nav-list">
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#problem">The problem</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#worked">What worked</a></li>
+    <li><a href="#crossmodal">Cross-modal generation</a></li>
+    <li><a href="#audio">The audio story</a></li>
+    <li><a href="#diagnostic">Diagnostic &amp; path forward</a></li>
+    <li><a href="#demo">Live audio demo</a></li>
+    <li><a href="#team">Team</a></li>
+  </ul>
+  <div class="nav-foot">COM-304 · EPFL · Spring 2026</div>
+</nav>
+
+<main id="main">
+
+  <!-- ===================== 1. HERO ===================== -->
+  <section id="top" class="hero">
+    <span class="badge">COM-304 · Foundation Models · Spring 2026 · EPFL</span>
+    <h1>Nano4M-Audio: Adding Audio as a 5th Modality to the 4M Architecture</h1>
+    <p class="subtitle">A controlled study of cross-modal alignment with audio at small scale.</p>
+    <p class="authors">
+      Ziyad Mellal · Hassan Baddour · Marc Farhat
+      <span class="authors-sup">— supervised by Jason Toskov · EPFL VILAB</span>
+    </p>
+
+    <div class="btn-row">
+      <a class="btn" href="assets/report.pdf"><span aria-hidden="true">📄</span> Report</a>
+      <a class="btn" href="https://github.com/ziyad-m97/nano4M-Audio"><span aria-hidden="true">💻</span> Code</a>
+      <a class="btn" href="assets/slides.pdf"><span aria-hidden="true">🎤</span> Slides</a>
+      <a class="btn btn-accent" href="#demo"><span aria-hidden="true">🔊</span> Live demo</a>
+      <a class="btn" href="https://4m.epfl.ch"><span aria-hidden="true">🌐</span> 4M reference</a>
+    </div>
+
+    <figure class="pull-figure">
+      <img src="assets/img/method.svg" alt="Architecture: five tokenized modality streams (RGB, audio, depth, surface normals, caption) feed a single shared encoder-decoder transformer and are reconstructed as targets; audio uses span masking, the others use random Dirichlet masking.">
+      <figcaption>
+        Nano4M-Audio extends the 4M encoder–decoder transformer (d6-6w512, ~96M parameters)
+        with audio as a fifth modality, tokenized via EnCodec with a MusicGen-style delay/flatten
+        pattern, and trained jointly with RGB, depth, surface normals, and a class caption under
+        Dirichlet masking — with contiguous <strong>span masking</strong> on the temporal audio
+        stream as the only training-side change to the recipe.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== 2. SUMMARY ===================== -->
+  <section id="summary" class="prose narrow">
+    <h2>Summary</h2>
+    <p>
+      Recent multimodal foundation models like 4M unify vision and language under a single
+      masked-modeling objective. Yet audio — temporal, high-frequency, and acoustically rich —
+      remains conspicuously absent. We ask a precise question: can the 4M framework absorb audio
+      as a fifth modality at the scale of an academic project (~10⁴ paired clips, ~10⁸ parameters)?
+    </p>
+    <p>
+      We extend nano4M (~96M parameters) with audio via EnCodec tokenization, contiguous span
+      masking for temporal locality, and a self-built dataset of <strong>9,192 animal-vocalization
+      clips</strong> cleaned through a three-stage pipeline (PANNs, CLIP, and Silero
+      voice-activity detection) across 11 classes. The pipeline trains cleanly end-to-end on a
+      single H100 in ~1h10.
+    </p>
+    <p>
+      Structural modalities (depth, surface normals) converge strongly — their reconstructions
+      are visibly correct. Caption-conditioned RGB generation produces recognizable class outputs.
+      Audio learns conditional structure at the token level (cross-entropy ~1 nat below the
+      marginal codebook entropy), but this signal does not lift to usable cross-modal
+      audio↔vision generation. We diagnose three specific causes — a train/inference masking
+      mismatch, an acoustic-only EnCodec tokenizer, and a data-scale gap relative to the
+      contrastive audio-visual literature — and propose a concrete validation path for each.
+      <strong>The diagnostic, not the generation, is the contribution.</strong>
+    </p>
+  </section>
+
+  <!-- ===================== 3. THE PROBLEM ===================== -->
+  <section id="problem" class="prose">
+    <h2>The problem</h2>
+    <div class="two-col">
+      <div class="col-text">
+        <p>
+          A unified multimodal model is only as general as the modalities it can host. The 4M
+          family tokenizes RGB, depth, surface normals, semantic maps, and captions into discrete
+          sequences and trains a single transformer to predict any subset from any other. Every
+          one of those modalities is <em>visual</em>, derived from rendered or curated imagery.
+          A real-world temporal signal — audio — is the natural omission, and the obvious test of
+          whether the recipe generalizes beyond vision.
+        </p>
+        <p>
+          Audio is a deliberate stress test. It is <em>temporal</em> rather than spatial, so the
+          random masking that 4M tailors to spatial token grids lets a decoder copy local context
+          instead of learning long-range structure. It is high-frequency and sourced from noisy
+          web video, and a strong neural codec is itself lossy: raw codec tokens are
+          <em>semantically opaque</em>, so the model must learn class-level meaning on top of
+          acoustic codes.
+        </p>
+        <p>
+          This frames our hypothesis. A shared transformer can absorb audio at small scale
+          <strong>only if</strong> the tokenizer carries semantics and the dataset is large
+          enough for cross-modal alignment to emerge. We restrict the problem to animal sounds,
+          where each class has a distinctive acoustic signature and a visually identifiable
+          subject — giving naturally paired clips and a clean classification oracle.
+        </p>
+      </div>
+      <figure class="col-fig">
+        <img src="assets/img/bidirectional_problem.svg" alt="A dog image on one side and the spectrogram of a bark on the other, linked by a double-headed arrow labelled shared transformer.">
+        <figcaption>The goal is bidirectional: a single shared transformer should map a dog image to its bark and back, with no objective specific to either direction.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== 4. METHOD ===================== -->
+  <section id="method" class="prose">
+    <h2>Method</h2>
+
+    <h3>Architecture</h3>
+    <p>
+      We use <strong>nano4M</strong>, the course re-implementation of the 4M recipe: a d6-6w512
+      encoder–decoder transformer (~96M parameters, head dimension 64) that is architecturally
+      <em>identical</em> to the visual baseline — we add a fifth modality without touching the
+      network. All modalities share one unified token vocabulary (~50,304 ids); modality and
+      position embeddings are added to the token embeddings, and the per-modality cross-entropy
+      is length-normalized so the 512-token audio sequence does not dominate the ~5-token caption.
+    </p>
+
+    <figure class="wide">
+      <img src="assets/img/method.svg" alt="The nano4M-Audio architecture in full: five input modality cards with their tokenizers, masking pills (random for four modalities, span mask for audio), a shared encoder and decoder, and five predicted target cards.">
+      <figcaption>
+        <strong>The nano4M-Audio pipeline.</strong> A single d6-6w512 encoder–decoder (~96M
+        parameters) over five tokenized, aligned modality streams sharing one vocabulary. Each
+        clip is tokenized by a dedicated per-modality tokenizer (4M DiVAEs for the spatial
+        modalities, EnCodec for audio, GPT-2 BPE for the caption). Dirichlet masking allocates
+        input/target tokens at random across modalities, with the sole exception of span masking
+        on the temporal audio stream. Per-modality loss averaging keeps the long audio sequence
+        from dominating the short caption.
+      </figcaption>
+    </figure>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <caption>The five tokenized modalities and their shared-vocabulary footprint.</caption>
+        <thead>
+          <tr><th scope="col">Modality</th><th scope="col">Tokenizer</th><th scope="col">Shape</th><th scope="col">Vocab</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>tok_rgb@196</code></td><td>4M-16k DiVAE</td><td>[10, 196]</td><td>16,384</td></tr>
+          <tr><td><code>tok_audio@512</code></td><td>EnCodec 24k, K=2</td><td>[10, 512]</td><td>2,048</td></tr>
+          <tr><td><code>tok_depth@196</code></td><td>DAv2 → 4M-8k</td><td>[10, 196]</td><td>8,192</td></tr>
+          <tr><td><code>tok_normal@196</code></td><td>DSINE → 4M-8k</td><td>[10, 196]</td><td>8,192</td></tr>
+          <tr><td><code>scene_desc</code></td><td>GPT-2 BPE</td><td>list</td><td>50,304</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Audio tokenization</h3>
+    <p>
+      Audio is tokenized with EnCodec at 24&nbsp;kHz and 1.5&nbsp;kbps, using K=2 residual-VQ
+      codebooks at 75&nbsp;Hz. A ~3.41&nbsp;s clip yields 256 frames over two codebooks, which we
+      flatten to a length-512 sequence by interleaving the codebooks (a MusicGen-style
+      delay/flatten pattern) and offsetting codebook&nbsp;2 by +1024 so all 2,048 audio ids stay
+      distinct in the shared vocabulary. We deliberately allocate 512 tokens to audio versus 196
+      to RGB, prioritizing acoustic context — the project's central focus.
+      <span class="lead-italic">EnCodec optimizes for reconstruction, not semantic identity — a
+      tension we return to in the diagnostic.</span>
+    </p>
+
+    <figure class="wide">
+      <img src="assets/img/audio_pipeline.svg" alt="Waveform to EnCodec encoder to two codebook streams to delay-flatten to a 512-token sequence.">
+      <figcaption>Audio tokenization: a 3.41&nbsp;s waveform becomes 256 frames over two RVQ codebooks, delay-flattened (codebook&nbsp;2 offset by +1024) into a single 512-token sequence the transformer consumes alongside the visual tokens.</figcaption>
+    </figure>
+
+    <h3>Dataset construction</h3>
+    <div class="two-col">
+      <div class="col-text">
+        <p>
+          We query AudioSet and VGGSound for 11 animal classes (pig, sheep, dog, cat, horse, cow,
+          chicken, duck, pigeon, coyote, lion). Clips pass three oracle filters: a PANNs audio
+          score ≥&nbsp;0.30 on class-specific indices, a CLIP image–text cosine ≥&nbsp;0.25 for the
+          best of 10 frames, and a Silero voice-activity check that rejects any human speech. After
+          deduplication across sources we obtain <strong>9,192 clips</strong>, split at the
+          <em>clip</em> level and stratified by class×source into 7,347 / 907 / 938 train / val /
+          test to prevent leakage. Each clip provides 10 keyframes, decoupling visual diversity
+          from audio uniqueness; depth and normal targets are pseudo-labeled by Depth-Anything-V2
+          and DSINE and quantized by 4M-8k DiVAEs.
+        </p>
+      </div>
+      <aside class="stats-box" aria-label="Dataset at a glance">
+        <h4>Dataset at a glance</h4>
+        <ul>
+          <li><span>11</span> animal classes</li>
+          <li><span>9,192</span> clips</li>
+          <li><span>10</span> frames / clip</li>
+          <li><span>5</span> modalities</li>
+          <li><span>80/10/10</span> clip-level split</li>
+        </ul>
+      </aside>
+    </div>
+
+    <figure class="wide">
+      <img src="assets/img/dataset_pipeline.svg" alt="Five-stage dataset pipeline: raw clips, PANNs filter, CLIP filter, Silero VAD filter, tokenization, yielding 9,192 clips.">
+      <figcaption>Three oracle filters (PANNs, CLIP, Silero VAD) clean web-sourced clips before five-modality tokenization, yielding a leakage-free clip-level split.</figcaption>
+    </figure>
+
+    <h3>Training</h3>
+    <p>
+      We train for <strong>18,311 steps</strong> (batch 64, ~600M tokens, ~1h10 on a single
+      H100). Input and target tokens are allocated by 4M Dirichlet masking, with one change:
+      because audio is temporal, random masking lets the decoder copy adjacent frames, so the
+      audio stream is masked in <strong>contiguous spans</strong> (stride 2, aligned to codebook
+      pairs) for both input and target. We use a cosine schedule (10⁻⁴→10⁻⁶, 916 warmup steps),
+      AdamW (0.9, 0.95), weight decay 0.05, and gradient clipping 1.0. The final run is fp32: bf16
+      produced NaNs in the unified 50k-vocab softmax, and fp32 fixed it. The seed is fixed and the
+      deterministic split is released with the code.
+    </p>
+  </section>
+
+  <!-- ===================== 5. WHAT WORKED ===================== -->
+  <section id="worked" class="prose">
+    <h2>What worked: structural modalities</h2>
+    <p class="lead-italic">
+      Depth and surface normals converge cleanly. Reconstructions are visibly correct, validating
+      that the 4M framework absorbs new structural modalities with minimal modification.
+    </p>
+    <p>
+      Across 18,311 steps, depth eval cross-entropy falls ~1.2 nats (~6.3 → 5.1) and normals fall
+      ~1.2 nats (~4.7 → 3.5), both monotonically. Training and validation track tightly throughout
+      and validation never exceeds training — the clip-level split eliminated the frame-level
+      leakage we saw in early runs. Four of five modalities converge cleanly; RGB is the hardest
+      and plateaus ~0.45 nats below random, reflecting noisy YouTube imagery and a dense 16k vocab.
+    </p>
+
+    <figure class="wide">
+      <img src="assets/img/training_curves.png" loading="lazy"
+           alt="Per-modality training and validation cross-entropy over 18,311 steps for RGB, audio, depth, normals, caption, and total loss."
+           onerror="this.onerror=null;this.src='assets/img/ph_training_curves.svg'">
+      <figcaption>
+        Per-modality eval cross-entropy over 18,311 steps. Train (solid) and val (dashed) track
+        tightly — clip-level stratification eliminates frame-level leakage. Four of five
+        modalities converge cleanly; RGB plateaus ~0.45 nats from random.
+      </figcaption>
+    </figure>
+
+    <figure class="wide">
+      <img src="assets/img/reconstruction_gallery.png" loading="lazy"
+           alt="Three rows (RGB input, predicted depth, predicted surface normals) across six held-out test samples spanning different animal classes."
+           onerror="this.onerror=null;this.src='assets/img/ph_reconstruction_gallery.svg'">
+      <figcaption>
+        Depth and normal reconstructions on held-out test samples. Animal silhouettes are clearly
+        distinguishable in both modalities — the model learned visual structure conditional on RGB
+        tokens without ever seeing ground-truth depth or normal labels (pseudo-labels via
+        Depth-Anything-V2 and DSINE). RGB→depth and RGB→normal token prediction each reach ~20%
+        token-level top-1 accuracy, far above a random-token baseline; pixel-space PSNR averages
+        ~21&nbsp;dB (tokenizer domain shift), but the cross-modal results are measured directly in
+        token space and are unaffected.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== 6. CROSS-MODAL GENERATION ===================== -->
+  <section id="crossmodal" class="prose">
+    <h2>Cross-modal generation</h2>
+    <p class="lead-italic">
+      Given a strong conditioning signal, the model generates the corresponding visual output.
+      This isolates the audio failure as specifically about audio, not about the generative
+      framework itself.
+    </p>
+    <p>
+      Before attributing any failure to audio, we validate the generation infrastructure in four
+      directions the original 4M handles canonically: caption→RGB, RGB→depth, RGB→normal, and
+      RGB→caption. For caption→RGB we condition on the class-caption template
+      <code>"a photo of a &lt;class&gt;"</code> and generate the 196 RGB tokens with 8-iteration
+      MaskGIT-style decoding, decoding to pixels through the 4M-16k DiVAE. Each direction is scored
+      by a metric tailored to its target: an external ImageNet ResNet-50 top-5 hit for caption→RGB,
+      SSIM for depth, cosine similarity for normals, and exact class match for the caption.
+    </p>
+
+    <figure class="wide">
+      <img src="assets/img/caption2rgb_gallery.png" loading="lazy"
+           alt="Two rows across eight samples: a caption label and the RGB image generated from it."
+           onerror="this.onerror=null;this.src='assets/img/ph_caption2rgb_gallery.svg'">
+      <figcaption>
+        Caption-conditioned RGB generation on held-out captions. Images are imperfect but
+        class-identifiable, validated by an external ImageNet ResNet-50 top-5 hit
+        (<span class="todo" title="Fill from eval_results/sanity_check_directions.json">XX%</span>;
+        random ~0.5%). This confirms the iterative generation framework functions when the
+        conditioning carries class information — the logical pivot for the audio analysis that
+        follows.
+      </figcaption>
+    </figure>
+
+    <div class="callout">
+      <p>
+        <strong>The contrast that matters.</strong> The same MaskGIT procedure that yields
+        class-identifiable images from a caption (ImageNet ResNet-50 top-5 hit
+        <span class="todo" title="Fill from eval_results/sanity_check_directions.json">XX%</span>,
+        random ~0.5%) yields <strong>0% recognizable images from audio</strong> (over 80 samples,
+        random ~5%). Identical decoder, identical objective — only the conditioning modality
+        changes. The bottleneck is audio, not the framework.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== 7. THE AUDIO STORY ===================== -->
+  <section id="audio" class="prose">
+    <h2>The audio story</h2>
+    <p class="lead-italic">
+      Audio is the modality where our central hypothesis is most precisely tested — and where it
+      partially fails in an informative way.
+    </p>
+
+    <h3>What the model learns</h3>
+    <p>
+      At the token level, audio genuinely learns. Its eval cross-entropy settles at
+      <strong>5.2 nats</strong>, below the empirical marginal entropy of the EnCodec codebook on
+      our data (<strong>~6.2 nats</strong>, itself below log&nbsp;2,048 = 7.62 because the token
+      distribution is far from uniform). A model that ignored every other modality and predicted
+      from the marginal would score 6.2; ours scores 5.2 — about <strong>1 nat of conditional
+      structure per audio token</strong>. This is real, non-trivial cross-modal learning, not
+      memorization.
+    </p>
+    <figure class="chart-fig">
+      <img src="assets/img/audio_ce_vs_marginal.svg" alt="Bar chart: marginal entropy 6.2 nats versus final audio cross-entropy 5.2 nats, a 1.0-nat gap, below the uniform-codebook bound of 7.62 nats.">
+      <figcaption>The model captures ~1 nat of conditional information per audio token beyond a marginal predictor — measurable token-level learning.</figcaption>
+    </figure>
+
+    <h3>Where it stops</h3>
+    <p>
+      That token-level signal does not lift to cross-modal behavior. Audio-only class prediction
+      reaches 10.4% top-1 (chance 9.1%) and cross-modal retrieval peaks at R@5 = 4.5% (chance
+      2.5%). Three acoustically distinct classes are clearly learned — pig and sheep at 5.1× chance,
+      dog at 2.4× — while ambiguous classes collapse systematically onto neighbours (the bird
+      cluster chicken/duck/pigeon, the canid cluster coyote/lion→dog). Generation mode-collapses
+      in both directions, and a memorization probe is decisive: on audio-suffix completion, train
+      accuracy (2.9%) ~test accuracy (4.1%), so the model does not even memorize the training set.
+    </p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <caption>Audio behavior against explicit random baselines (938-clip test set).</caption>
+        <thead>
+          <tr><th scope="col">Probe</th><th scope="col">Model</th><th scope="col">Random</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Audio → class, top-1</td><td class="num"><strong>10.4%</strong></td><td class="num">9.1%</td></tr>
+          <tr><td>Audio → class, top-5</td><td class="num"><strong>48.4%</strong></td><td class="num">45.5%</td></tr>
+          <tr><td>Best cross-modal retrieval, R@5</td><td class="num"><strong>4.5%</strong></td><td class="num">2.5%</td></tr>
+          <tr><td>Audio → RGB, ImageNet top-5</td><td class="num"><strong>0%</strong></td><td class="num">~5%</td></tr>
+          <tr><td>Memorization probe (train / test)</td><td class="num">2.9% / 4.1%</td><td class="num">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      The gap between <em>"1 nat of conditional structure learned"</em> and <em>"generated audio
+      is mode-collapsed"</em> is the central observation we set out to characterize — a sharp
+      asymmetry between what the encoder represents and what the decoder can generate.
+    </p>
+  </section>
+
+  <!-- ===================== 8. DIAGNOSTIC ===================== -->
+  <section id="diagnostic" class="prose">
+    <h2>Diagnostic and path forward</h2>
+    <p>
+      We isolate three causes, each backed by direct evidence and each mapped to a concrete,
+      validatable next experiment.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <h3>Cause 1 — Acoustic ≠ semantic</h3>
+        <p>
+          EnCodec is a neural codec optimized for waveform reconstruction. Its tokens encode
+          timbre, pitch, and energy envelope — not class identity. Small token errors decode to
+          similar textures, so the model learns acoustic regularities it cannot promote to
+          categories. This reconciles the 1-nat conditional gain with near-chance classification.
+        </p>
+        <p class="lever"><strong>Lever:</strong> replace EnCodec with a semantically grounded
+          tokenizer (SpeechTokenizer, MERT). <em>Validation:</em> re-run on the same data; expect
+          audio classification to lift to ≥3× random.</p>
+      </article>
+
+      <article class="card">
+        <h3>Cause 2 — Train/inference mismatch</h3>
+        <p>
+          Random Dirichlet masking almost never presents the "predict an entire modality from
+          another alone" condition, so single-source MaskGIT decoding is out of distribution —
+          which is exactly why adding more conditioning <em>reduces</em> the generated energy
+          spread (75% → 58% of ground truth) instead of helping.
+        </p>
+        <p class="lever"><strong>Lever:</strong> asymmetric / curriculum / modality-dropout masking
+          that explicitly trains single-source→full-modality prediction. <em>Validation:</em>
+          expect added context to help, not hurt, the energy spread.</p>
+      </article>
+
+      <article class="card">
+        <h3>Cause 3 — Below the emergence threshold</h3>
+        <p>
+          Contrastive audio-visual learning works at 10⁵–10⁶ paired clips (AudioCLIP, CLAP,
+          ImageBind); we operate at ~10⁴, roughly 1000× below 4M's training scale. The curves
+          saturate cleanly with val ≤ train throughout, so more compute on this data would not
+          help — the binding limit is data quantity.
+        </p>
+        <p class="lever"><strong>Lever:</strong> scale to full VGGSound (~150k clips) and a larger
+          model. <em>Validation:</em> a 10k → 30k → 100k scan to locate the emergence threshold.</p>
+      </article>
+    </div>
+
+    <p>
+      We expect the semantic tokenizer to lift classification, the masking fix to repair the
+      out-of-distribution generation, and the data scale to lift retrieval — together closing the
+      cross-modal generation gap. A quantitative generation metric (Fréchet Audio Distance via a
+      CLAP embedder) would replace informal listening. The contribution of this project is the
+      precise diagnostic and the validated framework; the next steps are concrete and well-scoped.
+    </p>
+  </section>
+
+  <!-- ===================== 9. LIVE DEMO ===================== -->
+  <section id="demo" class="prose">
+    <h2>Listen for yourself</h2>
+    <p>
+      Six classes spanning the best- and worst-recovered cases. Ground-truth clips are diverse;
+      generated clips share a flattened character — the audible signature of the mode collapse the
+      diagnostic identifies.
+    </p>
+    <p class="note-inline" role="note">
+      Note: the clips below are <strong>synthetic placeholders for layout</strong> (varied tones for
+      ground truth, one flat tone for every generated cell). Replace them with EnCodec-decoded
+      <code>gt_*.ogg</code> / <code>gen_*.ogg</code> files before submission — see the repository README.
+    </p>
+
+    <div class="table-wrap">
+      <table class="audio-demo">
+        <thead>
+          <tr><th scope="col">Class</th><th scope="col">Ground truth</th><th scope="col">Model output</th><th scope="col">Note</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cls">Pig</td>
+            <td><audio controls preload="none"><source src="assets/audio/gt_pig.ogg" type="audio/ogg"><source src="assets/audio/gt_pig.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/gen_pig.ogg" type="audio/ogg"><source src="assets/audio/gen_pig.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td>Best-recovered class — 5.1× chance in audio→class.</td>
+          </tr>
+          <tr>
+            <td class="cls">Sheep</td>
+            <td><audio controls preload="none"><source src="assets/audio/gt_sheep.ogg" type="audio/ogg"><source src="assets/audio/gt_sheep.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/gen_sheep.ogg" type="audio/ogg"><source src="assets/audio/gen_sheep.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td>Best-recovered class — 5.1× chance.</td>
+          </tr>
+          <tr>
+            <td class="cls">Dog</td>
+            <td><audio controls preload="none"><source src="assets/audio/gt_dog.ogg" type="audio/ogg"><source src="assets/audio/gt_dog.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/gen_dog.ogg" type="audio/ogg"><source src="assets/audio/gen_dog.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td>Learned at 2.4× chance; attractor for the canid cluster.</td>
+          </tr>
+          <tr>
+            <td class="cls">Cat</td>
+            <td><audio controls preload="none"><source src="assets/audio/gt_cat.ogg" type="audio/ogg"><source src="assets/audio/gt_cat.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/gen_cat.ogg" type="audio/ogg"><source src="assets/audio/gen_cat.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td>Acts as an attractor class in the confusion structure.</td>
+          </tr>
+          <tr>
+            <td class="cls">Chicken</td>
+            <td><audio controls preload="none"><source src="assets/audio/gt_chicken.ogg" type="audio/ogg"><source src="assets/audio/gt_chicken.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/gen_chicken.ogg" type="audio/ogg"><source src="assets/audio/gen_chicken.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td>Bird cluster — collapses with duck and pigeon.</td>
+          </tr>
+          <tr>
+            <td class="cls">Horse</td>
+            <td><audio controls preload="none"><source src="assets/audio/gt_horse.ogg" type="audio/ogg"><source src="assets/audio/gt_horse.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td><audio controls preload="none"><source src="assets/audio/gen_horse.ogg" type="audio/ogg"><source src="assets/audio/gen_horse.mp3" type="audio/mpeg">Audio not supported.</audio></td>
+            <td>Never recovered in audio→class (0% top-1).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fig-cap">
+      Generated audio is conditioned on caption + RGB + depth + normals (audio fully masked).
+      Compare the spectral diversity of ground-truth clips against the consistent flattened
+      character of the generated outputs.
+    </p>
+  </section>
+
+  <!-- ===================== 10. TEAM ===================== -->
+  <section id="team" class="prose">
+    <h2>Team</h2>
+    <div class="cards team-cards">
+      <article class="card author">
+        <div class="avatar" aria-hidden="true">ZM</div>
+        <h3>Ziyad Mellal</h3>
+        <p class="role">Data pipeline &amp; tokenizers — download, PANNs/CLIP/VAD filtering, deduplication, clip-level splits, and the five tokenizers including the EnCodec delay-flatten audio path.</p>
+        <p class="sciper">SCIPER 000000</p>
+        <p class="links"><a href="#" aria-label="Email Ziyad">✉</a> <a href="#" aria-label="Ziyad on GitHub">GitHub</a> <a href="#" aria-label="Ziyad on LinkedIn">LinkedIn</a></p>
+      </article>
+      <article class="card author">
+        <div class="avatar" aria-hidden="true">HB</div>
+        <h3>Hassan Baddour</h3>
+        <p class="role">Training infrastructure &amp; ablations — the span-masking patch, unified-vocab config, precision and empty-encoder debugging, and the scaling and model-size sweeps.</p>
+        <p class="sciper">SCIPER 000000</p>
+        <p class="links"><a href="#" aria-label="Email Hassan">✉</a> <a href="#" aria-label="Hassan on GitHub">GitHub</a> <a href="#" aria-label="Hassan on LinkedIn">LinkedIn</a></p>
+      </article>
+      <article class="card author">
+        <div class="avatar" aria-hidden="true">MF</div>
+        <h3>Marc Farhat</h3>
+        <p class="role">Evaluation &amp; figures — per-modality CE, classification, retrieval, conditional generation, external-classifier validation, and the figures.</p>
+        <p class="sciper">SCIPER 000000</p>
+        <p class="links"><a href="#" aria-label="Email Marc">✉</a> <a href="#" aria-label="Marc on GitHub">GitHub</a> <a href="#" aria-label="Marc on LinkedIn">LinkedIn</a></p>
+      </article>
+    </div>
+
+    <div class="ack">
+      <h3>Acknowledgements</h3>
+      <p>
+        This project was supervised by <strong>Jason Toskov</strong> at EPFL VILAB. We build on the
+        open-source 4M codebase (Mizrahi et al., NeurIPS 2023; Bachmann et al., NeurIPS 2024).
+        Compute was provided by the EPFL SCITAS Kuma cluster.
+      </p>
+    </div>
+
+    <div class="bibtex-block">
+      <div class="bibtex-head">
+        <h3>Cite this work</h3>
+        <button id="copyBib" class="copy-btn" type="button" aria-label="Copy BibTeX to clipboard">Copy</button>
+      </div>
+      <pre id="bibtex"><code>@misc{nano4m-audio-2026,
+  author      = {Mellal, Ziyad and Baddour, Hassan and Farhat, Marc},
+  title       = {Nano4M-Audio: Adding Audio as a 5th Modality to the 4M Architecture},
+  year        = {2026},
+  institution = {EPFL, COM-304},
+  url         = {https://ziyad-m97.github.io/nano4M-Audio}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>
+      Website based on the
+      <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a>,
+      used under the Creative Commons Attribution-ShareAlike 4.0 International license.
+    </p>
+    <p class="muted">Last updated: June 2026 · Built for COM-304, EPFL.</p>
+  </footer>
+
+</main>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

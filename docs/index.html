@@ -133,37 +133,32 @@
   <!-- ===================== 3. THE PROBLEM ===================== -->
   <section id="problem" class="prose">
     <h2>The problem</h2>
-    <div class="two-col">
-      <div class="col-text">
-        <p>
-          A unified multimodal model is only as general as the modalities it can host. The 4M
-          family tokenizes RGB, depth, surface normals, semantic maps, and captions into discrete
-          sequences and trains a single transformer to predict any subset from any other. Every
-          one of those modalities is <em>visual</em>, derived from rendered or curated imagery.
-          A real-world temporal signal — audio — is the natural omission, and the obvious test of
-          whether the recipe generalizes beyond vision.
-        </p>
-        <p>
-          Audio is a deliberate stress test. It is <em>temporal</em> rather than spatial, so the
-          random masking that 4M tailors to spatial token grids lets a decoder copy local context
-          instead of learning long-range structure. It is high-frequency and sourced from noisy
-          web video, and a strong neural codec is itself lossy: raw codec tokens are
-          <em>semantically opaque</em>, so the model must learn class-level meaning on top of
-          acoustic codes.
-        </p>
-        <p>
-          This frames our hypothesis. A shared transformer can absorb audio at small scale
-          <strong>only if</strong> the tokenizer carries semantics and the dataset is large
-          enough for cross-modal alignment to emerge. We restrict the problem to animal sounds,
-          where each class has a distinctive acoustic signature and a visually identifiable
-          subject — giving naturally paired clips and a clean classification oracle.
-        </p>
-      </div>
-      <figure class="col-fig">
-        <img src="assets/img/bidirectional_problem.svg" alt="A dog image on one side and the spectrogram of a bark on the other, linked by a double-headed arrow labelled shared transformer.">
-        <figcaption>The goal is bidirectional: a single shared transformer should map a dog image to its bark and back, with no objective specific to either direction.</figcaption>
-      </figure>
-    </div>
+    <figure class="wide">
+      <img class="full" src="assets/img/bidirectional.jpg" alt="A bidirectional illustration: on the left a stylized audio waveform labelled 'Audio: Dog Barking', on the right an illustrated golden retriever labelled 'RGB: Dog Image', joined by two arrows and the label 'Shared Transformer'.">
+      <figcaption>The goal is bidirectional: a single shared transformer should map a dog's bark to its image, and the image back to its sound — with no objective tailored to either direction.</figcaption>
+    </figure>
+    <p>
+      A unified multimodal model is only as general as the modalities it can host. The 4M family
+      tokenizes RGB, depth, surface normals, semantic maps, and captions into discrete sequences and
+      trains a single transformer to predict any subset from any other. Every one of those
+      modalities is <em>visual</em>, derived from rendered or curated imagery. A real-world temporal
+      signal — audio — is the natural omission, and the obvious test of whether the recipe
+      generalizes beyond vision.
+    </p>
+    <p>
+      Audio is a deliberate stress test. It is <em>temporal</em> rather than spatial, so the random
+      masking that 4M tailors to spatial token grids lets a decoder copy local context instead of
+      learning long-range structure. It is high-frequency and sourced from noisy web video, and a
+      strong neural codec is itself lossy: raw codec tokens are <em>semantically opaque</em>, so the
+      model must learn class-level meaning on top of acoustic codes.
+    </p>
+    <p>
+      This frames our hypothesis. A shared transformer can absorb audio at small scale
+      <strong>only if</strong> the tokenizer carries semantics and the dataset is large enough for
+      cross-modal alignment to emerge. We restrict the problem to animal sounds, where each class has
+      a distinctive acoustic signature and a visually identifiable subject — giving naturally paired
+      clips and a clean classification oracle.
+    </p>
   </section>
 
   <!-- ===================== 4. METHOD ===================== -->

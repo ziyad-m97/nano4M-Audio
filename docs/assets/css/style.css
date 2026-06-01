@@ -140,6 +140,7 @@ p.lead-italic{border-left:3px solid var(--border);padding-left:18px;margin-botto
 /* figures */
 figure.wide{margin:26px 0}
 figure.wide img{width:100%;border:1px solid var(--border);border-radius:10px;background:#fff;padding:10px}
+figure.wide img.full{padding:0;background:transparent}
 figure.chart-fig{margin:26px auto;max-width:560px}
 figure.chart-fig img{width:100%;border:1px solid var(--border);border-radius:10px;background:#fff;padding:10px}
 .fig-cap{font-size:.88rem;color:var(--gray);line-height:1.55;margin-top:6px}

@@ -114,11 +114,23 @@
       — that the model consumes jointly.
     </p>
     <figure class="wide">
-      <img src="assets/img/data_journey.svg" alt="A raw 10-second AudioSet/VGGSound clip passes a PANNs, CLIP, and Silero-VAD filter, is decoded into keyframes, and becomes one aligned training example of five token streams: RGB, depth, surface normals, EnCodec audio, and a caption.">
+      <video class="ex-video" controls preload="metadata" playsinline poster="assets/example/rgb.jpg">
+        <source src="assets/example/clip_dog.mp4" type="video/mp4">
+        Your browser does not support embedded video — the clip is a montage of the ten keyframes over the ground-truth audio.
+      </video>
+      <p class="ex-vidcap">A real clip — class <code>dog</code> (AudioSet&nbsp;<code>6srAUdAG-8c</code> @ 27&nbsp;s), kept by the oracle at PANNs&nbsp;1.08 · CLIP&nbsp;0.30 · VAD&nbsp;0.0.</p>
+      <div class="example-grid">
+        <div class="ex-tile"><img src="assets/example/rgb.jpg" alt="RGB keyframe of a dog" loading="lazy"><span class="lbl">RGB<span>real keyframe</span></span></div>
+        <div class="ex-tile"><img src="assets/example/depth.png" alt="Decoded depth map of the dog clip" loading="lazy"><span class="lbl">Depth<span>DAv2 → 4M-8k</span></span></div>
+        <div class="ex-tile"><img src="assets/example/normal.png" alt="Decoded surface normals of the dog clip" loading="lazy"><span class="lbl">Normals<span>DSINE → 4M-8k</span></span></div>
+        <div class="ex-tile ex-audio"><audio controls preload="none"><source src="assets/example/dog_audio.ogg" type="audio/ogg"><source src="assets/example/dog_audio.mp3" type="audio/mpeg">Audio not supported.</audio><span class="lbl">Audio<span>EnCodec · 512 tok</span></span></div>
+        <div class="ex-tile ex-cap"><div class="ex-quote">“a photo of a dog”</div><span class="lbl">Caption<span>GPT-2 BPE</span></span></div>
+      </div>
       <figcaption>
-        One clip's journey: ~50k web candidates are filtered to 9,192 paired clips, and each is
-        tokenized into the five aligned streams the transformer sees. The grid is a schematic — real
-        decoded depth and normal reconstructions appear in <a href="#worked">What worked</a>.
+        One real clip, in full. The player is its ten keyframes over the ground-truth audio; the five
+        tiles are the aligned streams the model consumes — the real RGB keyframe, plus depth, surface
+        normals, and audio <strong>decoded from the exact tokens</strong> (depth/normals via the 4M-8k
+        DiVAE, audio via EnCodec). One training clip, shown to make the encoding concrete.
       </figcaption>
     </figure>
   </section>

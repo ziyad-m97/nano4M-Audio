@@ -30,6 +30,7 @@
   <p class="brand-sub">5th-modality study</p>
   <ul class="nav-list">
     <li><a href="#summary">Summary</a></li>
+    <li><a href="#journey">Data journey</a></li>
     <li><a href="#problem">The problem</a></li>
     <li><a href="#method">Method</a></li>
     <li><a href="#worked">What worked</a></li>
@@ -100,6 +101,26 @@
       contrastive audio-visual literature — and propose a concrete validation path for each.
       <strong>The diagnostic, not the generation, is the contribution.</strong>
     </p>
+  </section>
+
+  <!-- ===================== 2b. DATA JOURNEY ===================== -->
+  <section id="journey" class="prose">
+    <h2>From a clip to a training example</h2>
+    <p>
+      Every training example begins as a noisy ten-second web clip. A three-stage oracle — PANNs on
+      the audio, CLIP on the frames, and Silero VAD for silence — keeps only the clips where sound,
+      image, and the absence of speech agree on the class. Each survivor is decoded into ten keyframes
+      and five aligned token streams — RGB, depth, surface normals, EnCodec audio, and a class caption
+      — that the model consumes jointly.
+    </p>
+    <figure class="wide">
+      <img src="assets/img/data_journey.svg" alt="A raw 10-second AudioSet/VGGSound clip passes a PANNs, CLIP, and Silero-VAD filter, is decoded into keyframes, and becomes one aligned training example of five token streams: RGB, depth, surface normals, EnCodec audio, and a caption.">
+      <figcaption>
+        One clip's journey: ~50k web candidates are filtered to 9,192 paired clips, and each is
+        tokenized into the five aligned streams the transformer sees. The grid is a schematic — real
+        decoded depth and normal reconstructions appear in <a href="#worked">What worked</a>.
+      </figcaption>
+    </figure>
   </section>
 
   <!-- ===================== 3. THE PROBLEM ===================== -->

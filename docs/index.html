@@ -37,7 +37,6 @@
     <li><a href="#audio">The audio story</a></li>
     <li><a href="#diagnostic">Diagnostic &amp; path forward</a></li>
     <li><a href="#demo">Live audio demo</a></li>
-    <li><a href="#team">Team</a></li>
   </ul>
   <div class="nav-foot">COM-304 · EPFL · Spring 2026</div>
 </nav>
@@ -143,15 +142,14 @@
     </p>
 
     <figure class="wide">
-      <img src="assets/img/method.svg" alt="The nano4M-Audio architecture in full: five input modality cards with their tokenizers, masking pills (random for four modalities, span mask for audio), a shared encoder and decoder, and five predicted target cards.">
+      <img class="full" src="assets/img/architecture.jpg" alt="Architecture diagram: RGB, Depth and Normals feed a 4M tokenizer; Caption a GPT-2 tokenizer; Audio wav goes through an EnCodec encoder then a delay-flatten step. All streams enter a shared-vocabulary Encoder–Decoder Transformer under Dirichlet masking over the five modalities, which decodes back to image (4M dec.), text (GPT-2 det.) and audio (EnCodec dec.).">
       <figcaption>
         <strong>The nano4M-Audio pipeline.</strong> A single d6-6w512 encoder–decoder (~96M
-        parameters) over five tokenized, aligned modality streams sharing one vocabulary. Each
-        clip is tokenized by a dedicated per-modality tokenizer (4M DiVAEs for the spatial
-        modalities, EnCodec for audio, GPT-2 BPE for the caption). Dirichlet masking allocates
-        input/target tokens at random across modalities, with the sole exception of span masking
-        on the temporal audio stream. Per-modality loss averaging keeps the long audio sequence
-        from dominating the short caption.
+        parameters) over five tokenized, aligned modality streams sharing one vocabulary: 4M DiVAEs
+        tokenize RGB / depth / normals, GPT-2 BPE the caption, and EnCodec (with a delay-flatten
+        pattern) the audio. Dirichlet masking allocates input/target tokens at random across the five
+        modalities — with span masking on the temporal audio stream — and per-modality loss averaging
+        keeps the long audio sequence from dominating the short caption.
       </figcaption>
     </figure>
 
@@ -494,49 +492,6 @@
       Compare the spectral diversity of ground-truth clips against the consistent flattened
       character of the generated outputs.
     </p>
-  </section>
-
-  <!-- ===================== 10. TEAM ===================== -->
-  <section id="team" class="prose">
-    <h2>Team</h2>
-    <div class="authors-list">
-      <div class="author">
-        <h3>Ziyad Mellal</h3>
-        <p class="role">Data pipeline and tokenizers: download, PANNs/CLIP/VAD filtering, deduplication, the clip-level splits, and the five tokenizers including the EnCodec delay-flatten audio path.</p>
-        <p class="meta">SCIPER 000000 · <a href="#">GitHub</a> · <a href="#">email</a></p>
-      </div>
-      <div class="author">
-        <h3>Hassan Baddour</h3>
-        <p class="role">Training infrastructure and ablations: the span-masking patch, the unified-vocab config, precision and empty-encoder debugging, and the scaling and model-size sweeps.</p>
-        <p class="meta">SCIPER 000000 · <a href="#">GitHub</a> · <a href="#">email</a></p>
-      </div>
-      <div class="author">
-        <h3>Marc Farhat</h3>
-        <p class="role">Evaluation and figures: per-modality CE, classification, retrieval, conditional generation, the external-classifier validation, and the report figures.</p>
-        <p class="meta">SCIPER 000000 · <a href="#">GitHub</a> · <a href="#">email</a></p>
-      </div>
-    </div>
-
-    <div class="ack">
-      <h3>Acknowledgements</h3>
-      <p>
-        This project was supervised by <strong>Jason Toskov</strong> at EPFL VILAB. We build on the
-        open-source 4M codebase (Mizrahi et al., NeurIPS 2023; Bachmann et al., NeurIPS 2024).
-        Compute was provided by the EPFL SCITAS Kuma cluster.
-      </p>
-    </div>
-
-    <h3 class="cite-h">Citation</h3>
-    <div class="bibtex-block">
-      <button id="copyBib" class="copy-btn" type="button" aria-label="Copy BibTeX to clipboard">copy</button>
-      <pre id="bibtex"><code>@misc{nano4m-audio-2026,
-  author      = {Mellal, Ziyad and Baddour, Hassan and Farhat, Marc},
-  title       = {Nano4M-Audio: Adding Audio as a 5th Modality to the 4M Architecture},
-  year        = {2026},
-  institution = {EPFL, COM-304},
-  url         = {https://ziyad-m97.github.io/nano4M-Audio}
-}</code></pre>
-    </div>
   </section>
 
   <footer class="site-footer">
